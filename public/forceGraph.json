@@ -1,0 +1,99 @@
+{
+    "tag": "forceGraphScreen",
+    "atoms": [
+        {
+            "type": "ThirdPartyAtom",
+            "config": {
+                "op": "Create",
+                "thirdPartyLibraryName": "3dForceGraph",
+                "name": "graph-1"
+            }
+        },
+        {
+            "type": "InteractionAtom",
+            "id": "loop1",
+            "config": {
+                "trigger": "OnLoad",
+                "dependencies": [],
+                "params": [
+                    {
+                        "source": "exact",
+                        "value": "graph-1"
+                    },
+                    {
+                        "source": "exact",
+                        "value": "setContainer"
+                    }
+                ],
+                "action": "callThirdPartyService"
+            }
+        },
+        {
+            "type": "InteractionAtom",
+            "id": "loop11",
+            "config": {
+                "trigger": null,
+                "dependencies": [
+                    "loop1"
+                ],
+                "params": [
+                    {
+                        "source": "exact",
+                        "value": "graph-1"
+                    },
+                    {
+                        "source": "exact",
+                        "value": "init"
+                    },
+                    {
+                        "source": "exact",
+                        "value": {
+                            "width": 800,
+                            "height": 600,
+                            "backgroundColor": "#1d1f20",
+                            "data": {
+                                "nodes": [
+                                    {
+                                        "id": "1",
+                                        "name": "Node 1",
+                                        "group": "A"
+                                    },
+                                    {
+                                        "id": "2",
+                                        "name": "Node 2",
+                                        "group": "A"
+                                    },
+                                    {
+                                        "id": "3",
+                                        "name": "Node 3",
+                                        "group": "B"
+                                    },
+                                    {
+                                        "id": "4",
+                                        "name": "Node 4",
+                                        "group": "B"
+                                    }
+                                ],
+                                "links": [
+                                    {
+                                        "source": "1",
+                                        "target": "2"
+                                    },
+                                    {
+                                        "source": "1",
+                                        "target": "3"
+                                    },
+                                    {
+                                        "source": "2",
+                                        "target": "4"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "action": "callThirdPartyService"
+            }
+        }
+    ]
+}
