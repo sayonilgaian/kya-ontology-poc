@@ -6,6 +6,6 @@ import { InstanceManager } from "./InstanceManager";
 const instanceManger = new InstanceManager();
 
 instanceManger.registerDependency("3dForceGraph", ForceGraphService)
-instanceManger.registerDependency("cytoscapeCanvas", CytoscapeService)
+instanceManger.registerDependency("cytoscape", CytoscapeService)
 
 export { instanceManger };
