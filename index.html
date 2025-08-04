@@ -9,13 +9,17 @@
         <script type="module">
             import './src/Lib/BaseComponent/baseComponent.ts';
             import themeData from './dataUtils/themeData.ts';
-            import sampleMegaDemoJson from './dataUtils/sampleMegaDemo.ts';
             import getCookie from './src/utils/documentEntry/getCookie.ts';
+            import sampleMegaDemoJson from './dataUtils/sampleMegaDemo.ts';
+            import sampleJson from './dataUtils/sampleJson.ts';
+            import forceGraphJson from './dataUtils/forceGraph.ts';
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
 
-            rootElement.plan = sampleMegaDemoJson;
+            // rootElement.plan = sampleMegaDemoJson;
+            // rootElement.plan = sampleJson;
+            rootElement.plan = forceGraphJson;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);
 

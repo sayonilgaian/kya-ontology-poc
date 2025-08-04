@@ -1,6 +1,17 @@
-{
-    "tag": "forceGraphScreen",
-    "atoms": [
+const forceGraphJson = {
+    tag: "force-graph-screen",
+    atoms: [
+        { type: 'ColourAtom', config: { role: 'background', value: '#202939' } },
+        {
+            type: 'LayoutAtom',
+            config: {
+                display: 'flex',
+                width: '100%',
+                height: '100%',
+                justify: 'center',
+                align: 'center',
+            },
+        },
         {
             "type": "ThirdPartyAtom",
             "config": {
@@ -95,5 +106,8 @@
                 "action": "callThirdPartyService"
             }
         }
-    ]
+    ],
+    children: []
 }
+
+export default forceGraphJson
