@@ -1,0 +1,2789 @@
+{
+    "tag": "mega-demo",
+    "atoms": [
+        {
+            "type": "LayoutAtom",
+            "config": {
+                "display": "flex",
+                "flexDirection": "column",
+                "width": "100vw",
+                "height": "100vh",
+                "overflow": "hidden",
+                "font-family": "Inter, sans-serif"
+            }
+        }
+    ],
+    "children": [
+        {
+            "tag": "header-main",
+            "atoms": [
+                {
+                    "type": "ColourAtom",
+                    "config": {
+                        "role": "background",
+                        "value": "#eff6ff"
+                    }
+                },
+                {
+                    "type": "LayoutAtom",
+                    "config": {
+                        "width": "100%",
+                        "height": "5.5%",
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "align": "center",
+                        "justify": "center"
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "tag": "gobal-header",
+                    "atoms": [
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "width": "100%",
+                                "height": "36.84%",
+                                "display": "flex"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "market-nesting",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "width": "50%",
+                                        "height": "100%",
+                                        "display": "flex",
+                                        "align": "center",
+                                        "padding": "1px 4px 1px 4px",
+                                        "gap": "0rem"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "market-nesting-logo",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/ea467baa-07d3-4406-9a3e-8ce99f13d3c7_$$_V1_holacracy.svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "market-right-arrow-1",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7156ba90-e219-422a-b06f-de073392f89b_$$_V1_Icon%20wrapper-No%20States%20(1).svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "breadcrumb-section-1",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "14.44%",
+                                                "height": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "gap": "0.3rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "breadcrumb-text-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Mobius Essentials"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#000000"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "86%",
+                                                        "height": "100%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "breadcrumb-box-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "background",
+                                                        "value": "#ffffff"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "2"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#0707A3"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "14%",
+                                                        "height": "70%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "border-radius": "20%"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "market-right-arrow-2",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7156ba90-e219-422a-b06f-de073392f89b_$$_V1_Icon%20wrapper-No%20States%20(1).svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "breadcrumb-section-1",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "14.44%",
+                                                "height": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "gap": "0.3rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "breadcrumb-text-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "CoreCollective"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#000000"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "86%",
+                                                        "height": "100%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "breadcrumb-box-2",
+                                            "atoms": [
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "background",
+                                                        "value": "#ffffff"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "14"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#070707A3"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "14%",
+                                                        "height": "70%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "border-radius": "20%"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "market-right-arrow-3",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7156ba90-e219-422a-b06f-de073392f89b_$$_V1_Icon%20wrapper-No%20States%20(1).svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "breadcrumb-section-1",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "height": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "gap": "0.3rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "breadcrumb-text-last",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "...."
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#000000"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "14.44%",
+                                                        "height": "100%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "market-right-arrow-4",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7156ba90-e219-422a-b06f-de073392f89b_$$_V1_Icon%20wrapper-No%20States%20(1).svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "breadcrumb-section-4",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "14.44%",
+                                                "height": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "gap": "0.3rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "breadcrumb-text-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Infrastructure"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#000000"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "86%",
+                                                        "height": "100%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "breadcrumb-box-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "background",
+                                                        "value": "#ffffff"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "5"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#0707A3"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "14%",
+                                                        "height": "70%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "border-radius": "20%"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "market-right-arrow-6",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7156ba90-e219-422a-b06f-de073392f89b_$$_V1_Icon%20wrapper-No%20States%20(1).svg",
+                                                "background-size": "cover"
+                                            }
+                                        },
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "min-height": "100%",
+                                                "width": "2.22%",
+                                                "align": "center",
+                                                "background-size": "cover",
+                                                "cursor": "pointer",
+                                                "background-repeat": "no-repeat",
+                                                "background-position": "center",
+                                                "overflow": "hidden"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "breadcrumb-section-1",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "10.44%",
+                                                "height": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "gap": "0.3rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "breadcrumb-text-last",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "CX Delight"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "ColourAtom",
+                                                    "config": {
+                                                        "role": "text",
+                                                        "value": "#05004A"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "100%",
+                                                        "height": "100%",
+                                                        "font-size": "0.625rem",
+                                                        "font-weight": "500",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "body-main",
+            "atoms": [
+                {
+                    "type": "LayoutAtom",
+                    "config": {
+                        "width": "100%",
+                        "height": "94.5%",
+                        "display": "flex",
+                        "flexDirection": "row"
+                    }
+                }
+            ],
+            "children": [
+                
+                {
+                    "tag": "child-demo",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#eff6ff"
+                            }
+                        },
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "text",
+                                "value": "#1e3a8a"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "padding": "1rem 0.25rem",
+                                "height": "100%",
+                                "width": "3.47%",
+                                "row-gap": "2%",
+                                "justify-content": "space-between"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "child-demo",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "flexDirection": "column",
+                                        "gap": "0.5rem",
+                                        "align": "center",
+                                        "width": "100%"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "parent-first-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "cursor": "pointer",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/f8f197d0-4d13-4e9c-b057-319fd4d56101_$$_V1_plus.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "3",
+                                            "config": {
+                                                "trigger": "click",
+                                                "dependencies": [],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": true
+                                                    },
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "/Projects"
+                                                    }
+                                                ],
+                                                "action": "getJsonFromApi"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "4",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["3"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "get"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "5",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["4"],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "routerState"
+                                                    },
+                                                    {
+                                                        "source": "pipe",
+                                                        "value": ""
+                                                    }
+                                                ],
+                                                "action": "setState"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "6",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["5"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "redirect"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-second-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/108ad1c9-c02a-4e11-b14b-62a97704135a_$$_V1_icon2.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-third-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/0ac15e9e-da93-466b-809f-9dced3793de8_$$_V1_code-merge-outlineicon3.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "3",
+                                            "config": {
+                                                "trigger": "click",
+                                                "dependencies": [],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": true
+                                                    },
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "/DesignSystem"
+                                                    }
+                                                ],
+                                                "action": "getJsonFromApi"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "4",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["3"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "get"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "5",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["4"],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "routerState"
+                                                    },
+                                                    {
+                                                        "source": "pipe",
+                                                        "value": ""
+                                                    }
+                                                ],
+                                                "action": "setState"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "6",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["5"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "redirect"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-fourth-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/1908744f-c65d-480f-845f-233f47cd570f_$$_V1_pic.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "3",
+                                            "config": {
+                                                "trigger": "click",
+                                                "dependencies": [],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": true
+                                                    },
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "/Screens"
+                                                    }
+                                                ],
+                                                "action": "getJsonFromApi"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "4",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["3"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "get"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "5",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["4"],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "routerState"
+                                                    },
+                                                    {
+                                                        "source": "pipe",
+                                                        "value": ""
+                                                    }
+                                                ],
+                                                "action": "setState"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "6",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["5"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "redirect"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-fifth-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/9fcc2c20-7751-434b-91b4-8a9e581a25cb_$$_V1_palette.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "3",
+                                            "config": {
+                                                "trigger": "click",
+                                                "dependencies": [],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": true
+                                                    },
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "/Component"
+                                                    }
+                                                ],
+                                                "action": "getJsonFromApi"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "4",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["3"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "get"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "5",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["4"],
+                                                "params": [
+                                                    {
+                                                        "source": "exact",
+                                                        "value": "routerState"
+                                                    },
+                                                    {
+                                                        "source": "pipe",
+                                                        "value": ""
+                                                    }
+                                                ],
+                                                "action": "setState"
+                                            }
+                                        },
+                                        {
+                                            "type": "InteractionAtom",
+                                            "id": "6",
+                                            "config": {
+                                                "trigger": null,
+                                                "dependencies": ["5"],
+                                                "params": [
+                                                    {
+                                                        "source": "pipe"
+                                                    }
+                                                ],
+                                                "action": "redirect"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-sixth-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai//_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/28ffc05e-1bcf-4f6b-8d6e-1404daa2f02c_$$_V1_settings.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "child-demo",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "flexDirection": "column",
+                                        "gap": "0.55rem",
+                                        "align": "center",
+                                        "width": "100%",
+                                        "margin-bottom": "190%"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "parent-bell-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/797d1610-492a-4760-b593-b2029f2fcd2c_$$_V1_bell-outline.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-settings-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/28ffc05e-1bcf-4f6b-8d6e-1404daa2f02c_$$_V1_settings.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "parent-profile-icon",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "align": "center",
+                                                "justify": "center",
+                                                "flexDirection": "column",
+                                                "width": "100%",
+                                                "min-height": "100%",
+                                                "background-position": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/56bb3189-c66a-405c-b4a2-e0ed83694198_$$_V1_Avatar.png",
+                                                "size": "contain",
+                                                "noRepeat": "no-repeat",
+                                                "width": "1.5rem",
+                                                "height": "1.5rem"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "center-section",
+                    "atoms": [
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "width": "92.06%",
+                                "height": "100%",
+                                "display": "flex",
+                                "gap": "0.6rem"
+                            }
+                        },
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#eff6ff"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "side-panel",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "width": "25%",
+                                        "height": "100%",
+                                        "display": "flex",
+                                        "flexDirection": "column",
+                                        "border-left": "1px solid lightgrey"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "top-div",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "100%",
+                                                "height": "20%",
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "align": "center",
+                                                "justify": "center"
+                                            }
+                                        },
+                                        {
+                                            "type": "ColourAtom",
+                                            "config": {
+                                                "role": "background",
+                                                "value": "#eff6ff"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "top-upper-child",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "90%",
+                                                        "height": "40%",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "align": "center",
+                                                        "justify": "space-between",
+                                                        "font-weight": "bold",
+                                                        "font-size": "large"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "content-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "50%",
+                                                                "height": "40%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "center",
+                                                                "gap": "10px",
+                                                                "font-weight": "bold",
+                                                                "font-size": "large"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ColourAtom",
+                                                            "config": {
+                                                                "role": "text",
+                                                                "value": "black"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "tag": "content-div-1",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "ContentAtom",
+                                                                    "config": {
+                                                                        "text": "ZenFlow"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "content-div-2",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "width": "20px",
+                                                                        "height": "20px",
+                                                                        "background-position": "center"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/23827b8f-f098-45ce-b2b1-6b4fa3bd2f88_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "box-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "15%",
+                                                                "height": "70%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "center",
+                                                                "border-radius": "10px",
+                                                                "background-position": "center",
+                                                                "background-color": "#F8FAFC"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/2cdad164-aa56-4cdc-b264-3a9c33bea69c_$$_V1_Sidebar-Line-Left--Streamline-Ultimate.svg",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": []
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "top-bottom-child",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "95%",
+                                                        "height": "40%",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "align": "center",
+                                                        "justify": "space-between"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "bottom-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "80%",
+                                                                "height": "60%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "space-between",
+                                                                "border-radius": "10px",
+                                                                "background-color": "white"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "tag": "bottom-div-1",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "width": "45%",
+                                                                        "height": "100%",
+                                                                        "display": "flex",
+                                                                        "flexDirection": "row",
+                                                                        "align": "center",
+                                                                        "justify": "center",
+                                                                        "border-radius": "10px"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ContentAtom",
+                                                                    "config": {
+                                                                        "text": "Styles"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ColourAtom",
+                                                                    "config": {
+                                                                        "role": "text",
+                                                                        "value": "#9AA4B2"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "bottom-div-2",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "width": "55%",
+                                                                        "height": "100%",
+                                                                        "display": "flex",
+                                                                        "flexDirection": "row",
+                                                                        "align": "center",
+                                                                        "justify": "center",
+                                                                        "border-radius": "10px",
+                                                                        "background-color": "#5850EC"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ContentAtom",
+                                                                    "config": {
+                                                                        "text": "Components"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ColourAtom",
+                                                                    "config": {
+                                                                        "role": "text",
+                                                                        "value": "white"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "box-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "15%",
+                                                                "height": "50%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "center",
+                                                                "border-radius": "10px",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/cf2c02fb-45fa-4dad-ba70-95ff4660b176_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "bottom-div",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "100%",
+                                                "height": "80%",
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "align": "center",
+                                                "justify": "space-between",
+                                                "border-top": "1px solid lightgrey"
+                                            }
+                                        },
+                                        {
+                                            "type": "ColourAtom",
+                                            "config": {
+                                                "role": "background",
+                                                "value": "#eff6ff"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "bottom-div-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "90%",
+                                                        "height": "10%",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "align": "center",
+                                                        "justify": "space-between"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "content-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ContentAtom",
+                                                            "config": {
+                                                                "text": "All Components"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "image-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "background-position": "center",
+                                                                "width": "10%",
+                                                                "height": "100%"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/62193e1a-22b8-44b9-bff8-3069b616087e_$$_V1_Icon%20wrapper-No%20States%20(1).png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "bottom-div-2",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "90%",
+                                                        "height": "85%",
+                                                        "display": "flex",
+                                                        "flexDirection": "column",
+                                                        "align": "center",
+                                                        "justify": "space-between",
+                                                        "margin-bottom": "10px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "content-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "font-size": "small"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ContentAtom",
+                                                            "config": {
+                                                                "text": "Explore color libraries & more on Holacracy!"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "holacracy-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "95%",
+                                                                "height": "95%",
+                                                                "display": "flex",
+                                                                "flexDirection": "column",
+                                                                "align": "center",
+                                                                "border-radius": "10px",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/09aa7ce8-0bec-473b-af1a-eeae83e87633_$$_V1_Essential.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "main-panel",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "width": "75%",
+                                        "height": "100%",
+                                        "border-radius": "10px",
+                                        "display": "flex",
+                                        "flexDirection": "column"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "upper-div",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "100%",
+                                                "height": "6%",
+                                                "background-color": "white",
+                                                "border-radius": "10px 10px 0px 0px",
+                                                "display": "flex",
+                                                "flexDirection": "row",
+                                                "align": "center",
+                                                "justify": "space-between"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "upper-child-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "28%",
+                                                        "height": "100%",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "align": "center",
+                                                        "justify": "space-between"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "box-1",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "45%",
+                                                                "height": "100%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "tag": "img-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "width": "40%",
+                                                                        "height": "100%",
+                                                                        "display": "flex",
+                                                                        "background-position": "center"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/2fe72503-a4b5-4334-85da-41372f985101_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "content-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "width": "40%",
+                                                                        "height": "100%",
+                                                                        "display": "flex",
+                                                                        "align": "center",
+                                                                        "justify": "center"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ContentAtom",
+                                                                    "config": {
+                                                                        "text": "ZenFlow"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ColourAtom",
+                                                                    "config": {
+                                                                        "role": "text",
+                                                                        "value": "#9AA4B2"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "box-2",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "20%",
+                                                                "height": "100%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "center",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/b2688fd9-ee3c-4553-816c-b7007c923615_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "box-3",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "40%",
+                                                                "height": "100%",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "center"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "tag": "img-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "width": "100%",
+                                                                        "height": "100%",
+                                                                        "background-position": "center"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/9fdd2a61-ee73-4e0a-b6e9-2d78fbb2924c_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "content-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "ContentAtom",
+                                                                    "config": {
+                                                                        "text": "Cards"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ColourAtom",
+                                                                    "config": {
+                                                                        "role": "text",
+                                                                        "value": "#5850EC"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "img-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "width": "100%",
+                                                                        "height": "100%",
+                                                                        "background-position": "center"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/73880cb8-3600-425f-bbd6-e38743ac06fa_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "upper-child-2",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "18%",
+                                                        "height": "100%",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "align": "center",
+                                                        "justify": "space-between"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "img-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "width": "100%",
+                                                                "height": "100%",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5942ccfe-cb63-431c-a8a1-9a2580de0a40_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "profile-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "width": "100%",
+                                                                "height": "100%",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/4b233c24-00bd-474b-aa36-73b5c2f2d801_$$_V1_Avatar.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "img-div",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "width": "100%",
+                                                                "height": "100%",
+                                                                "background-position": "center"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/73880cb8-3600-425f-bbd6-e38743ac06fa_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "lower-div",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "width": "100%",
+                                                "height": "94%",
+                                                "background-color": "#F8FAFC",
+                                                "border-radius": "0px 0px 10px 10px",
+                                                "display": "flex",
+                                                "flexDirection": "row",
+                                                "align": "center",
+                                                "justify": "center"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "edit-div",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "width": "60%",
+                                                        "height": "6%",
+                                                        "border-radius": "10px",
+                                                        "display": "flex",
+                                                        "flexDirection": "row",
+                                                        "gap": "10px",
+                                                        "align-self": "flex-end",
+                                                        "margin-bottom": "2%",
+                                                        "background-color": "#F8FAFC"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "edit-div-1",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "width": "90%",
+                                                                "height": "100%",
+                                                                "border-radius": "10px",
+                                                                "display": "flex",
+                                                                "flexDirection": "row",
+                                                                "align": "center",
+                                                                "justify": "space-evenly",
+                                                                "background-color": "white"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/fc634c03-79d4-464f-8d8a-9b5cabbc03a1_$$_V1_Frame%202147225160.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/30d21343-22f7-42df-a110-5864d3b8e6ca_$$_V1_Frame%202147225150.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/fd612317-342f-4541-a348-caaff4bfb1cd_$$_V1_Frame%202147225158.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/f7171a5a-5f81-40b8-9e68-9b96e79ba4e1_$$_V1_Frame%202147225159.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/b8f40d0c-9e22-4916-8093-0a23946e968d_$$_V1_Frame%202147225157.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "10%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/d1942483-b901-40f5-8dde-65f172022769_$$_V1_Frame%202147225155.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "15%",
+                                                                        "height": "80%",
+                                                                        "background-color": "#F8FAFC",
+                                                                        "border-radius": "10px"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e0fcd29e-c3fd-48e6-b40a-1d9e42b00b41_$$_V1_Speed.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        {
+                                                            "tag": "image-div",
+                                                            "atoms": [
+                                                                {
+                                                                    "type": "LayoutAtom",
+                                                                    "config": {
+                                                                        "display": "flex",
+                                                                        "background-position": "center",
+                                                                        "width": "20%",
+                                                                        "height": "100%"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "ImageAtom",
+                                                                    "config": {
+                                                                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e2e82372-c9f1-499d-83de-013786112482_$$_V1_TAB_Toggle.png",
+                                                                        "noRepeat": "no-repeat"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "edit-div-2",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "width": "8%",
+                                                                "height": "100%",
+                                                                "background-position": "center",
+                                                                "background-color": "white",
+                                                                "border-radius": "10px"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e00dbdc1-9e2b-4da7-a838-a19b87843a59_$$_V1_Icon%20wrapper-No%20States.png",
+                                                                "noRepeat": "no-repeat"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "child-demo",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#eff6ff"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "flex",
+                                "align": "center",
+                                "justify": "center",
+                                "flexDirection": "column",
+                                "height": "100%",
+                                "width": "4%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "right-nav",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "#eff6ff"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "justify": "center",
+                                        "align": "center",
+                                        "flexDirection": "column",
+                                        "justify-content": "space-between",
+                                        "height": "100%",
+                                        "width": "50%",
+                                        "gap": "1.4rem",
+                                        "margin-top": "0.5rem"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "right-nav-top",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "height": "55%",
+                                                "width": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "flexDirection": "column",
+                                                "gap": "2px"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-delete",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5302fb4d-9ebb-4800-841f-ba83bbe73b7f_$$_V1_Nav%20Icons.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-delete-2",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/22e4f519-a88b-4e99-8e32-a2b0b2f0ab0a_$$_V1_Nav%20Iconsdownload-icon.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "color": "black",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-clock",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/0a56bb63-6451-4691-a586-d857faa3e5e9_$$_V1_Nav%20Iconsclock.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-delete",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5302fb4d-9ebb-4800-841f-ba83bbe73b7f_$$_V1_Nav%20Icons.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-shield-icon",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/d2d28db8-1ce1-4357-9cdc-5f87795c1697_$$_V1_Nav%20IconsShield.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-play-icon",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/7e4a94eb-f424-4b0b-a91f-80478dceac81_$$_V1_Icon%20wrapper-No%20Statesplay.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "1.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-faq-icon",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/522e0b35-6a63-4d61-8bc0-417465d5fc97_$$_V1_Icon%20wrapper-No%20StatesFAQ.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "1.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-7",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-calender",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5d342449-050d-45ed-bfa4-f8c9eee270bd_$$_V1_Nav%20Iconscalender.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": " 2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-top-quick-8",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "height": "12.5%",
+                                                        "width": "100%",
+                                                        "display": "flex",
+                                                        "justify": "center",
+                                                        "align": "center",
+                                                        "gap": "2px"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "nav-top-quick-round-icon",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/1bbf7c39-f0d9-4759-8a11-d5bcac2d4b3b_$$_V1_Nav%20Iconsround-icon.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "right-nav-bottom",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "height": "20%",
+                                                "width": "100%",
+                                                "display": "flex",
+                                                "justify": "center",
+                                                "align": "center",
+                                                "flexDirection": "column",
+                                                "gap": "2px",
+                                                "justify-content": "space-between"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "right-nav-bottom-quick-1",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "display": "flex",
+                                                        "min-height": "33.3%",
+                                                        "width": " 100%",
+                                                        "align": "center",
+                                                        "justify": "center",
+                                                        "cursor": "pointer"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "right-nav-bottom-delete-icon-1",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e685b42c-4a19-4f13-a9c1-2bd259a75da4_$$_V1_Icon%20wrapper-No%20States.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "1.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-bottom-quick-2",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "display": "flex",
+                                                        "min-height": "1.4rem",
+                                                        "width": "100%",
+                                                        "align": "center",
+                                                        "justify": "center",
+                                                        "cursor": "pointer"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "right-nav-bottom-delete-icon-2",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/ccc23724-6e5b-4584-8d3d-3693f65ed5fe_$$_V1_XPX%20logosbottom-img-2.svg",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "1.4rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "right-nav-bottom-quick-3",
+                                            "atoms": [
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "display": "flex",
+                                                        "min-height": "1.4rem",
+                                                        "width": "100%",
+                                                        "align": "center",
+                                                        "justify": "center",
+                                                        "cursor": "pointer"
+                                                    }
+                                                }
+                                            ],
+                                            "children": [
+                                                {
+                                                    "tag": "right-nav-bottom-delete-icon-3",
+                                                    "atoms": [
+                                                        {
+                                                            "type": "ImageAtom",
+                                                            "config": {
+                                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5302fb4d-9ebb-4800-841f-ba83bbe73b7f_$$_V1_Nav%20Icons.png",
+                                                                "background-size": "cover"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "LayoutAtom",
+                                                            "config": {
+                                                                "display": "flex",
+                                                                "min-height": "2.5rem",
+                                                                "width": "100%",
+                                                                "align": "center",
+                                                                "background-size": "cover",
+                                                                "cursor": "pointer",
+                                                                "background-repeat": "no-repeat",
+                                                                "background-position": "center",
+                                                                "overflow": "hidden"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

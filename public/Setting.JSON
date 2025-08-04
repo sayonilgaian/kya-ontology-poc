@@ -1,0 +1,701 @@
+{
+  "tag": "middle-screen",
+  "atoms": [
+    {
+      "type": "LayoutAtom",
+      "config": {
+        "display": "flex",
+        "grid-template-columns": "auto auto",
+        "gap": "1vw",
+        "width": "100%",
+        "background-color": "token:color-text-primary"
+      }
+    },
+    {
+      "type": "RouterAtom",
+      "config": {
+        "op": "AttachRoute",
+        "path": "/Homeview"
+      }
+    },
+    {
+      "type": "InteractionAtom",
+      "id": "redo1",
+      "config": {
+        "trigger": "OnLoad",
+        "params": [
+          {
+            "source": "exact",
+            "value": "apiResponse"
+          },
+          {
+            "source": "state",
+            "name": "apiResponse"
+          }
+        ],
+        "action": "setState"
+      }
+    }
+  ],
+  "children": [
+    {
+      "tag": "side-panel",
+      "atoms": [
+        {
+          "type": "LayoutAtom",
+          "config": {
+            "width": "25%",
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column",
+            "border-left": "1px solid lightgrey"
+          }
+        },
+        {
+            "type": "StateAtom",
+            "config": {
+                "op": "Initialize",
+                "name": "themeUpdated",
+                "value": "Light"
+            }
+        }
+      ],
+      "children": [
+        {
+          "tag": "top-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "display": "flex",
+                "flexDirection": "column",
+                "align": "center",
+                "justify": "center"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface8"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "top-upper-child",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "90%",
+                    "height": "40%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between",
+                    "font-weight": "bold",
+                    "font-size": "large"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "50%",
+                        "height": "40%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "gap": "10px",
+                        "font-weight": "bold",
+                        "font-size": "large"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "content-div-1",
+                      "atoms": [
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "Update Variables"
+                          }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "margin-bottom": "10px"
+                            }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "content-div-2",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "20px",
+                            "height": "20px",
+                            "background-position": "center"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "top-bottom-child",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "95%",
+                    "height": "40%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "main-body-button",
+                  "atoms": [
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "background",
+                        "value": "token:color-bg-surface13"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Switch To Light Mode"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-3"
+                      }
+                    },
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "10rem",
+                        "height": "2rem",
+                        "font-size": ".85rem",
+                        "font-weight": "500",
+                        "text-align": "center",
+                        "display": "flex",
+                        "justify-content": "center",
+                        "align-items": "center",
+                        "border-radius": "0.5rem",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "5",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          {
+                            "source": "exact",
+                            "value": "Light"
+                          }
+                        ],
+                        "dependencies": [],
+                        "action": "changeTheme"
+                      }
+                    },
+                     {
+                      "type": "InteractionAtom",
+                      "id": "6",
+                      "config": {
+                        "trigger": null,
+                        "params": [
+                            {
+                                "source": "exact",
+                                "value": "themeUpdated"
+                            },
+                            {
+                                "source": "exact",
+                                "value": "Light"
+                            }
+                        ],
+                        "dependencies": [ "5" ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "main-body-button",
+                  "atoms": [
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "background",
+                        "value": "token:color-bg-surface13"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Switch To Dark Mode"
+                      }
+                    },
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "10rem",
+                        "height": "2rem",
+                        "font-size": ".85rem",
+                        "font-weight": "500",
+                        "text-align": "center",
+                        "display": "flex",
+                        "justify-content": "center",
+                        "align-items": "center",
+                        "color": "token:color-text-3",
+                        "border-radius": "0.5rem",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "5",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          {
+                            "source": "exact",
+                            "value": "Dark"
+                          }
+                        ],
+                        "dependencies": [],
+                        "action": "changeTheme"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "6",
+                      "config": {
+                        "trigger": null,
+                        "params": [
+                            {
+                                "source": "exact",
+                                "value": "themeUpdated"
+                            },
+                            {
+                                "source": "exact",
+                                "value": "Dark"
+                            }
+                        ],
+                        "dependencies": [ "5" ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "bottom-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "height": "92vh",
+                "flexDirection": "column",
+                "align": "center",
+                "justify": "center"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface8"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "variable-component",
+              "type": "",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "display": "grid",
+                    "height": "100%",
+                    "overflow-y": "scroll"
+                  }
+                },
+
+                {
+                  "type": "InteractionAtom",
+                  "id": "emptyChildId",
+                  "config": {
+                    "dependencies": [],
+                    "trigger": "StateChange",
+                    "params": [],
+                    "state": "themeUpdated",
+                    "action": "emptyChild"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "11",
+                  "config": {
+                    "dependencies": [ "emptyChildId" ],
+                    "trigger": null,
+                    "params": [],
+                    "action": "getVariableAndValue"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "21",
+                  "config": {
+                    "op": "LoopStart",
+                    "loopOver": { "source": "pipe" },
+                    "trigger": null,
+                    "dependencies": ["11"],
+                    "action": "func1"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "31",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["21"],
+                    "params": [
+                      {
+                        "source": "exact",
+                        "value": "variableComponentTemplate"
+                      },
+                      {
+                        "source": "loop",
+                        "value": "index"
+                      },
+                      {
+                        "source": "loop"
+                      }
+                    ],
+                    "action": "renderTemplate"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "41",
+                  "config": {
+                    "op": "LoopEnd",
+                    "trigger": null,
+                    "dependencies": ["31"],
+                    "params": [],
+                    "action": "func1"
+                  }
+                },
+
+                {
+                  "type": "InteractionAtom",
+                  "id": "1",
+                  "config": {
+                    "dependencies": [],
+                    "trigger": "OnLoad",
+                    "params": [],
+                    "action": "getVariableAndValue"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "2",
+                  "config": {
+                    "op": "LoopStart",
+                    "loopOver": { "source": "pipe" },
+                    "trigger": null,
+                    "dependencies": ["1"],
+                    "action": "func1"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "3",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["2"],
+                    "params": [
+                      {
+                        "source": "exact",
+                        "value": "variableComponentTemplate"
+                      },
+                      {
+                        "source": "loop",
+                        "value": "index"
+                      },
+                      {
+                        "source": "loop"
+                      }
+                    ],
+                    "action": "renderTemplate"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "4",
+                  "config": {
+                    "op": "LoopEnd",
+                    "trigger": null,
+                    "dependencies": ["3"],
+                    "params": [],
+                    "action": "func1"
+                  }
+                }
+              ],
+              "children": []
+            },
+            {
+              "tag": "variable-component-template",
+              "id": "variableComponentTemplate",
+              "type": "Template",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "auto",
+                    "margin": "2% 4%",
+                    "gap": "4%",
+                    "display": "flex",
+                    "justify-content": "space-around"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "text-comp",
+                  "id": "te-comp",
+                  "atoms": [
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": {
+                          "path": "variableName",
+                          "type": "Dynamic",
+                          "defaultValue": "variable Name"
+                        }
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "variable-text-input",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "8rem",
+                        "height": "1rem",
+                        "border": "1px solid lightgrey",
+                        "border-radius": "4px"
+                      }
+                    },
+                   
+                    {
+                      "type": "InteractionAtom",
+                      "id": "componentCallback",
+                      "config": {
+                        "trigger": "ComponentChange",
+                        "dependencies": [],
+                        "params": [ {} ],
+                        "action": "func1"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "componentCallback1",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": ["componentCallback"],
+                        "params": [
+                          {
+                            "source": "exact",
+                            "value": {
+                              "path": "variableName",
+                              "type": "Dynamic",
+                              "defaultValue": "variable Name"
+                            }
+                          },
+                          { "source": "class", "value": "colorData" }
+                        ],
+                        "action": "setCssVar"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "componentCallback2",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": ["componentCallback", "componentCallback1"],
+                        "params": [
+                          {
+                            "source": "exact",
+                            "value": {
+                              "path": "variableName",
+                              "type": "Dynamic",
+                              "defaultValue": "variable Name"
+                            }
+                          },
+                          { "source": "class", "value": "colorData" }
+                        ],
+                        "action": "updateCssVar"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "componentCallback3",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": [ "componentCallback2" ],
+                        "params": [ 
+                          { "source": "exact", "value": "background"}, 
+                          { "source": "class", "value": "colorData" } 
+                        ],
+                        "action": "createStyleAtom"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "componentCallback4",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": [ "componentCallback3" ],
+                        "params": [
+                          { "source": "pipe" }
+                        ],
+                        "action": "reApplyAtoms"
+                      }
+                    },
+
+
+                    {
+                      "type": "InteractionAtom",
+                      "id": "inputIdColor",
+                      "config": {
+                        "trigger": "OnLoad",
+                        "dependencies": [],
+                        "params": [ 
+                          { 
+                            "source": "exact", 
+                            "value": {
+                              "path": "variableValue",
+                                "type": "Dynamic",
+                                "defaultValue": "variable Value"
+                              }
+                          },
+                          {
+                            "source": "exact", 
+                            "value": "colorData"
+                          }
+                        ],
+                        "action": "colorPicker"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "inputIdColor1",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": [ "inputIdColor" ],
+                        "params": [ 
+                          { "source": "exact", "value": "background"}, 
+                          { "source": "exact", 
+                            "value": {
+                              "path": "variableValue",
+                                "type": "Dynamic",
+                                "defaultValue": "variable Value"
+                              }
+                          } 
+                        ],
+                        "action": "createStyleAtom"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "inputIdColor2",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": [ "inputIdColor1" ],
+                        "params": [
+                          { "source": "pipe" }
+                        ],
+                        "action": "reApplyAtoms"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "main-panel",
+      "atoms": [
+        {
+          "type": "LayoutAtom",
+          "config": {
+            "width": "75%",
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column",
+            "border-left": "1px solid lightgrey"
+          }
+        },
+        {
+          "type": "ColourAtom",
+          "config": {
+            "role": "background",
+            "value": "token:color-bg-surface7"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1824 @@
+{
+    "tag": "child-demo",
+    "atoms": [
+        {
+            "type": "ColourAtom",
+            "config": {
+                "role": "text",
+                "value": "#111827"
+            }
+        },
+        {
+            "type": "LayoutAtom",
+            "config": {
+                "display": "flex",
+                "flexDirection": "column",
+                "gap": "1rem",
+                "padding": "0.5rem 0.25rem",
+                "border-radius": "0.5rem",
+                "width": "15%"
+            }
+        }
+    ],
+    "children": [
+        {
+            "tag": "grid-div",
+            "atoms": [
+                {
+                    "type": "LayoutAtom",
+                    "config": {
+                        "display": "grid",
+                        "grid-template-columns": "1fr 1fr 1fr",
+                        "grid-template-rows": " 1fr 1fr 1fr 1fr",
+                        "gap": "4px",
+                        "width": "100%",
+                        "height": "300px",
+                        "boxShadow": "0 1px 4px rgba(0,0,0,0.04)",
+                        "cursor": "pointer"
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "tag": "block-1",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "grey"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr",
+                                "grid-template-rows": "1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart1",
+                            "config": {
+                                "trigger": null,
+                                "params": [],
+                                "dependencies": [],
+                                "action": "addNewAtom"
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "tag": "block-2",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "grey"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr",
+                                "grid-template-rows": "1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        }
+                    ],
+                    "children": []
+                },
+                {
+                    "tag": "block-3",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-4",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "chidren": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-5",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "c1",
+                            "config": {
+                                "trigger": "click",
+                                "params": [],
+                                "action": "test8"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-6",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-column": "span 2",
+                                        "borderRadius": "0px 4px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-7",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-4",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-8",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-column": "span 2",
+                                        "borderRadius": "4px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-9",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-row": "span 2",
+                                        "borderRadius": "4px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-10",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-4",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-5",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-6",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-11",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-4",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-column": "span 2",
+                                        "borderRadius": "0px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-5",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "block-12",
+                    "atoms": [
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "background",
+                                "value": "#e5edfa"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "borderRadius": "8px"
+                            }
+                        },
+                        {
+                            "type": "attributeAtom",
+                            "config": {
+                                "attribute": "draggable",
+                                "value": "true"
+                            }
+                        },
+                        {
+                            "type": "InteractionAtom",
+                            "id": "handleDragstart",
+                            "config": {
+                                "trigger": "dragstart",
+                                "params": [],
+                                "dependencies": [],
+                                "action": "dragElement"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "grid",
+                                "grid-template-columns": "1fr 1fr 1fr",
+                                "grid-template-rows": "1fr 1fr",
+                                "gap": "1px",
+                                "height": "100%"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "b-1",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "4px 0px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-2",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-column": "span 2",
+                                        "borderRadius": "0px 4px 0px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-3",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "borderRadius": "0px 0px 0px 4px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        },
+                        {
+                            "tag": "b-4",
+                            "atoms": [
+                                {
+                                    "type": "ColourAtom",
+                                    "config": {
+                                        "role": "background",
+                                        "value": "grey"
+                                    }
+                                },
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "grid-column": "span 2",
+                                        "borderRadius": "0px 0px 4px 0px"
+                                    }
+                                }
+                            ],
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "templates-section",
+            "atoms": [
+                {
+                    "type": "LayoutAtom",
+                    "config": {
+                        "display": "flex",
+                        "flexDirection": "column",
+                        "gap": "1rem",
+                        "padding": "0.5rem 0.25rem",
+                        "width": "100%"
+                    }
+                }
+            ],
+            "children": [
+                {
+                    "tag": "templates-title",
+                    "atoms": [
+                        {
+                            "type": "ContentAtom",
+                            "config": {
+                                "text": "Templates"
+                            }
+                        },
+                        {
+                            "type": "ColourAtom",
+                            "config": {
+                                "role": "text",
+                                "value": "token:color-bg-surface7"
+                            }
+                        },
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "font-size": "0.9rem",
+                                "font-weight": "600",
+                                "margin-bottom": "0.5rem"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "tag": "templates-list",
+                    "atoms": [
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "gap": "0.75rem"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "template-card",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "flexDirection": "row",
+                                        "alignItems": "center",
+                                        "gap": "0.75rem",
+                                        "padding": "0.5rem",
+                                        "borderRadius": "8px",
+                                        "background": "#fff",
+                                        "boxShadow": "0 1px 4px rgba(0,0,0,0.04)",
+                                        "cursor": "pointer"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-image",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/559da751-f39d-4052-b163-59d69449b2d3_$$_V1_dd9e2c2631f33628e55ecb0a2066d876e4410e78%20(2).png",
+                                                "width": "60px",
+                                                "height": "40px",
+                                                "borderRadius": "6px"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "templates-list",
+                    "atoms": [
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "gap": "0.75rem"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "template-card",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "flexDirection": "row",
+                                        "alignItems": "center",
+                                        "gap": "0.75rem",
+                                        "padding": "0.5rem",
+                                        "borderRadius": "8px",
+                                        "background": "#fff",
+                                        "boxShadow": "0 1px 4px rgba(0,0,0,0.04)",
+                                        "cursor": "pointer"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "template-image",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/559da751-f39d-4052-b163-59d69449b2d3_$$_V1_dd9e2c2631f33628e55ecb0a2066d876e4410e78%20(2).png",
+                                                "width": "60px",
+                                                "height": "40px",
+                                                "borderRadius": "6px"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-image",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/559da751-f39d-4052-b163-59d69449b2d3_$$_V1_dd9e2c2631f33628e55ecb0a2066d876e4410e78%20(2).png",
+                                                "width": "60px",
+                                                "height": "40px",
+                                                "borderRadius": "6px"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "templates-list",
+                    "atoms": [
+                        {
+                            "type": "LayoutAtom",
+                            "config": {
+                                "display": "flex",
+                                "flexDirection": "column",
+                                "gap": "0.75rem"
+                            }
+                        }
+                    ],
+                    "children": [
+                        {
+                            "tag": "template-card",
+                            "atoms": [
+                                {
+                                    "type": "LayoutAtom",
+                                    "config": {
+                                        "display": "flex",
+                                        "flexDirection": "row",
+                                        "alignItems": "center",
+                                        "gap": "0.75rem",
+                                        "padding": "0.5rem",
+                                        "borderRadius": "8px",
+                                        "background": "#fff",
+                                        "boxShadow": "0 1px 4px rgba(0,0,0,0.04)",
+                                        "cursor": "pointer"
+                                    }
+                                }
+                            ],
+                            "children": [
+                                {
+                                    "tag": "template-image",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/559da751-f39d-4052-b163-59d69449b2d3_$$_V1_dd9e2c2631f33628e55ecb0a2066d876e4410e78%20(2).png",
+                                                "width": "60px",
+                                                "height": "40px",
+                                                "borderRadius": "6px"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-image",
+                                    "atoms": [
+                                        {
+                                            "type": "ImageAtom",
+                                            "config": {
+                                                "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/559da751-f39d-4052-b163-59d69449b2d3_$$_V1_dd9e2c2631f33628e55ecb0a2066d876e4410e78%20(2).png",
+                                                "width": "60px",
+                                                "height": "40px",
+                                                "borderRadius": "6px"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "template-info",
+                                    "atoms": [
+                                        {
+                                            "type": "LayoutAtom",
+                                            "config": {
+                                                "display": "flex",
+                                                "flexDirection": "column",
+                                                "gap": "0.2rem"
+                                            }
+                                        }
+                                    ],
+                                    "children": [
+                                        {
+                                            "tag": "template-title",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Featured Cards"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.95rem",
+                                                        "font-weight": "500"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "template-desc",
+                                            "atoms": [
+                                                {
+                                                    "type": "ContentAtom",
+                                                    "config": {
+                                                        "text": "Showcase Design System"
+                                                    }
+                                                },
+                                                {
+                                                    "type": "LayoutAtom",
+                                                    "config": {
+                                                        "font-size": "0.8rem",
+                                                        "color": "#888"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

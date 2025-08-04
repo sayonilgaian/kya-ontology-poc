@@ -1,0 +1,1615 @@
+{
+  "tag": "center-section",
+  "atoms": [
+    {
+      "type": "LayoutAtom",
+      "config": {
+        "width": "100%",
+        "height": "100%",
+        "display": "flex"
+      }
+    },
+    {
+      "type": "ColourAtom",
+      "config": {
+        "role": "background",
+        "value": "token:color-bg-surface8"
+      }
+    }
+  ],
+  "children": [
+    {
+      "tag": "overlay-div",
+      "atoms": [
+        {
+          "type": "LayoutAtom",
+          "config": {
+            "width": "100vw",
+            "height": "100vh",
+            "position": "fixed",
+            "top": "0",
+            "left": "0",
+            "backdrop-filter": "blur(4px)",
+            "background-color": "rgb(0,0,0,0.5)",
+            "z-index": "99999",
+            "pointer-events": "auto",
+            "display": "none"
+          }
+        },
+        {
+          "type": "StateAtom",
+          "config": {
+            "op": "Listen",
+            "name": "openPopup",
+            "callback": "test"
+          }
+        }
+      ],
+      "children": [
+        {
+          "tag": "popup-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "45%",
+                "height": "40%",
+                "display": "flex",
+                "flex-direction": "column",
+                "background-color": "white",
+                "border-radius": "14px"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface5"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "popup-div-1",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "100%",
+                    "height": "20%",
+                    "display": "flex",
+                    "flex-direction": "row",
+                    "align": "center",
+                    "justify": "space-between",
+                    "border-radius": "14px 14px 0px 0px"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "90%",
+                        "margin-left": "10px"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Create New Component"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "image-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "background-position": "center",
+                        "width": "10%",
+                        "height": "100%",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/4d3b913d-36f9-4184-9ca0-185b2c53d1d7_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          { "source": "", "value": "openPopup" },
+                          { "source": "", "value": false }
+                        ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "popup-div-2",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "display": "flex",
+                    "flex-direction": "column",
+                    "align": "center",
+                    "justify": "center",
+                    "gap": "10px",
+                    "width": "100%",
+                    "height": "60%"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "95%"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Component Title"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role":"text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "input-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "align": "center",
+                        "padding": "4px",
+                        "width": "95%",
+                        "height": "20%",
+                        "border": "1px solid lightgrey",
+                        "border-radius": "10px",
+                        "color": "token:color-text-primary"
+                      }
+                    },
+                    {
+                      "type": "attributeAtom",
+                      "config": {
+                        "attribute": "contenteditable",
+                        "value": "true"
+                      }
+                    },
+                    {
+                      "type": "StateAtom",
+                      "config": {
+                        "op": "Initialize",
+                        "name": "componentCreated",
+                        "value": null
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "inputId1",
+                      "config": {
+                        "trigger": "input",
+                        "dependencies": [],
+                        "params": [{}],
+                        "action": "read"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "inputId2",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": ["inputId1"],
+                        "params": [
+                          { "source": "exact", "value": "componentCreated" },
+                          { "source": "pipe" }
+                        ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "95%",
+                        "font-size": "small"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "This name will help you identify the component across your workspace. Once created, you can edit it in its dedicated canvas and manage visual styles, states, and interactions by double-clicking any instance."
+                      }
+                    },
+                   {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role":"text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "popup-div-3",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "display": "flex",
+                    "flex-direction": "row-reverse",
+                    "align": "center",
+                    "gap": "10px",
+                    "width": "100%",
+                    "height": "20%"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "btn-div-1",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "flex-direction": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "width": "20%",
+                        "height": "55%",
+                        "background-color": "token:color-bg-surface16",
+                        "border-radius": "8px",
+                        "margin-right": "10px",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Create"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-3"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "1",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          { "source": "", "value": "openPopup" },
+                          { "source": "", "value": false }
+                        ],
+                        "action": "setState"
+                      }
+                    },
+
+                    {
+                      "type": "InteractionAtom",
+                      "id": "2",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": ["1"],
+                        "params": [
+                          { "source": "state", "name": "componentCreated" }
+                        ],
+                        "action": "generateMetadata"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "3",
+                      "config": {
+                        "trigger": null,
+                        "dependencies": ["2"],
+                        "params": [
+                          { "source": "exact", "value": "selectedComp" },
+                          { "source": "pipe" }
+                        ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "btn-div-2",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "flex-direction": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "width": "20%",
+                        "height": "55%",
+                        "background-color": "token:color-bg-surface21",
+                        "border-radius": "8px",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "Cancel"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          { "source": "", "value": "openPopup" },
+                          { "source": "", "value": false }
+                        ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "tag": "side-panel",
+      "atoms": [
+        {
+          "type": "LayoutAtom",
+          "config": {
+            "width": "20%",
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column",
+            "border-left": "1px solid lightgrey"
+          }
+        }
+      ],
+      "children": [
+        {
+          "tag": "top-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "height": "12%",
+                "display": "flex",
+                "flexDirection": "column",
+                "align": "center",
+                "justify": "center"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface8"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "top-upper-child",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "90%",
+                    "height": "55%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between",
+                    "font-weight": "bold",
+                    "font-size": "large"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "50%",
+                        "height": "40%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "gap": "10px",
+                        "font-weight": "bold",
+                        "font-size": "large"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-4"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "content-div-1",
+                      "atoms": [
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "ZenFlow"
+                          }
+                        },
+                        {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                      ]
+                    },
+                    {
+                      "tag": "content-div-2",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "20px",
+                            "height": "20px",
+                            "background-position": "center"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/23827b8f-f098-45ce-b2b1-6b4fa3bd2f88_$$_V1_Icon%20wrapper-No%20States.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "box-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "15%",
+                        "height": "70%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "border-radius": "10px",
+                        "background-position": "center",
+                        "background-color": "token:color-bg-surface35"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/2cdad164-aa56-4cdc-b264-3a9c33bea69c_$$_V1_Sidebar-Line-Left--Streamline-Ultimate.svg",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "top-bottom-child",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "95%",
+                    "height": "45%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "bottom-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "80%",
+                        "height": "85%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "space-between",
+                        "border-radius": "10px",
+                        "background-color": "white"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "bottom-div-1",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "width": "45%",
+                            "height": "100%",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "align": "center",
+                            "justify": "center",
+                            "border-radius": "10px"
+                          }
+                        },
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "Styles"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "token:color-text-5"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "bottom-div-2",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "width": "55%",
+                            "height": "100%",
+                            "display": "flex",
+                            "flexDirection": "row",
+                            "align": "center",
+                            "justify": "center",
+                            "border-radius": "10px",
+                            "background-color": "token:color-bg-surface16"
+                          }
+                        },
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "Components"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "token:color-text-primary"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "box-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "15%",
+                        "height": "50%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "border-radius": "10px",
+                        "background-position": "center"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/cf2c02fb-45fa-4dad-ba70-95ff4660b176_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "bottom-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "height": "88%",
+                "display": "flex",
+                "flexDirection": "column",
+                "align": "center",
+                "gap": "6%",
+                "border-top": "1px solid lightgrey"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface8"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "bottom-div-1",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "90%",
+                    "height": "8%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "content-div",
+                  "atoms": [
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "text": "All Components"
+                      }
+                    },
+                     {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "image-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "background-position": "center",
+                        "width": "10%",
+                        "height": "100%",
+                        "cursor": "pointer"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/62193e1a-22b8-44b9-bff8-3069b616087e_$$_V1_Icon%20wrapper-No%20States%20(1).png",
+                        "noRepeat": "no-repeat"
+                      }
+                    },
+                    {
+                      "type": "StateAtom",
+                      "config": {
+                        "op": "Initialize",
+                        "name": "openPopup",
+                        "value": false
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "config": {
+                        "trigger": "click",
+                        "params": [
+                          { "source": "", "value": "openPopup" },
+                          { "source": "", "value": true }
+                        ],
+                        "action": "setState"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "bottom-div-2",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "90%",
+                    "height": "80%",
+                    "display": "flex",
+                    "flexDirection": "column",
+                    "align": "flex-start",
+                    "margin-bottom": "15px",
+                    "overflow": "auto",
+                    "gap": "10px"
+                  }
+                },
+                {
+                  "type": "StateAtom",
+                  "config": {
+                    "op": "Initialize",
+                    "name": "allComponents",
+                    "value": []
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "initiation",
+                  "config": {
+                    "trigger": "OnLoad",
+                    "dependencies": [],
+                    "params": [],
+                    "action": "func1"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "3",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["initiation"],
+                    "params": [
+                      {
+                        "source": "",
+                        "value": "https://ui-framework-node-api.gov-cloud.ai/api/v2/component/list?size=2000"
+                      },
+                      {
+                        "source": "",
+                        "value": ""
+                      },
+                      { "source": "", "value": "" },
+                      {
+                        "source": "",
+                        "value": {}
+                      }
+                    ],
+                    "action": "post"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "4",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["3"],
+                    "params": [
+                      { "source": "pipe" },
+                      { "source": "exact", "value": "content" }
+                    ],
+                    "action": "getMethod"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "5",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["4"],
+                    "params": [
+                      { "source": "", "value": "allComponents" },
+                      { "source": "pipe" }
+                    ],
+                    "action": "setState"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "6",
+                  "config": {
+                    "op": "LoopStart",
+                    "loopOver": { "source": "pipe" },
+                    "trigger": null,
+                    "dependencies": ["5"],
+                    "action": "func1"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "7",
+                  "config": {
+                    "trigger": null,
+                    "dependencies": ["6"],
+                    "params": [
+                      { "source": "exact", "value": "child-2Template" },
+                      { "source": "loop", "value": "index" },
+                      { "source": "loop" }
+                    ],
+                    "action": "renderTemplate"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "8",
+                  "config": {
+                    "op": "LoopEnd",
+                    "trigger": null,
+                    "dependencies": ["7"],
+                    "params": [{ "source": "exact", "value": "login-form" }],
+                    "action": "func1"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "child-2temp",
+                  "id": "child-2Template",
+                  "type": "Template",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "90%",
+                        "align": "center",
+                        "justify": "center",
+                        "cursor": "pointer",
+                        "background-color": "token:color-bg-surface35",
+                        "padding": "8px",
+                        "border-radius": "10px"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "role": "text",
+                        "text": {
+                          "path": "tag",
+                          "type": "Dynamic",
+                          "defaultValue": ""
+                        }
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "token:color-text-primary"
+                      }
+                    },
+                    {
+                      "type": "attributeAtom",
+                      "config": {
+                        "attribute": "comp-ind",
+                        "value": {
+                          "type": "Index"
+                        }
+                      }
+                    },
+                    {
+                      "type": "TypographyAtom",
+                      "config": { "font-size": "25px", "font-style": "" }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "background",
+                        "value": "token:color-bg-surface5"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "color",
+                        "value": "token:color-text-4"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "guts",
+                      "config": {
+                        "trigger": "click",
+                        "dependencies": [],
+                        "params": [],
+                        "action": "test6"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "main-panel",
+      "atoms": [
+        {
+          "type": "LayoutAtom",
+          "config": {
+            "width": "80%",
+            "height": "100%",
+            "border-radius": "10px",
+            "display": "flex",
+            "flexDirection": "column",
+            "border-radius": "10px 0px 0px 10px"
+          }
+        }
+      ],
+      "children": [
+        {
+          "tag": "upper-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "height": "6%",
+                "display": "flex",
+                "flexDirection": "row",
+                "align": "center",
+                "justify": "space-between"
+              }
+            },
+            {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface8"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "upper-child-1",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "21%",
+                    "height": "100%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "box-1",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "45%",
+                        "height": "100%",
+                        "display": "flex",
+                        "flexDirection": "row"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "img-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "width": "40%",
+                            "height": "100%",
+                            "display": "flex",
+                            "background-position": "center"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/2fe72503-a4b5-4334-85da-41372f985101_$$_V1_Icon%20wrapper-No%20States.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "content-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "width": "40%",
+                            "height": "100%",
+                            "display": "flex",
+                            "align": "center",
+                            "justify": "center"
+                          }
+                        },
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "ZenFlow"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "token:color-text-5"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "box-2",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "20%",
+                        "height": "100%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center",
+                        "background-position": "center"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/b2688fd9-ee3c-4553-816c-b7007c923615_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "box-3",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "40%",
+                        "height": "100%",
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "center"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "img-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "100%",
+                            "height": "100%",
+                            "background-position": "center"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/9fdd2a61-ee73-4e0a-b6e9-2d78fbb2924c_$$_V1_Icon%20wrapper-No%20States.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "content-div",
+                      "atoms": [
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "text": "Cards"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "token:color-text-6"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "img-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "100%",
+                            "height": "100%",
+                            "background-position": "center"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/73880cb8-3600-425f-bbd6-e38743ac06fa_$$_V1_Icon%20wrapper-No%20States.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "upper-child-2",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "13%",
+                    "height": "100%",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "align": "center",
+                    "justify": "space-between"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "img-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "100%",
+                        "height": "100%",
+                        "background-position": "center"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/5942ccfe-cb63-431c-a8a1-9a2580de0a40_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "profile-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "100%",
+                        "height": "100%",
+                        "background-position": "center"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/4b233c24-00bd-474b-aa36-73b5c2f2d801_$$_V1_Avatar.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "tag": "img-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "100%",
+                        "height": "100%",
+                        "background-position": "center"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/73880cb8-3600-425f-bbd6-e38743ac06fa_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "lower-div",
+          "atoms": [
+            {
+              "type": "LayoutAtom",
+              "config": {
+                "width": "100%",
+                "height": "94%",
+                "background-color": "token:color-bg-surface35",
+                "display": "flex",
+                "flexDirection": "column",
+                "align": "center",
+                "justify": "space-between"
+              }
+            },
+              {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface5"
+              }
+            }
+          ],
+          "children": [
+            {
+              "tag": "render-comp",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "100%",
+                    "height": "60%",
+                    "background-color": "token:color-bg-surface35",
+
+                    "display": "flex",
+                    "flexDirection": "column",
+
+                    "align": "center",
+                    "justify": "center"
+                  }
+                },
+                {
+              "type": "ColourAtom",
+              "config": {
+                "role": "background",
+                "value": "token:color-bg-surface5"
+              }
+            },
+                {
+                  "type": "StateAtom",
+                  "config": {
+                    "op": "Initialize",
+                    "name": "selectedComp",
+                    "value": null
+                  }
+                },
+                {
+                  "type": "StateAtom",
+                  "config": {
+                    "op": "Listen",
+                    "name": "selectedComp",
+                    "callback": "test7"
+                  }
+                },
+                {
+                  "type": "InteractionAtom",
+                  "id": "hola",
+                  "config": {
+                    "trigger": "OnLoad",
+                    "dependencies": [],
+                    "params": [],
+                    "action": "test7"
+                  }
+                }
+              ]
+            },
+            {
+              "tag": "edit-div",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "width": "40%",
+                    "height": "6%",
+                    "border-radius": "10px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "gap": "10px",
+
+                    "margin-bottom": "2%",
+                    "background-color": "token:color-bg-surface35",
+                    "position": "fixed",
+                    "top": "90%"
+                  }
+                }
+              ],
+              "children": [
+                {
+                  "tag": "edit-div-1",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "width": "90%",
+                        "height": "100%",
+                        "border-radius": "10px",
+
+                        "display": "flex",
+                        "flexDirection": "row",
+                        "align": "center",
+                        "justify": "space-evenly",
+                        "background-color": "white"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/fc634c03-79d4-464f-8d8a-9b5cabbc03a1_$$_V1_Frame%202147225160.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/30d21343-22f7-42df-a110-5864d3b8e6ca_$$_V1_Frame%202147225150.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/fd612317-342f-4541-a348-caaff4bfb1cd_$$_V1_Frame%202147225158.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/f7171a5a-5f81-40b8-9e68-9b96e79ba4e1_$$_V1_Frame%202147225159.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/b8f40d0c-9e22-4916-8093-0a23946e968d_$$_V1_Frame%202147225157.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "10%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/d1942483-b901-40f5-8dde-65f172022769_$$_V1_Frame%202147225155.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "15%",
+                            "height": "80%",
+                            "background-color": "token:color-bg-surface35",
+                            "border-radius": "10px"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e0fcd29e-c3fd-48e6-b40a-1d9e42b00b41_$$_V1_Speed.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "image-div",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "background-position": "center",
+                            "width": "20%",
+                            "height": "100%"
+                          }
+                        },
+                        {
+                          "type": "ImageAtom",
+                          "config": {
+                            "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e2e82372-c9f1-499d-83de-013786112482_$$_V1_TAB_Toggle.png",
+                            "noRepeat": "no-repeat"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "edit-div-2",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "8%",
+                        "height": "100%",
+                        "background-position": "center",
+                        "background-color": "white",
+                        "border-radius": "10px"
+                      }
+                    },
+                    {
+                      "type": "ImageAtom",
+                      "config": {
+                        "src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/e00dbdc1-9e2b-4da7-a838-a19b87843a59_$$_V1_Icon%20wrapper-No%20States.png",
+                        "noRepeat": "no-repeat"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

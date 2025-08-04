@@ -1,0 +1,1311 @@
+{
+	"tag": "main-page",
+	"atoms": [
+		{
+			"type": "ColourAtom",
+			"config": {
+				"role": "background",
+				"value": "token:color-bg-surface26"
+			}
+		}
+	],
+	"children": [
+		{
+			"tag": "login-form",
+			"atoms": [
+				{
+					"type": "ColourAtom",
+					"config": {
+						"role": "background",
+						"value": "white"
+					}
+				},
+				{
+					"type": "ColourAtom",
+					"config": {
+						"role": "text",
+						"value": "#fff"
+					}
+				},
+				{
+					"type": "ImageAtom",
+					"config": {
+						"src": "https://cdn.gov-cloud.ai/_ENC(zb1bHrOhcui65V6FALbz23Izjy/gkhGnG+BYF910t7wo4AHsY/uYfxuotV/5lfQ6)/CMS/f819eb2b-716e-49d4-be69-bbd4dbc57381_$$_V1_8cfdc9a1ed9b6a5cca44223a48dddc71.png",
+						"noRepeat": "no-repeat"
+					}
+				},
+				{
+					"type": "IndexedDBAtom",
+					"config": {
+						"op": "CreateIndexDb",
+						"dbName": "test",
+						"storeName": "jsonStore",
+						"version": "1"
+					}
+				},
+				{
+					"type": "RouterAtom",
+					"config": {
+						"op": "CreateRoute",
+						"url": "Dash.JSON",
+						"path": "/"
+					}
+				},
+				{
+					"type": "RouterAtom",
+					"config": {
+						"op": "AttachRoute",
+						"path": "/"
+					}
+				},
+				{
+					"id": "figma-stata",
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "allProjects",
+						"value": []
+					}
+				},
+				{
+					"id": "figma-stata",
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "atomState",
+						"value": []
+					}
+				},
+				{
+					"id": "figma-stata",
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "allAtomsState",
+						"value": []
+					}
+				},
+				{
+					"id": "figma-stata",
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "selectedComponent",
+						"value": ""
+					}
+				},
+				{
+					"id": "figma-stata",
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "figmaCreds",
+						"value": {
+							"token": "figd_KWtVPsvuyrTkv4y74OxDgWJUiNgnGQk5MaM6F0AG",
+							"url": "https://www.figma.com/design/y6gmhAgBWiGT1Vv9olP0IG/Monet---Vinci?node-id=327-70787&t=K8CBj6xi6CY8Tv5y-4"
+						}
+					}
+				},
+				{
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "apiResponse",
+						"value": ""
+					}
+				},
+				{
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "importPopup",
+						"value": false
+					}
+				},
+				{
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "addAtomPopUp",
+						"value": false
+					}
+				},
+				{
+					"type": "StateAtom",
+					"config": {
+						"op": "Initialize",
+						"name": "routerState",
+						"value": {}
+					}
+				},
+				{
+					"type": "StateAtom",
+					"config": {
+						"op": "Listen",
+						"name": "routerState",
+						"callback": "render"
+					}
+				},
+				{
+					"type": "LayoutAtom",
+					"config": {
+						"display": "flex",
+						"width": "100%",
+						"height": "100%",
+						"flexDirection": "column",
+						"justify": "center",
+						"align": "center",
+						"background-size": "100% 100%",
+						"background-color": "rgba(255, 255, 255, 0.3)",
+						"backdrop-filter": "blur(24px)",
+						"position": "absolute"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop1",
+					"config": {
+						"trigger": "OnLoad",
+						"dependencies": [],
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func1"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop2",
+					"config": {
+						"op": "LoopStart",
+						"start": {
+							"source": "exact",
+							"value": 2
+						},
+						"end": {
+							"source": "exact",
+							"value": 10
+						},
+						"trigger": null,
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func1",
+						"dependencies": ["loop1"]
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "renderTemplateId",
+					"config": {
+						"trigger": null,
+						"dependencies": ["loop2"],
+						"params": [
+							{
+								"source": "exact",
+								"value": "child-2Template"
+							},
+							{
+								"source": "loop",
+								"value": "index"
+							},
+							{
+								"source": "loop"
+							}
+						],
+						"action": "renderTemplate"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop3",
+					"config": {
+						"trigger": null,
+						"dependencies": ["renderTemplateId"],
+						"params": [
+							{
+								"source": "exact",
+								"value": 6
+							},
+							{
+								"source": "loop",
+								"value": "index"
+							},
+							{
+								"source": "exact",
+								"value": "=="
+							}
+						],
+						"action": "Operate"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loopCondition",
+					"config": {
+						"op": "Conditional",
+						"trigger": null,
+						"dependencies": ["loop3"],
+						"params": [
+							{
+								"source": "pipe"
+							},
+							{
+								"source": "exact",
+								"value": [
+									{
+										"case": true,
+										"return": ["loopBreak"]
+									},
+									{
+										"case": false,
+										"return": ["loop4"]
+									}
+								]
+							}
+						],
+						"action": "Switch"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loopBreak",
+					"config": {
+						"op": "LoopBreak",
+						"trigger": null,
+						"dependencies": ["loopCondition"],
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func2"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop4",
+					"config": {
+						"trigger": null,
+						"dependencies": ["loopCondition"],
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func1"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop5",
+					"config": {
+						"op": "LoopEnd",
+						"trigger": null,
+						"dependencies": ["loop3"],
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func1"
+					}
+				},
+				{
+					"type": "InteractionAtom",
+					"id": "loop6",
+					"config": {
+						"trigger": null,
+						"dependencies": ["loop5"],
+						"params": [
+							{
+								"source": "exact",
+								"value": "login-form"
+							}
+						],
+						"action": "func2"
+					}
+				}
+			],
+			"children": [
+				{
+					"tag": "child-1",
+					"atoms": [
+						{
+							"type": "LayoutAtom",
+							"config": {
+								"display": "flex",
+								"width": "30%",
+								"height": "40%",
+								"flexDirection": "column",
+								"gap": "5%",
+								"border": "1px solid black",
+								"border-radius": "20px"
+							}
+						},
+						{
+							"type": "ColourAtom",
+							"config": {
+								"role": "background",
+								"value": "white"
+							}
+						},
+						{
+							"type": "SpacingAtom",
+							"config": {
+								"role": "padding",
+								"value": "2% 4%"
+							}
+						},
+						{
+							"type": "KeyboardEventAtom",
+							"config": {
+								"op": "AddCustomEvent",
+								"value": "ctrl+z"
+							}
+						},
+						{
+							"type": "KeyboardEventAtom",
+							"config": {
+								"op": "AddCustomEvent",
+								"value": "ctrl+y"
+							}
+						},
+						{
+							"type": "InteractionAtom",
+							"id": "inputId1",
+							"config": {
+								"trigger": "ctrl+z",
+								"dependencies": [],
+								"params": [{}],
+								"action": "undo"
+							}
+						},
+						{
+							"type": "InteractionAtom",
+							"id": "inputId2",
+							"config": {
+								"trigger": "ctrl+y",
+								"dependencies": [],
+								"params": [{}],
+								"action": "redo"
+							}
+						}
+					],
+					"children": [
+						{
+							"tag": "input-div",
+							"atoms": [
+								{
+									"type": "LayoutAtom",
+									"config": {
+										"display": "flex",
+										"width": "full",
+										"height": "10%",
+										"font-size": "30px",
+										"font-weight": "bold"
+									}
+								},
+								{
+									"type": "ColourAtom",
+									"config": {
+										"role": "background",
+										"value": ""
+									}
+								},
+								{
+									"type": "StateAtom",
+									"config": {
+										"op": "Initialize",
+										"name": "loginState",
+										"value": {
+											"productId": "c2255be4-ddf6-449e-a1e0-b4f7f9a2b636",
+											"platformId": "67e1471506da752b78716d21",
+											"provider": "PASSWORD",
+											"userName": "ksamxp@mobiusdtaas.ai",
+											"password": "Gaian@123"
+										}
+									}
+								},
+								{
+									"type": "APIAtom",
+									"config": {
+										"op": "SetService",
+										"value": {
+											"key": "figma",
+											"url": "http://localhost:8080/api/v1",
+											"headers": {
+												"Content-Type": "application/json"
+											}
+										}
+									}
+								}
+							],
+							"children": [
+								{
+									"tag": "input-label",
+									"atoms": [
+										{
+											"type": "ContentAtom",
+											"config": {
+												"role": "text",
+												"text": "MVT"
+											}
+										},
+										{
+											"type": "TypographyAtom",
+											"config": {
+												"font-size": "30px",
+												"font-style": ""
+											}
+										},
+										{
+											"type": "ColourAtom",
+											"config": {
+												"role": "text",
+												"value": "black"
+											}
+										}
+									],
+									"children": []
+								}
+							]
+						},
+						{
+							"tag": "input-div",
+							"atoms": [
+								{
+									"type": "LayoutAtom",
+									"config": {
+										"display": "flex",
+										"width": "full",
+										"height": "10%",
+										"font-size": "20px",
+										"font-weight": "semi-bold"
+									}
+								}
+							],
+							"children": [
+								{
+									"tag": "input-label",
+									"atoms": [
+										{
+											"type": "ContentAtom",
+											"config": {
+												"display": "flex",
+												"width": "100%",
+												"height": "10%",
+												"role": "text",
+												"text": "Welcome Back"
+											}
+										},
+										{
+											"type": "ColourAtom",
+											"config": {
+												"role": "text",
+												"value": "black"
+											}
+										}
+									],
+									"children": []
+								}
+							]
+						},
+						{
+							"tag": "form-wrapper",
+							"atoms": [
+								{
+									"type": "LayoutAtom",
+									"config": {
+										"display": "flex",
+										"width": "full",
+										"height": "40%",
+										"flexDirection": "column",
+										"gap": "5%"
+									}
+								}
+							],
+							"children": [
+								{
+									"tag": "input-div",
+									"atoms": [
+										{
+											"type": "LayoutAtom",
+											"config": {
+												"display": "flex",
+												"width": "full",
+												"height": "100%",
+												"flexDirection": "column",
+												"gap": "5px"
+											}
+										},
+										{
+											"type": "ColourAtom",
+											"config": {
+												"role": "background",
+												"value": "white"
+											}
+										}
+									],
+									"children": [
+										{
+											"tag": "input-label",
+											"atoms": [
+												{
+													"type": "ContentAtom",
+													"config": {
+														"display": "flex",
+														"width": "100%",
+														"height": "10%",
+														"role": "text",
+														"text": "Email *"
+													}
+												},
+												{
+													"type": "ColourAtom",
+													"config": {
+														"role": "text",
+														"value": "black"
+													}
+												}
+											],
+											"children": []
+										},
+										{
+											"tag": "input-label",
+											"atoms": [
+												{
+													"type": "attributeAtom",
+													"config": {
+														"attribute": "contenteditable",
+														"value": "true"
+													}
+												},
+												{
+													"type": "StateAtom",
+													"config": {
+														"op": "Initialize",
+														"name": "input",
+														"value": null
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "stateId1",
+													"config": {
+														"trigger": "StateChange",
+														"dependencies": [],
+														"params": [
+															{
+																"source": "state",
+																"name": "loginState"
+															},
+															{
+																"source": "exact",
+																"value": "userName"
+															}
+														],
+														"action": "getMethod",
+														"state": "loginState"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailRead",
+													"config": {
+														"trigger": "input",
+														"dependencies": [],
+														"params": [],
+														"action": "read"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailHandle",
+													"config": {
+														"trigger": null,
+														"dependencies": ["inputEmailRead"],
+														"params": [{ "source": "pipe" }],
+														"action": "handleInput"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailValidate",
+													"config": {
+														"trigger": null,
+														"dependencies": ["inputEmailHandle"],
+														"params": [
+															{
+																"source": "exact",
+																"value": "email"
+															},
+															{
+																"source": "pipe"
+															}
+														],
+														"action": "validateInput"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailSwitch",
+													"config": {
+														"op": "Conditional",
+														"trigger": null,
+														"dependencies": ["inputEmailValidate"],
+														"params": [
+															{ "source": "pipe" },
+															{
+																"source": "exact",
+																"value": [
+																	{
+																		"case": true,
+																		"return": ["inputEmailSetState"]
+																	},
+																	{
+																		"case": false,
+																		"return": ["inputEmailError"]
+																	}
+																]
+															}
+														],
+														"action": "Switch"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailSetState",
+													"config": {
+														"trigger": null,
+														"dependencies": ["inputEmailSwitch"],
+														"params": [
+															{ "source": "exact", "value": "input" },
+															{ "source": "state", "name": "input" }
+														],
+														"action": "setStateWithoutNotify"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailError",
+													"config": {
+														"trigger": null,
+														"dependencies": [
+															"inputEmailSwitch",
+															"inputEmailValidate"
+														],
+														"params": [
+															{
+																"source": "pipe",
+																"value": "inputEmailValidate"
+															}
+														],
+														"action": "validationErrorMsg"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailSetLoginState",
+													"config": {
+														"trigger": null,
+														"dependencies": ["inputEmailRead"],
+														"params": [
+															{ "source": "state", "name": "loginState" },
+															{ "source": "exact", "value": "userName" },
+															{ "source": "pipe", "value": "" }
+														],
+														"action": "setMethod"
+													}
+												},
+												{
+													"type": "InteractionAtom",
+													"id": "inputEmailSetStateFinal",
+													"config": {
+														"trigger": null,
+														"dependencies": ["inputEmailSetLoginState"],
+														"params": [
+															{ "source": "exact", "value": "loginState" },
+															{ "source": "pipe", "value": "" }
+														],
+														"action": "setState"
+													}
+												},
+
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "full",
+                            "height": "100%",
+                            "border": "1px solid black",
+                            "border-radius": "5px",
+                            "padding": "0.25rem"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "black"
+                          }
+                        },
+                        {
+                          "type": "BorderAtom",
+                          "config": {
+                            "role": "border",
+                            "value": "rounded"
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "tag": "password-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "full",
+                        "height": "100%",
+                        "flexDirection": "column",
+                        "gap": "5px",
+                        "margin": "2% 0 0 0"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "background",
+                        "value": "white"
+                      }
+                    },
+                    {}
+                  ],
+                  "children": [
+                    {
+                      "tag": "password-label",
+                      "atoms": [
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "100%",
+                            "height": "10%",
+                            "role": "text",
+                            "text": "Password *"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "black"
+                          }
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "tag": "password-container",
+                      "atoms": [
+                        {
+                          "type": "attributeAtom",
+                          "config": {
+                            "attribute": "contenteditable",
+                            "value": "true"
+                          }
+                        },
+                        {
+                          "type": "StateAtom",
+                          "config": {
+                            "op": "Initialize",
+                            "name": "input",
+                            "value": null
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "inputId1",
+                          "config": {
+                            "trigger": "input",
+                            "dependencies": [],
+                            "params": [{}],
+                            "action": "read"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "1",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["inputId1"],
+                            "params": [{ "source": "pipe" }],
+                            "action": "handleInput"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "2",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["1", "inputId1"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "password"
+                              },
+                              {
+                                "source": "pipe"
+                              }
+                            ],
+                            "action": "validateInput"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "3",
+                          "config": {
+                            "op": "Conditional",
+                            "trigger": null,
+                            "dependencies": ["2"],
+                            "params": [
+                              {
+                                "source": "pipe"
+                              },
+                              {
+                                "source": "exact",
+                                "value": [
+                                  { "case": true, "return": ["4"] },
+                                  { "case": false, "return": ["5"] }
+                                ]
+                              }
+                            ],
+                            "action": "Switch"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "4",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["3"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "input"
+                              },
+                              {
+                                "source": "state",
+                                "name": "input"
+                              }
+                            ],
+                            "action": "setStateWithoutNotify"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "6",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["4", "2"],
+                            "params": [{ "source": "pipe", "value": "2" }],
+                            "action": "validationErrorMsg"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "5",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["3", "2"],
+                            "params": [{ "source": "pipe", "value": "2" }],
+                            "action": "validationErrorMsg"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "inputId2",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["inputId1"],
+                            "params": [
+                              {
+                                "source": "state",
+                                "name": "loginState"
+                              },
+                              {
+                                "source": "exact",
+                                "value": "password"
+                              },
+                              {
+                                "source": "pipe",
+                                "value": ""
+                              }
+                            ],
+                            "action": "setMethod"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "inputId3",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["inputId2"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "loginState"
+                              },
+                              {
+                                "source": "pipe",
+                                "value": ""
+                              }
+                            ],
+                            "action": "setState"
+                          }
+                        },
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "full",
+                            "height": "100%",
+                            "border": "1px solid black",
+                            "border-radius": "5px",
+                            "padding": "0.25rem"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "black"
+                          }
+                        },
+                        {
+                          "type": "BorderAtom",
+                          "config": {
+                            "role": "border",
+                            "value": "rounded"
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "bottom-div",
+              "atoms": [
+                {
+                  "type": "LayoutAtom",
+                  "config": {
+                    "display": "flex",
+                    "width": "100%",
+                    "height": "15%",
+                    "justify": "between",
+                    "align": "center"
+                  }
+                },
+                {}
+              ],
+              "children": [
+                {
+                  "tag": "btn-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "width": "74%",
+                        "height": "100%",
+                        "align": "center"
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "tag": "btn-content",
+                      "atoms": [
+                        {
+                          "type": "LayoutAtom",
+                          "config": {
+                            "display": "flex",
+                            "width": "30%",
+                            "height": "60%",
+                            "justify": "center",
+                            "align": "center",
+                            "border": "1px solid black",
+                            "background": "blue",
+                            "cursor": "pointer",
+                            "border-radius": "5px",
+                            "font-size": "0.9vw"
+                          }
+                        },
+                        {
+                          "type": "ContentAtom",
+                          "config": {
+                            "role": "text",
+                            "text": "Login"
+                          }
+                        },
+                        {
+                          "type": "ColourAtom",
+                          "config": {
+                            "role": "text",
+                            "value": "white"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "1",
+                          "config": {
+                            "trigger": "click",
+                            "dependencies": [],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "https://ig.gov-cloud.ai/mobius-iam-service/v1.0/login?mask=false"
+                              },
+                              {
+                                "source": "state",
+                                "name": "loginState"
+                              },
+                              {
+                                "source": "exact",
+                                "value": ""
+                              },
+                              {
+                                "source": "exact",
+                                "value": {
+                                  "accept": "*/*",
+                                  "content-type": "application/json"
+                                }
+                              }
+                            ],
+                            "action": "post"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "getMethod",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["1"],
+                            "params": [
+                              {
+                                "source": "pipe"
+                              },
+                              {
+                                "source": "exact",
+                                "value": "accessToken"
+                              }
+                            ],
+                            "action": "getMethod"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "concatString",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["getMethod"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "Bearer "
+                              },
+                              {
+                                "source": "pipe"
+                              }
+                            ],
+                            "action": "concatString"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "setHeader",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["concatString"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "Authorization"
+                              },
+                              {
+                                "source": "pipe"
+                              }
+                            ],
+                            "action": "setHeader"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "2",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["1"],
+                            "params": [
+                              {
+                                "source": "pipe"
+                              }
+                            ],
+                            "action": "validate"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "4",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["2"],
+                            "params": [
+                              {
+                                "source": "state",
+                                "name": "loginState"
+                              },
+                              {
+                                "source": "exact",
+                                "value": "/"
+                              }
+                            ],
+                            "action": "setDataToBrowserToCoockie"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "inputId2",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["1", "concatString"],
+                            "params": [
+                              {
+                                "source": "pipe",
+                                "value": "1"
+                              },
+                              {
+                                "source": "exact",
+                                "value": "accessToken"
+                              },
+                              {
+                                "source": "pipe",
+                                "value": "concatString"
+                              }
+                            ],
+                            "action": "setMethod"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "5",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["inputId2"],
+                            "params": [
+                              {
+                                "source": "pipe"
+                              },
+                              {
+                                "source": "exact",
+                                "value": "/"
+                              }
+                            ],
+                            "action": "setDataToBrowserToCoockie"
+                          }
+                        },
+                        {
+                          "type": "InteractionAtom",
+                          "id": "3",
+                          "config": {
+                            "trigger": null,
+                            "dependencies": ["4", "2"],
+                            "params": [
+                              {
+                                "source": "exact",
+                                "value": "/"
+                              },
+                              {
+                                "source": "pipe",
+                                "value": "2"
+                              }
+                            ],
+                            "action": "navigate"
+                          }
+                        }
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "tag": "btn-div",
+                  "atoms": [
+                    {
+                      "type": "LayoutAtom",
+                      "config": {
+                        "display": "flex",
+                        "height": "100%",
+                        "align": "center",
+                        "font-size": "0.8vw"
+                      }
+                    },
+                    {
+                      "type": "InteractionAtom",
+                      "id": "5",
+                      "config": {
+                        "trigger": "stateChange",
+                        "dependencies": [],
+                        "params": [
+                          {
+                            "source": "exact",
+                            "value": "apiResponse"
+                          },
+                          {
+                            "source": "state",
+                            "name": "apiResponse"
+                          }
+                        ],
+                        "action": "setState"
+                      }
+                    },
+                    {
+                      "type": "ContentAtom",
+                      "config": {
+                        "role": "text",
+                        "text": "Forget password ?"
+                      }
+                    },
+                    {
+                      "type": "ColourAtom",
+                      "config": {
+                        "role": "text",
+                        "value": "black"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

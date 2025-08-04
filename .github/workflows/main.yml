@@ -1,0 +1,35 @@
+name: Mobius Caller Workflow 
+on:
+  push:
+    branches: [ "dev", "prod", "master", "release" ]
+jobs:
+  dev_job:
+    if: github.ref == 'refs/heads/dev'
+    uses: gaiangroup/workflow-manager/.github/workflows/node-dev.yml@dev
+    with:
+      SERVICE_CODE: monet-vinci-tool
+    secrets: inherit
+  prod_job:
+    if: github.ref == 'refs/heads/prod'
+    uses: gaiangroup/workflow-manager/.github/workflows/node-prod.yml@dev
+    with:
+      SERVICE_CODE: monet-vinci-tool
+    secrets: inherit
+  master_job:
+    if: github.ref == 'refs/heads/master'
+    uses: gaiangroup/workflow-manager/.github/workflows/node-master.yml@dev
+    with:
+      SERVICE_CODE: monet-vinci-tool
+    secrets: inherit
+  release_job:
+      if: github.ref == 'refs/heads/release'
+      uses: gaiangroup/workflow-manager/.github/workflows/node-release.yml@dev
+      with:
+          SERVICE_CODE: monet-vinci-tool
+      secrets: inherit
+  unauthorized_branch_job:
+    if: github.ref != 'refs/heads/dev' && github.ref != 'refs/heads/prod' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/release'
+    runs-on: ubuntu-latest
+    steps:
+      - name: This is not an authorized branch.
+        run: echo "This is not an authorized branch."
