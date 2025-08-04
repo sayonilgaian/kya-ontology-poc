@@ -10,30 +10,18 @@
             import './src/Lib/BaseComponent/baseComponent.ts';
             import themeData from './dataUtils/themeData.ts';
             import sampleMegaDemoJson from './dataUtils/sampleMegaDemo.ts';
-
-            function getCookie(key) {
-                const name = encodeURIComponent(key) + '=';
-                const parts = document.cookie.split(';');
-                for (let part of parts) {
-                    part = part.trim();
-                    if (part.startsWith(name)) {
-                        return decodeURIComponent(part.slice(name.length));
-                    }
-                }
-                return null;
-            }
+            import getCookie from './src/utils/documentEntry/getCookie.ts';
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
-
-            const username = getCookie('userName');
-            const password = getCookie('password');
 
             rootElement.plan = sampleMegaDemoJson;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);
 
             async function init() {
+                const username = getCookie('userName');
+                const password = getCookie('password');
                 if (username && password) {
                     rootElement.routerService.navigate('/');
                 } else {
