@@ -1,5 +1,5 @@
 import { ForceGraphService } from "./3dForceGraph/3dForceGraph";
-import { CytoscapeService } from "./3dForceGraph/cytoscapeCanvas";
+import { CytoscapeService } from "./cytoscapeCanvas/cytoscapeCanvas";
 import { InstanceManager } from "./InstanceManager";
 
 
