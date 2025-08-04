@@ -1,6 +1,6 @@
 import cytoscape, { Core, NodeSingular, EdgeSingular, ElementDefinition, SelectionType } from 'cytoscape';
 import { thirdParty } from '../thirdPartyType';
-import cytoscapeDefaultStyles from './cytoscapeDataUtils/defaultStyles';
+import { cytoscapeDefaultStyles, cytoscapeDefaultLayout } from './cytoscapeDataUtils/defaultStyles';
 
 interface CytoscapeConfig {
     elements?: any[];
@@ -59,24 +59,7 @@ export class CytoscapeService implements thirdParty {
             container: this.container,
             elements: config.elements || [],
             style: config.style || cytoscapeDefaultStyles,
-            layout: config.layout || {
-                name: 'cose',
-                idealEdgeLength: 100,
-                nodeOverlap: 20,
-                refresh: 20,
-                fit: true,
-                padding: 30,
-                randomize: false,
-                componentSpacing: 40,
-                nodeRepulsion: 400000,
-                edgeElasticity: 100,
-                nestingFactor: 5,
-                gravity: 80,
-                numIter: 1000,
-                initialTemp: 200,
-                coolingFactor: 0.95,
-                minTemp: 1.0
-            }
+            layout: config.layout || cytoscapeDefaultLayout
         };
 
         // Merge user config with defaults
