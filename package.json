@@ -13,6 +13,7 @@
     "vite": "^6.3.5"
   },
   "dependencies": {
-    "3d-force-graph": "^1.78.4"
+    "3d-force-graph": "^1.78.4",
+    "cytoscape": "^3.33.0"
   }
 }

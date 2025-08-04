@@ -11,6 +11,9 @@ importers:
       3d-force-graph:
         specifier: ^1.78.4
         version: 1.78.4
+      cytoscape:
+        specifier: ^3.33.0
+        version: 3.33.0
     devDependencies:
       typescript:
         specifier: ~5.8.3
@@ -288,6 +291,10 @@ packages:
   accessor-fn@1.5.3:
     resolution: {integrity: sha512-rkAofCwe/FvYFUlMB0v0gWmhqtfAtV1IUkdPbfhTUyYniu5LrC0A0UJkTH0Jv3S8SvwkmfuAlY+mQIJATdocMA==}
     engines: {node: '>=12'}
+
+  cytoscape@3.33.0:
+    resolution: {integrity: sha512-2d2EwwhaxLWC8ahkH1PpQwCyu6EY3xDRdcEJXrLTb4fOUtVc+YWQalHU67rFS1a6ngj1fgv9dQLtJxP/KAFZEw==}
+    engines: {node: '>=0.10'}
 
   d3-array@3.2.4:
     resolution: {integrity: sha512-tdQAmyA18i4J7wprpYq8ClcxZy3SC31QMeByyCFyRt7BVHdREQZ5lpzoe5mFEYZUWe+oq8HBvk9JjpibyEV4Jg==}
@@ -650,6 +657,8 @@ snapshots:
   '@types/estree@1.0.8': {}
 
   accessor-fn@1.5.3: {}
+
+  cytoscape@3.33.0: {}
 
   d3-array@3.2.4:
     dependencies:
