@@ -25,7 +25,7 @@ export class BaseUIElement extends HTMLElement {
   routerService: RouterService | null = null;
 
   actionData: any = {};
-  actionCb = async () => {};
+  actionCb = async () => { };
 
   // -------------------------------------------- For Template Registry --------------------------------------------
   private static _templateRegistry: { [key: string]: any } = {};
@@ -139,7 +139,7 @@ export class BaseUIElement extends HTMLElement {
 
     // Hydrate/create root element
     let root = document.querySelector(this._plan.tag);
-    if (!root) {
+    if (!root && this._plan?.tag) {
       root = document.createElement(this._plan.tag);
       this.#updateRootProps(root);
       document.body.appendChild(root);
@@ -208,17 +208,17 @@ export class BaseUIElement extends HTMLElement {
       // console.log(`Creating pipeline for trigger: ${trigger}`, pipeline);
       switch (upTrigger) {
         /**
-				 * {
-						type: "InteractionAtom",
-						id: "inputId1",
-						config: {
-							trigger: "OnLoad",
-							dependencies: [],
-							params: [{}],
-							action: "read"
-						},
-					},
-				 */
+         * {
+            type: "InteractionAtom",
+            id: "inputId1",
+            config: {
+              trigger: "OnLoad",
+              dependencies: [],
+              params: [{}],
+              action: "read"
+            },
+          },
+         */
         case 'OnLoad': {
           const cb = async () => {
             executeActionPipeline(pipeline, actions, this, 'StateChange');
@@ -239,18 +239,18 @@ export class BaseUIElement extends HTMLElement {
           break;
         }
         /**
-				 * {
-						type: "InteractionAtom",
-						id: "inputId1",
-						config: {
-							trigger: "StateChange",
-							dependencies: [],
-							params: [{}],
-							action: "read",
-							state: "apiResponse",
-						},
-					},
-				 */
+         * {
+            type: "InteractionAtom",
+            id: "inputId1",
+            config: {
+              trigger: "StateChange",
+              dependencies: [],
+              params: [{}],
+              action: "read",
+              state: "apiResponse",
+            },
+          },
+         */
         case 'StateChange': {
           const stateName = pipeline[0]?.config?.state;
           if (stateName) {

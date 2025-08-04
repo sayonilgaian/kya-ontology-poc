@@ -1,16 +1,17 @@
 import { BaseUIElement } from '../Lib/BaseComponent/baseComponent';
 import { IndexedDBService } from '../Services/database/DatabaseService';
 import { actions } from './Actions';
+import { v4 } from 'uuid';
 
 // ─── 1 · Helper Functions ───────────────────────────────────────
 export type TokenInput =
   | string
   | {
-      type: 'token';
-      key: string;
-      designSystem: string;
-      theme: string;
-    };
+    type: 'token';
+    key: string;
+    designSystem: string;
+    theme: string;
+  };
 
 export const token = (v: TokenInput): string => {
   // Case 1: Token as object with design system and theme
@@ -42,17 +43,17 @@ export const alias: any = {
 /**
  * 
  * {
-		"type": "ColourAtom",
-		"config": {
-		"role": "text",
-			"value": "token:p-color", // refrencing to variable
-			"theming": { // refrencing to diff design system in a component 
-				"designSystem": "Core",
-				"theme": "Dark",
-				"variables": ["p-color"]
-			} 
-		}
-	},
+    "type": "ColourAtom",
+    "config": {
+    "role": "text",
+      "value": "token:p-color", // refrencing to variable
+      "theming": { // refrencing to diff design system in a component 
+        "designSystem": "Core",
+        "theme": "Dark",
+        "variables": ["p-color"]
+      } 
+    }
+  },
  * 
  * @param el
  * @param obj 
@@ -78,11 +79,11 @@ export const applyStyles = (
     const themedValue =
       typeof v === 'string' && v.startsWith('token:') && applyTheme
         ? {
-            type: 'token',
-            key: v.slice(6),
-            designSystem: applyTheme.designSystem,
-            theme: applyTheme.theme,
-          }
+          type: 'token',
+          key: v.slice(6),
+          designSystem: applyTheme.designSystem,
+          theme: applyTheme.theme,
+        }
         : v;
 
     el.style.setProperty(styleProperty, token(themedValue));
@@ -98,9 +99,9 @@ export const ensureTag = (tag: string, Base: any) => {
   // Check if the tag is already defined in the customElements registry
   if (!customElements.get(tag)) {
     // Only define the tag if it hasn't been registered already
-    customElements.define(tag, class extends Base {});
+    customElements.define(tag, class extends Base { });
   } else {
-    // //console.log(`Tag "${tag}" is already defined, skipping definition.`);
+    console.log(`Tag "${tag}" is already defined, skipping definition.`);
   }
 };
 
@@ -260,7 +261,7 @@ export const appliers: any = {
     if (cb) {
       cb = cb.bind(e);
     } else {
-      cb = () => {};
+      cb = () => { };
     }
 
     switch (op) {
@@ -288,18 +289,18 @@ export const appliers: any = {
     const { op, value, callback } = c;
 
     /**
-		 * Example of get API
-		 * {
-				type: 'InteractionAtom',
-				id: '1',
-				config: {
-					trigger: 'click',
-					dependencies: [],
-					params: [ { source: "exact", value: "/red" }, { source: "exact", value: {}}, { source: "exact", value:"figma"} ],
-					action: 'get',
-				},
-			},
-		 */
+     * Example of get API
+     * {
+        type: 'InteractionAtom',
+        id: '1',
+        config: {
+          trigger: 'click',
+          dependencies: [],
+          params: [ { source: "exact", value: "/red" }, { source: "exact", value: {}}, { source: "exact", value:"figma"} ],
+          action: 'get',
+        },
+      },
+     */
 
     const cb = actions[callback];
 
@@ -545,9 +546,9 @@ export const appliers: any = {
     }
   },
 
-  ThirdPartyAtom : (e: BaseUIElement, config: any) => {
-  
-    const { op = "Create", name = "", thirdPartyLibraryName  = "" } = config;
+  ThirdPartyAtom: (e: BaseUIElement, config: any) => {
+
+    const { op = "Create", name = "", thirdPartyLibraryName = "" } = config;
     const manager = BaseUIElement._thirdPartyInstances;
 
     switch (op) {
@@ -610,9 +611,9 @@ export function get(
   const keys = Array.isArray(path)
     ? path
     : path
-        .split(/\.|\[|\]/g)
-        .filter(Boolean)
-        .map((key) => (/^\d+$/.test(key) ? Number(key) : key));
+      .split(/\.|\[|\]/g)
+      .filter(Boolean)
+      .map((key) => (/^\d+$/.test(key) ? Number(key) : key));
 
   let result: any = object;
 
@@ -630,9 +631,9 @@ export function set(object: unknown, path: string | Array<string | number>, valu
   const keys = Array.isArray(path)
     ? path
     : path
-        .split(/\.|\[|\]/g)
-        .filter(Boolean)
-        .map((key) => (/^\d+$/.test(key) ? Number(key) : key));
+      .split(/\.|\[|\]/g)
+      .filter(Boolean)
+      .map((key) => (/^\d+$/.test(key) ? Number(key) : key));
 
   let current: any = object;
   // //console.log(keys);
@@ -657,40 +658,40 @@ export function set(object: unknown, path: string | Array<string | number>, valu
 }
 
 function getParamFromSource(
-    source: string,
-    name: string,
-    value: string,
-    context: BaseUIElement,
-    mapOfAtomIdAndResult?: Record<string, number>
+  source: string,
+  name: string,
+  value: string,
+  context: BaseUIElement,
+  mapOfAtomIdAndResult?: Record<string, number>
 ) {
-    switch (source) {
-        case "state":
-            return context.store ? context.store.getState(name) : undefined;
-        case "class":
-            return context.actionData[value] ?? "";
-        case "action":
-            return actions[value];
-        case "env":
-            return import.meta.env[value]
-        case "loop":
-            if (value === "index") {
-                return context.loop ? context.loop.index : undefined;
-            }
-            return context.loop ? context.loop.value : undefined;
-        case "pipe":
-            if(mapOfAtomIdAndResult) {
-                const mapKeys = Object.keys(mapOfAtomIdAndResult);
-                if (mapKeys.length === 1 && !value) {
-                    return mapOfAtomIdAndResult[mapKeys[0]];
-                }
-                return mapOfAtomIdAndResult[value ? value : 0];
-            } else {
-                return null
-            }
-        case "exact":
-        default:
-            return value;
-    }
+  switch (source) {
+    case "state":
+      return context.store ? context.store.getState(name) : undefined;
+    case "class":
+      return context.actionData[value] ?? "";
+    case "action":
+      return actions[value];
+    case "env":
+      return import.meta.env[value]
+    case "loop":
+      if (value === "index") {
+        return context.loop ? context.loop.index : undefined;
+      }
+      return context.loop ? context.loop.value : undefined;
+    case "pipe":
+      if (mapOfAtomIdAndResult) {
+        const mapKeys = Object.keys(mapOfAtomIdAndResult);
+        if (mapKeys.length === 1 && !value) {
+          return mapOfAtomIdAndResult[mapKeys[0]];
+        }
+        return mapOfAtomIdAndResult[value ? value : 0];
+      } else {
+        return null
+      }
+    case "exact":
+    default:
+      return value;
+  }
 }
 
 export async function executeActionPipeline(
@@ -698,7 +699,7 @@ export async function executeActionPipeline(
   actions: Record<string, Function>,
   context: BaseUIElement,
   e: Event | 'StateChange' | 'OnLoad' | 'OnPopState',
-  setBreakLoopTrue: Function = () => {}
+  setBreakLoopTrue: Function = () => { }
 ) {
   // //console.log(actionToPerform);
 
@@ -742,14 +743,14 @@ export async function executeActionPipeline(
     const { op = 'Execute', action, dependencies, params } = actionToPerform[current].config;
     const paramValues = Array.isArray(params)
       ? params?.map((param: { source: string; name: string; value: string; path: string }) =>
-          getParamFromSource(
-            param.source,
-            param.name,
-            param.value,
-            context,
-            getAtomIdById(dependencies, actionToPerform, results)
-          )
+        getParamFromSource(
+          param.source,
+          param.name,
+          param.value,
+          context,
+          getAtomIdById(dependencies, actionToPerform, results)
         )
+      )
       : [];
 
     const bindFn = actions[action].bind(context);
@@ -904,11 +905,7 @@ export async function executeActionPipeline(
   return results;
 }
 
-export function generateUUID() {
-  return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    // Generate a random hexadecimal digit
-    const r = (Math.random() * 16) | 0; // Random number between 0 and 15
-    const v = c === 'x' ? r : (r & 0x3) | 0x8; // For 'y', ensure it's 8, 9, a, or b
-    return v.toString(16); // Convert to hexadecimal
-  });
+export function generateUUID(): string {
+  const uuid = v4()
+  return uuid
 }
