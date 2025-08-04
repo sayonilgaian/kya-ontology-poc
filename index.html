@@ -10,16 +10,17 @@
             import './src/Lib/BaseComponent/baseComponent.ts';
             import themeData from './dataUtils/themeData.ts';
             import getCookie from './src/utils/documentEntry/getCookie.ts';
-            import sampleMegaDemoJson from './dataUtils/sampleMegaDemo.ts';
-            import sampleJson from './dataUtils/sampleJson.ts';
-            import forceGraphJson from './dataUtils/forceGraph.ts';
+            // Json imports =====
+            import sampleMegaDemoJson from './dataUtils/componentData/sampleMegaDemo.ts';
+            import forceGraphJson from './dataUtils/componentData/forceGraph.ts';
+            import cytoscapeGraph from "./dataUtils/componentData/cytoscape.ts"
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
 
             // rootElement.plan = sampleMegaDemoJson;
-            // rootElement.plan = sampleJson;
-            rootElement.plan = forceGraphJson;
+            // rootElement.plan = forceGraphJson;
+            rootElement.plan = cytoscapeGraph;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);
 
