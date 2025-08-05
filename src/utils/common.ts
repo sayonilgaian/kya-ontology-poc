@@ -256,7 +256,6 @@ export const appliers: any = {
      */
 
     const { op = 'Initialize', name = '', value = undefined, callback } = c;
-
     let cb = actions[callback];
     if (cb) {
       cb = cb.bind(e);
