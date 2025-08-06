@@ -1,5 +1,6 @@
 import cytoscape, { Core, NodeSingular, EdgeSingular, ElementDefinition, SelectionType } from 'cytoscape';
 import { thirdParty } from '../thirdPartyType';
+import { generateUUID } from '../../utils/common';
 
 interface CytoscapeConfig {
     elements?: any[];
@@ -203,7 +204,8 @@ export class CytoscapeService implements thirdParty {
 
         const nodesToAdd: ElementDefinition[] = nodesData.map(nodeData => ({
             group: 'nodes' as 'nodes',
-            data: nodeData
+            data: nodeData,
+            id : generateUUID()
         }));
 
         this.cy.add(nodesToAdd);

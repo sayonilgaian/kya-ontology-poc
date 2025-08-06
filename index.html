@@ -11,9 +11,9 @@
             import themeData from './dataUtils/themeData.ts';
             import getCookie from './src/utils/documentEntry/getCookie.ts';
             import sampleMegaDemoJson from './dataUtils/sampleMegaDemo.ts';
-            import sampleJson from './dataUtils/sampleJson.ts';
             import forceGraphJson from './dataUtils/forceGraph.ts';
-            import cytoscapeJson from "./dataUtils/cytoscapeJson.ts"
+            import cytoscapeJson from "./dataUtils/cytoscapeJson.ts";
+            import sampleJson from "./dataUtils/sampleJson.ts"
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
@@ -32,8 +32,8 @@
                 if (username && password) {
                     rootElement.routerService.navigate('/');
                 } else {
-                    rootElement.routerService.emptyPathToRestore();
-                    rootElement.routerService.navigate('/login');
+                    // rootElement.routerService.emptyPathToRestore();
+                    // rootElement.routerService.navigate('/login');
                 }
             }
 

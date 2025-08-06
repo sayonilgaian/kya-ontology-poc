@@ -1,12 +1,12 @@
 const cytoscapeJson = {
-    tag: "cytoscape-graph-screen",
+    tag: 'cytoscape-graph-screen',
     atoms: [
-        { 
-            type: 'ColourAtom', 
-            config: { 
-                role: 'background', 
-                value: '#1a1a1a' 
-            } 
+        {
+            type: 'ColourAtom',
+            config: {
+                role: 'background',
+                value: 'white',
+            },
         },
         {
             type: 'LayoutAtom',
@@ -17,254 +17,425 @@ const cytoscapeJson = {
                 justify: 'center',
                 align: 'center',
                 padding: '20px',
-                boxSizing: 'border-box'
+                boxSizing: 'border-box',
             },
         },
         {
-            type: "ThirdPartyAtom",
+            type: 'ThirdPartyAtom',
             config: {
-                op: "Create",
-                thirdPartyLibraryName: "cytoscapeCanvas",
-                name: "cyto-graph-1"
-            }
+                op: 'Create',
+                thirdPartyLibraryName: 'cytoscapeCanvas',
+                name: 'cyto-graph-1',
+            },
         },
+        // {
+        //     type: 'APIAtom',
+        //     config: {
+        //         op: 'SetService',
+        //         value: {
+        //             key: 'dummy',
+        //             url: 'https://jsonplaceholder.typicode.com/todos',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //             },
+        //         },
+        //     },
+        // },
         {
-            type: "InteractionAtom",
-            id: "setup-container",
+            type: 'InteractionAtom',
+            id: 'setup-container',
             config: {
-                trigger: "OnLoad",
+                trigger: 'OnLoad',
                 dependencies: [],
                 params: [
                     {
-                        source: "exact",
-                        value: "cyto-graph-1"
+                        source: 'exact',
+                        value: 'cyto-graph-1',
                     },
                     {
-                        source: "exact",
-                        value: "setContainer"
-                    }
+                        source: 'exact',
+                        value: 'setContainer',
+                    },
                 ],
-                action: "callThirdPartyService"
-            }
+                action: 'callThirdPartyService',
+            },
         },
+        // {
+        //     type: 'InteractionAtom',
+        //     id: '1',
+        //     config: {
+        //         trigger: 'OnLoad',
+        //         dependencies: [],
+        //         params: [
+        //             {
+        //                 source: 'exact',
+        //                 value: 'https://jsonplaceholder.typicode.com/todos',
+        //             },
+        //         ],
+        //         action: 'get',
+        //     },
+        // },
         {
-            type: "InteractionAtom",
-            id: "init-cytoscape",
+            type: 'InteractionAtom',
+            id: 'init-cytoscape',
             config: {
                 trigger: null,
-                dependencies: ["setup-container"],
+                dependencies: ['setup-container'],
                 params: [
                     {
-                        source: "exact",
-                        value: "cyto-graph-1"
+                        source: 'exact',
+                        value: 'cyto-graph-1',
                     },
                     {
-                        source: "exact",
-                        value: "init"
+                        source: 'exact',
+                        value: 'init',
                     },
                     {
-                        source: "exact",
+                        source: 'exact',
                         value: {
                             elements: [
-                                // Nodes
-                                { 
-                                    data: { 
-                                        id: 'node1', 
-                                        label: 'Database',
-                                        type: 'database'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'EMP1',
+                                        label: 'EMPLOYEE1',
+                                        email: 'emp1@mobius.org',
+                                        labels: ['Person', 'Chunk', '__KGBuilder__'],
+                                        ontologyId: '6892e3f503d2e55af06e3007',
+                                        tenantId: '2cf76e5f-26ad-4f2c-bccc-f4bc1e7bfb64',
+                                        transactionId: '59307bf1-39a0-4d4c-a3ce-696bbdc95f22',
+                                        creationTime: 1754459583259,
+                                        entityId: 'c53b8f5a-5654-47b3-994f-0ce30da5dc06',
+                                    },
                                 },
-                                { 
-                                    data: { 
-                                        id: 'node2', 
-                                        label: 'API Server',
-                                        type: 'server'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'PI',
+                                        label: 'PI',
+                                        email: null,
+                                        labels: ['Chunk', '__KGBuilder__', 'Project'],
+                                        ontologyId: '6892e3f503d2e55af06e3007',
+                                        tenantId: '2cf76e5f-26ad-4f2c-bccc-f4bc1e7bfb64',
+                                        transactionId: '59307bf1-39a0-4d4c-a3ce-696bbdc95f22',
+                                        creationTime: 1754459583841,
+                                        entityId: '86345054-4eab-4529-8280-6dcd9ecfa53e',
+                                    },
                                 },
-                                { 
-                                    data: { 
-                                        id: 'node3', 
-                                        label: 'Frontend',
-                                        type: 'client'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'mobius',
+                                        label: 'mobius',
+                                        email: null,
+                                        labels: ['Chunk', '__KGBuilder__', 'Organization'],
+                                        ontologyId: '6892e3f503d2e55af06e3007',
+                                        tenantId: '2cf76e5f-26ad-4f2c-bccc-f4bc1e7bfb64',
+                                        transactionId: '59307bf1-39a0-4d4c-a3ce-696bbdc95f22',
+                                        creationTime: 1754459583825,
+                                        entityId: 'bc067d9a-178f-4fa0-bde0-e1ae5dcbcaed',
+                                    },
                                 },
-                                { 
-                                    data: { 
-                                        id: 'node4', 
-                                        label: 'Cache',
-                                        type: 'cache'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'e0',
+                                        source: 'EMP1',
+                                        target: 'PI',
+                                        label: 'managesProject',
+                                    },
                                 },
-                                { 
-                                    data: { 
-                                        id: 'node5', 
-                                        label: 'Load Balancer',
-                                        type: 'balancer'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'e1',
+                                        source: 'EMP1',
+                                        target: 'mobius',
+                                        label: 'worksFor',
+                                    },
                                 },
-                                { 
-                                    data: { 
-                                        id: 'node6', 
-                                        label: 'Authentication',
-                                        type: 'auth'
-                                    } 
+                                {
+                                    data: {
+                                        id: 'e2',
+                                        source: 'PI',
+                                        target: 'mobius',
+                                        label: 'belongsTo',
+                                    },
                                 },
-                                
-                                // Edges
-                                { 
-                                    data: { 
-                                        id: 'edge1', 
-                                        source: 'node2', 
-                                        target: 'node1',
-                                        label: 'queries'
-                                    } 
-                                },
-                                { 
-                                    data: { 
-                                        id: 'edge2', 
-                                        source: 'node3', 
-                                        target: 'node2',
-                                        label: 'API calls'
-                                    } 
-                                },
-                                { 
-                                    data: { 
-                                        id: 'edge3', 
-                                        source: 'node2', 
-                                        target: 'node4',
-                                        label: 'cache'
-                                    } 
-                                },
-                                { 
-                                    data: { 
-                                        id: 'edge4', 
-                                        source: 'node5', 
-                                        target: 'node2',
-                                        label: 'routes'
-                                    } 
-                                },
-                                { 
-                                    data: { 
-                                        id: 'edge5', 
-                                        source: 'node3', 
-                                        target: 'node5',
-                                        label: 'requests'
-                                    } 
-                                },
-                                { 
-                                    data: { 
-                                        id: 'edge6', 
-                                        source: 'node6', 
-                                        target: 'node2',
-                                        label: 'validates'
-                                    } 
-                                }
                             ],
+                            // [
+                            //     // Nodes
+                            //     {
+                            //         data: {
+                            //             id: 'automation',
+                            //             label: 'Automation',
+                            //             type: 'server',
+                            //         },
+                            //         classes: 'affected',
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'lightingSystem',
+                            //             label: 'Lighting System',
+                            //             type: 'client',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'temperatureSensor',
+                            //             label: 'TemperatureSensor',
+                            //             type: 'sensor',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'user',
+                            //             label: 'User',
+                            //             type: 'auth',
+                            //         },
+                            //         classes: 'affected',
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'environment',
+                            //             label: 'Environment',
+                            //             type: 'database',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'inputDevice',
+                            //             label: 'Input Device',
+                            //             type: 'cache',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'supportsMode',
+                            //             label: 'supports mode',
+                            //             type: 'balancer',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'inRoom1',
+                            //             label: 'inRoom',
+                            //             type: 'balancer',
+                            //         },
+                            //     },
+
+                            //     // Edges
+                            //     {
+                            //         data: {
+                            //             id: 'e1',
+                            //             source: 'automation',
+                            //             target: 'lightingSystem',
+                            //             label: 'supports',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e2',
+                            //             source: 'lightingSystem',
+                            //             target: 'supportsMode',
+                            //             label: 'supports mode',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e3',
+                            //             source: 'automation',
+                            //             target: 'temperatureSensor',
+                            //             label: 'has an',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e4',
+                            //             source: 'automation',
+                            //             target: 'user',
+                            //             label: 'has sensor',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e5',
+                            //             source: 'environment',
+                            //             target: 'automation',
+                            //             label: 'controls',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e6',
+                            //             source: 'user',
+                            //             target: 'inRoom1',
+                            //             label: 'inRoom',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e7',
+                            //             source: 'user',
+                            //             target: 'automation',
+                            //             label: 'hasPreference',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e8',
+                            //             source: 'user',
+                            //             target: 'lightingSystem',
+                            //             label: 'forAction',
+                            //         },
+                            //     },
+                            //     {
+                            //         data: {
+                            //             id: 'e9',
+                            //             source: 'inputDevice',
+                            //             target: 'automation',
+                            //             label: 'hasSensor',
+                            //         },
+                            //     },
+                            // ],
                             style: [
+                                // Default node style
                                 {
                                     selector: 'node',
                                     style: {
-                                        'background-color': '#4a90e2',
-                                        'label': 'data(label)',
+                                        label: 'data(label)',
                                         'text-valign': 'center',
                                         'text-halign': 'center',
-                                        'color': '#ffffff',
-                                        'font-size': '12px',
+                                        color: '#2c3e50',
+                                        'font-size': '11px',
                                         'font-weight': 'bold',
-                                        'width': '60px',
-                                        'height': '60px',
-                                        'border-width': '2px',
-                                        'border-color': '#357abd',
                                         'text-wrap': 'wrap',
-                                        'text-max-width': '80px'
-                                    }
+                                        'text-max-width': '100px',
+                                        'background-color': '#dfe6e9',
+                                        'border-color': '#b2bec3',
+                                        'border-width': 2,
+                                        shape: 'ellipse',
+                                        width: 'label',
+                                        height: 'label',
+                                        padding: '8px',
+                                    },
                                 },
+
+                                // Automation (central red node)
                                 {
-                                    selector: 'node[type="database"]',
+                                    selector: 'node[label = "Automation"]',
                                     style: {
-                                        'background-color': '#e74c3c',
-                                        'border-color': '#c0392b',
-                                        'shape': 'round-rectangle'
-                                    }
+                                        'background-color': '#c0392b',
+                                        'border-color': '#96281b',
+                                        color: '#fff',
+                                    },
                                 },
+
+                                // User (orange node)
                                 {
-                                    selector: 'node[type="server"]',
-                                    style: {
-                                        'background-color': '#2ecc71',
-                                        'border-color': '#27ae60',
-                                        'shape': 'hexagon'
-                                    }
-                                },
-                                {
-                                    selector: 'node[type="client"]',
+                                    selector: 'node[label = "User"]',
                                     style: {
                                         'background-color': '#f39c12',
-                                        'border-color': '#e67e22',
-                                        'shape': 'triangle'
-                                    }
+                                        'border-color': '#d35400',
+                                        color: '#fff',
+                                    },
                                 },
+
+                                // Environment (blue node)
                                 {
-                                    selector: 'node[type="cache"]',
+                                    selector: 'node[label = "Environment"]',
                                     style: {
-                                        'background-color': '#9b59b6',
-                                        'border-color': '#8e44ad',
-                                        'shape': 'diamond'
-                                    }
+                                        'background-color': '#74b9ff',
+                                        'border-color': '#0984e3',
+                                        color: '#fff',
+                                    },
                                 },
+
+                                // Lighting System (dark orange-red)
                                 {
-                                    selector: 'node[type="balancer"]',
-                                    style: {
-                                        'background-color': '#34495e',
-                                        'border-color': '#2c3e50',
-                                        'shape': 'octagon'
-                                    }
-                                },
-                                {
-                                    selector: 'node[type="auth"]',
+                                    selector: 'node[label = "Lighting System"]',
                                     style: {
                                         'background-color': '#e67e22',
                                         'border-color': '#d35400',
-                                        'shape': 'pentagon'
-                                    }
+                                        color: '#fff',
+                                    },
                                 },
+
+                                // TemperatureSensor (bright red box)
+                                {
+                                    selector: 'node[label = "TemperatureSensor"]',
+                                    style: {
+                                        'background-color': '#ff4d4d',
+                                        'border-color': '#c0392b',
+                                        shape: 'round-rectangle',
+                                        color: '#fff',
+                                    },
+                                },
+
+                                // Input Device (blue gray)
+                                {
+                                    selector: 'node[label = "Input Device"]',
+                                    style: {
+                                        'background-color': '#a29bfe',
+                                        'border-color': '#6c5ce7',
+                                        color: '#fff',
+                                    },
+                                },
+
+                                // inRoom nodes (yellow label boxes)
+                                {
+                                    selector: 'node[label = "inRoom"]',
+                                    style: {
+                                        'background-color': '#ffeaa7',
+                                        'border-color': '#fdcb6e',
+                                        color: '#2d3436',
+                                        shape: 'round-rectangle',
+                                    },
+                                },
+
+                                // Affected or impacted nodes
+                                {
+                                    selector: 'node.affected',
+                                    style: {
+                                        'overlay-color': '#ff7675',
+                                        'overlay-opacity': 0.25,
+                                        'border-width': 3,
+                                    },
+                                },
+
+                                // Edge style
                                 {
                                     selector: 'edge',
                                     style: {
-                                        'width': '3px',
-                                        'line-color': '#95a5a6',
-                                        'target-arrow-color': '#95a5a6',
+                                        width: 2,
+                                        'line-color': '#b2bec3',
+                                        'target-arrow-color': '#b2bec3',
                                         'target-arrow-shape': 'triangle',
                                         'curve-style': 'bezier',
-                                        'label': 'data(label)',
+                                        label: 'data(label)',
                                         'font-size': '10px',
-                                        'color': '#ecf0f1',
+                                        'text-background-color': '#ffffff',
+                                        'text-background-opacity': 1,
+                                        'text-background-shape': 'roundrectangle',
+                                        'text-background-padding': '3px',
+                                        color: '#2d3436',
                                         'text-rotation': 'autorotate',
-                                        'text-margin-y': '-10px'
-                                    }
+                                    },
                                 },
-                                {
-                                    selector: 'node:selected',
-                                    style: {
-                                        'border-width': '4px',
-                                        'border-color': '#ffff00',
-                                        'background-color': '#ff6b6b'
-                                    }
-                                },
+
+                                // Highlight edge on selection
                                 {
                                     selector: 'edge:selected',
                                     style: {
-                                        'line-color': '#ff6b6b',
-                                        'target-arrow-color': '#ff6b6b',
-                                        'width': '5px'
-                                    }
+                                        'line-color': '#ff7675',
+                                        'target-arrow-color': '#ff7675',
+                                        width: 3,
+                                    },
                                 },
+
+                                // Hover effects
                                 {
                                     selector: 'node:hover',
                                     style: {
-                                        'border-width': '3px',
-                                        'border-color': '#ffffff'
-                                    }
-                                }
+                                        'border-color': '#ffffff',
+                                        'border-width': 3,
+                                    },
+                                },
                             ],
                             layout: {
                                 name: 'cose',
@@ -282,7 +453,7 @@ const cytoscapeJson = {
                                 numIter: 1000,
                                 initialTemp: 200,
                                 coolingFactor: 0.95,
-                                minTemp: 1.0
+                                minTemp: 1.0,
                             },
                             zoom: 1,
                             pan: { x: 0, y: 0 },
@@ -296,52 +467,52 @@ const cytoscapeJson = {
                             selectionType: 'single',
                             autoungrabify: false,
                             autounselectify: false,
-                            onNodeClick: function(node) {
+                            onNodeClick: function (node) {
                                 console.log('Node clicked:', node.data());
                                 // You can trigger framework actions here
                             },
-                            onEdgeClick: function(edge) {
+                            onEdgeClick: function (edge) {
                                 console.log('Edge clicked:', edge.data());
                             },
-                            onBackgroundClick: function() {
+                            onBackgroundClick: function () {
                                 console.log('Background clicked');
-                            }
-                        }
-                    }
+                            },
+                        },
+                    },
                 ],
-                action: "callThirdPartyService"
-            }
+                action: 'callThirdPartyService',
+            },
         },
         // Optional: Add interaction to add new nodes dynamically
         {
-            type: "InteractionAtom",
-            id: "add-node-demo",
+            type: 'InteractionAtom',
+            id: 'add-node-demo',
             config: {
-                trigger: "click",
+                trigger: 'click',
                 dependencies: [],
                 params: [
                     {
-                        source: "exact",
-                        value: "cyto-graph-1"
+                        source: 'exact',
+                        value: 'cyto-graph-1',
                     },
                     {
-                        source: "exact",
-                        value: "addNode"
+                        source: 'exact',
+                        value: 'addNode',
                     },
                     {
-                        source: "exact",
+                        source: 'exact',
                         value: {
-                            id: 'dynamic-node-' + Date.now(),
+                            id: '467c0265-47ba-4b06-b41d-841eb4b21143',
                             label: 'New Node',
-                            type: 'dynamic'
-                        }
-                    }
+                            type: 'dynamic',
+                        },
+                    },
                 ],
-                action: "callThirdPartyService"
-            }
-        }
+                action: 'callThirdPartyService',
+            },
+        },
     ],
-    children: []
+    children: [],
 };
 
 export default cytoscapeJson;
