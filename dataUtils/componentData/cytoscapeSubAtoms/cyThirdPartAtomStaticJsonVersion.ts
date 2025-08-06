@@ -1,16 +1,4 @@
-const cyThirdPartAtom = [
-	// Initialize the state to hold cytoscapeConfig.
-	{
-		type: 'StateAtom',
-		id: 'cyConfigElementsState',
-		config: {
-			op: 'Initialize',
-			name: 'cyConfigElementsState',
-			value: {
-				elements: [],
-			},
-		},
-	},
+const cyThirdPartAtomStaticJson = [
 	// use third part library
 	{
 		type: 'ThirdPartyAtom',
@@ -27,7 +15,6 @@ const cyThirdPartAtom = [
 		id: 'setup-cy-container',
 		config: {
 			trigger: 'OnLoad',
-			state: 'cyConfigElementsState',
 			action: 'callThirdPartyService',
 			params: [
 				{
@@ -38,21 +25,36 @@ const cyThirdPartAtom = [
 					source: 'exact',
 					value: 'init',
 				},
-			],
-		},
-	},
-	// create cytoscape config from input (state, pipe etc)
-	{
-		type: 'InteractionAtom',
-		id: 'create-cy-config',
-		config: {
-			trigger: 'StateChange',
-			state: 'cyConfigElementsState',
-			action: 'setMethod',
-			params: [
 				{
 					source: 'exact',
 					value: {
+						elements: [
+							{
+								group: 'nodes',
+								data: {
+									id: 'node-id-1',
+									label: 'Person',
+									customProperty: '',
+								},
+							},
+							{
+								group: 'nodes',
+								data: {
+									id: 'node-id-2',
+									label: 'Age',
+									customProperty: '',
+								},
+							},
+							{
+								group: 'edges',
+								data: {
+									id: 'edge-id-1',
+									source: 'node-id-1',
+									target: 'node-id-2',
+									label: 'hasAge',
+								},
+							},
+						],
 						layout: {
 							name: 'cose',
 							idealEdgeLength: 100,
@@ -111,44 +113,11 @@ const cyThirdPartAtom = [
 						selectionType: 'single',
 						autoungrabify: false,
 						autounselectify: false,
-						elements: [],
 					},
-				},
-				{
-					source: 'exact',
-					value: 'elements',
-				},
-				{
-					source: 'state',
-					name: 'cyConfigElementsState',
-				},
-			],
-		},
-	},
-	// render cytoscape canvas using previously made config
-	{
-		type: 'InteractionAtom',
-		id: 'render-cy-graph',
-		config: {
-			trigger: null,
-			dependencies: ['create-cy-config'],
-			action: 'callThirdPartyService',
-			params: [
-				{
-					source: 'exact',
-					value: 'cy-graph',
-				},
-				{
-					source: 'exact',
-					value: 'updateData',
-				},
-				{
-					source: 'state',
-					name: 'cyConfigElementsState',
 				},
 			],
 		},
 	},
 ];
 
-export default cyThirdPartAtom;
+export default cyThirdPartAtomStaticJson;
