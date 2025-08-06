@@ -184,11 +184,13 @@ const ontologyApiCallJson = [
 		config: {
 			trigger: null,
 			action: 'setState',
-			dependencies: ['formatOntologiApiResponse'],
+			dependencies: [
+				'formatOntologiApiResponse',
+			],
 			params: [
 				{
 					source: 'exact',
-					value: 'cyConfigState',
+					value: 'cyConfigElementsState',
 				},
 				{
 					source: 'pipe',
