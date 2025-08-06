@@ -1,6 +1,10 @@
 import cytoscape, { Core, NodeSingular, EdgeSingular, ElementDefinition, SelectionType } from 'cytoscape';
 import { thirdParty } from '../thirdPartyType';
+<<<<<<< HEAD:src/ThirdPartyServices/3dForceGraph/cytoscapeCanvas.ts
 import { generateUUID } from '../../utils/common';
+=======
+import { cytoscapeDefaultStyles, cytoscapeDefaultLayout } from './cytoscapeDataUtils/defaultStyles';
+>>>>>>> 051ade0ddd6876b3122be729e9c9c94308667f2a:src/ThirdPartyServices/cytoscapeCanvas/cytoscapeCanvas.ts
 
 interface CytoscapeConfig {
     elements?: any[];
@@ -58,68 +62,8 @@ export class CytoscapeService implements thirdParty {
         const defaultConfig = {
             container: this.container,
             elements: config.elements || [],
-            style: config.style || [
-                {
-                    selector: 'node',
-                    style: {
-                        'background-color': '#666',
-                        'label': 'data(label)',
-                        'text-valign': 'center',
-                        'text-halign': 'center',
-                        'color': '#fff',
-                        'font-size': 12,
-                        'width': 30,
-                        'height': 30
-                    }
-                },
-                {
-                    selector: 'edge',
-                    style: {
-                        'width': 2,
-                        'line-color': '#ccc',
-                        'target-arrow-color': '#ccc',
-                        'target-arrow-shape': 'triangle',
-                        'curve-style': 'bezier',
-                        'label': 'data(label)',
-                        'font-size': 10,
-                        'color': '#666'
-                    }
-                },
-                {
-                    selector: 'node:selected',
-                    style: {
-                        'background-color': '#ff6b6b',
-                        'border-width': 3,
-                        'border-color': '#ff4757'
-                    }
-                },
-                {
-                    selector: 'edge:selected',
-                    style: {
-                        'line-color': '#ff6b6b',
-                        'target-arrow-color': '#ff6b6b',
-                        'width': 4
-                    }
-                }
-            ],
-            layout: config.layout || {
-                name: 'cose',
-                idealEdgeLength: 100,
-                nodeOverlap: 20,
-                refresh: 20,
-                fit: true,
-                padding: 30,
-                randomize: false,
-                componentSpacing: 40,
-                nodeRepulsion: 400000,
-                edgeElasticity: 100,
-                nestingFactor: 5,
-                gravity: 80,
-                numIter: 1000,
-                initialTemp: 200,
-                coolingFactor: 0.95,
-                minTemp: 1.0
-            }
+            style: config.style || cytoscapeDefaultStyles,
+            layout: config.layout || cytoscapeDefaultLayout
         };
 
         // Merge user config with defaults
