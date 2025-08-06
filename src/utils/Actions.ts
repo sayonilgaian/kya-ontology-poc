@@ -73,6 +73,7 @@ import { addCSS } from './Actions/addCSS';
 import { GetDataFromIndexDb } from './Actions/getDataFromIndexDb';
 import { SetDataToIndexDb } from './Actions/setDataToIndexDb';
 import { addItemInArrayByKey } from './Actions/addItemInArrayByKey';
+import { transformOntologyData } from './Actions/transformOntologyDataIntoCytoscapeElements';
 import { colorPicker } from './Actions/Components/ColorPicker';
 import { fileUpload } from './Actions/Components/fileupload';
 
@@ -168,7 +169,11 @@ export const actions: Record<string, Function> = {
 		return this.apiService?.setHeader(key, value);
 	},
 
-	concatString: function (this: BaseUIElement, value1: string, value2: string) {
+	concatString: function (
+		this: BaseUIElement,
+		value1: string,
+		value2: string
+	) {
 		return value1 + value2;
 	},
 
@@ -197,7 +202,10 @@ export const actions: Record<string, Function> = {
 		return 0; // default fallback for undefined, null, etc.
 	},
 
-	setHeaders: function (this: BaseUIElement, headers: Record<string, string>) {
+	setHeaders: function (
+		this: BaseUIElement,
+		headers: Record<string, string>
+	) {
 		return this.apiService?.setHeaders(headers);
 	},
 
@@ -235,9 +243,7 @@ export const actions: Record<string, Function> = {
 
 	setResponseErrorInterceptor: function (
 		this: BaseUIElement,
-		interceptor: Parameters<
-			FetchService['setResponseErrorInterceptor']
-		>[0]
+		interceptor: Parameters<FetchService['setResponseErrorInterceptor']>[0]
 	) {
 		return this.apiService?.setResponseErrorInterceptor(interceptor);
 	},
@@ -312,7 +318,7 @@ export const actions: Record<string, Function> = {
 
 	redirect: function (this: BaseUIElement, isApiSuccess: boolean) {
 		if (isApiSuccess) {
-			this.routerService?.navigate("");
+			this.routerService?.navigate('');
 		}
 	},
 
@@ -562,7 +568,6 @@ export const actions: Record<string, Function> = {
 	},
 
 	test7: function (this: BaseUIElement) {
-
 		const selectedComp = this.store?.getState('selectedComp');
 		if (selectedComp) {
 			actions.render.call(this, selectedComp);
@@ -572,91 +577,91 @@ export const actions: Record<string, Function> = {
 		}
 	},
 
-    generateMetadata: function(this: BaseUIElement, componentName: String){
-        //const id = generateUUID()
-        return {
-            "tag": `mobius-${componentName}`,
-            "type": "component",
-            "id": generateUUID(),
-            "createdBy": "user_2001",
-            "usageInfo": "Dummy component for testing",
-            "atoms": [
-                {
-                    "type": "LayoutAtom",
-                    "id": generateUUID(),
-                    "config": {
-                       "role": "width",
-                       "value": "15%"
-                    }
-                },
-                {
-                    "type": "LayoutAtom",
-                    "id": generateUUID(),
-                    "config": {
-                       "role": "height",
-                       "value": "15%"
-                    }
-                },
-                {
-                    "type": "InteractionAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "trigger": "click",
-                        "params": [],
-                        "action": "test8"
-                    }
-                },
-                {
-                    "type": "ContentAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "text": componentName
-                    }
-                },
-                {
-                    "type": "ColourAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "role": "background",
-                        "value": "lightblue"
-                    }
-                },
-                {
-                    "type": "ColourAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "role": "color",
-                        "value": "white"
-                    }
-                },
-                {
-                    "type": "StyleAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "role": "display",
-                        "value": "flex"
-                    }
-                },
-                  {
-                    "type": "StyleAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "role": "align",
-                        "value": "center"
-                    }
-                },
-                  {
-                    "type": "StyleAtom",
-                    "id": generateUUID(),
-                    "config": {
-                        "role": "justify",
-                        "value": "center"
-                    }
-                }
-            ],
-            "children": [],
-        };
-    },
+	generateMetadata: function (this: BaseUIElement, componentName: String) {
+		//const id = generateUUID()
+		return {
+			tag: `mobius-${componentName}`,
+			type: 'component',
+			id: generateUUID(),
+			createdBy: 'user_2001',
+			usageInfo: 'Dummy component for testing',
+			atoms: [
+				{
+					type: 'LayoutAtom',
+					id: generateUUID(),
+					config: {
+						role: 'width',
+						value: '15%',
+					},
+				},
+				{
+					type: 'LayoutAtom',
+					id: generateUUID(),
+					config: {
+						role: 'height',
+						value: '15%',
+					},
+				},
+				{
+					type: 'InteractionAtom',
+					id: generateUUID(),
+					config: {
+						trigger: 'click',
+						params: [],
+						action: 'test8',
+					},
+				},
+				{
+					type: 'ContentAtom',
+					id: generateUUID(),
+					config: {
+						text: componentName,
+					},
+				},
+				{
+					type: 'ColourAtom',
+					id: generateUUID(),
+					config: {
+						role: 'background',
+						value: 'lightblue',
+					},
+				},
+				{
+					type: 'ColourAtom',
+					id: generateUUID(),
+					config: {
+						role: 'color',
+						value: 'white',
+					},
+				},
+				{
+					type: 'StyleAtom',
+					id: generateUUID(),
+					config: {
+						role: 'display',
+						value: 'flex',
+					},
+				},
+				{
+					type: 'StyleAtom',
+					id: generateUUID(),
+					config: {
+						role: 'align',
+						value: 'center',
+					},
+				},
+				{
+					type: 'StyleAtom',
+					id: generateUUID(),
+					config: {
+						role: 'justify',
+						value: 'center',
+					},
+				},
+			],
+			children: [],
+		};
+	},
 
 	test8: function (this: BaseUIElement) {
 		console.log(this.getAttribute('id'), typeof this.id);
@@ -702,7 +707,9 @@ export const actions: Record<string, Function> = {
 
 	toggleDropdown: function (this: BaseUIElement, id: string): void {
 		const parent = this.parentNode as HTMLElement | null;
-		const triggerElement = parent?.querySelector(`#${id}`) as BaseUIElement | null;
+		const triggerElement = parent?.querySelector(
+			`#${id}`
+		) as BaseUIElement | null;
 		if (!triggerElement) return;
 
 		// Toggle visibility
@@ -711,7 +718,9 @@ export const actions: Record<string, Function> = {
 
 		if (isNowVisible) {
 			const handleOutsideClick = (e: MouseEvent) => {
-				const clickedInside = (e.target as HTMLElement).closest(`#${id}`);
+				const clickedInside = (e.target as HTMLElement).closest(
+					`#${id}`
+				);
 				if (!clickedInside) {
 					triggerElement.style.display = 'none';
 					document.removeEventListener('click', handleOutsideClick);
@@ -756,18 +765,32 @@ export const actions: Record<string, Function> = {
 		}
 	},
 
-	objectMethods: function (this: BaseUIElement, data: Array<any>, id: string) {
+	objectMethods: function (
+		this: BaseUIElement,
+		data: Array<any>,
+		id: string
+	) {
 		console.log(data, id);
 		return data.find((dt) => dt.id === id);
 	},
 
-	callThirdPartyService: function (this: BaseUIElement, variableName: string, methodName: string, ...args: any[]) {
-		const instance = BaseUIElement._thirdPartyInstances?.registry[variableName];
+	callThirdPartyService: function (
+		this: BaseUIElement,
+		variableName: string,
+		methodName: string,
+		...args: any[]
+	) {
+		const instance =
+			BaseUIElement._thirdPartyInstances?.registry[variableName];
 		if (instance && typeof instance[methodName] === 'function') {
 			return instance[methodName](this, ...args);
 		} else {
-			console.warn(`Service ${instance} or method ${methodName} not found.`);
+			console.warn(
+				`Service ${instance} or method ${methodName} not found.`
+			);
 			return null;
 		}
 	},
+
+	transformOntologyData,
 };
