@@ -21,12 +21,12 @@ const cyThirdPartAtom = [
 			name: 'cy-graph',
 		},
 	},
-	// set up cytoscape canvas in DOM
+	// set up cytoscape canvas in DOM on Load
 	{
 		type: 'InteractionAtom',
 		id: 'setup-cy-container',
 		config: {
-			trigger: 'StateChange',
+			trigger: 'OnLoad',
 			state: 'cyConfigElementsState',
 			action: 'callThirdPartyService',
 			params: [
@@ -46,8 +46,8 @@ const cyThirdPartAtom = [
 		type: 'InteractionAtom',
 		id: 'create-cy-config',
 		config: {
-			trigger: null,
-			dependencies: ['setup-cy-container'],
+			trigger: 'StateChange',
+			state: 'cyConfigElementsState',
 			action: 'setMethod',
 			params: [
 				{
