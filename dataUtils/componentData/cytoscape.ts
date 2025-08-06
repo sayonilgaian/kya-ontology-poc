@@ -1,8 +1,9 @@
-import cyThirdPartAtom from './cyThirdPartyAtom';
+import cyThirdPartAtom from './cytoscapeSubAtoms/cyThirdPartyAtom';
 
 const cytoscapeGraph = {
 	tag: 'cytoscape-graph',
 	atoms: [
+		// styling
 		{
 			type: 'ColourAtom',
 			config: { role: 'background', value: '#202939' },
@@ -17,29 +18,18 @@ const cytoscapeGraph = {
 				align: 'center',
 			},
 		},
-		// Initialize the state to hold the token.
+		// Initialize the state to hold the access token.
 		{
 			type: 'StateAtom',
 			id: 'kyaTokenState',
 			config: {
 				op: 'Initialize',
 				name: 'kyaToken',
-				value: '',
+				value: null,
 			},
 		},
 
-		// Use an APIAtom to set a service-specific header.
-		// This sets the headers for all API calls.
-		{
-			type: 'APIAtom',
-			id: 'setApiHeaders',
-			config: {
-				op: 'SetHeaders',
-				value: { 'Content-Type': 'application/json' },
-			},
-		},
-
-		// Make the POST request. This request will use the headers
+		// Post request to get kya access token
 		{
 			type: 'InteractionAtom',
 			id: 'postLoginRequest',
@@ -47,10 +37,12 @@ const cytoscapeGraph = {
 				trigger: 'OnLoad',
 				action: 'post',
 				params: [
+					// url
 					{
 						source: 'exact',
 						value: 'https://ig.gov-cloud.ai/mobius-iam-service/v1.0/login',
 					},
+					// req body
 					{
 						source: 'exact',
 						value: {
@@ -60,6 +52,34 @@ const cytoscapeGraph = {
 							requestType: 'TENANT',
 						},
 					},
+					// service map key, if new service is added to service map
+					{
+						source: 'exact',
+						value: '',
+					},
+					// request headers
+					{
+						source: 'exact',
+						value: {
+							accept: '*/*',
+							'content-type': 'application/json',
+						},
+					},
+				],
+			},
+		},
+
+		// extract accessToken from response body of previous api call
+		{
+			type: 'InteractionAtom',
+			id: 'getAccessToken',
+			config: {
+				trigger: null,
+				dependencies: ['postLoginRequest'],
+				action: 'getMethod',
+				params: [
+					{ source: 'pipe' },
+					{ source: 'exact', value: 'accessToken' },
 				],
 			},
 		},
@@ -71,17 +91,92 @@ const cytoscapeGraph = {
 			config: {
 				trigger: null,
 				action: 'setState',
-				dependencies: ['postLoginRequest'],
+				dependencies: ['getAccessToken'],
 				params: [
 					{
-						source: 'state',
-						name: 'kyaToken',
+						source: 'exact',
 						value: 'kyaToken',
 					},
 					{
 						source: 'pipe',
-						value: 'postLoginRequest',
-						path: 'accessToken',
+					},
+				],
+			},
+		},
+
+		// create bearer token for next api call in pipeline
+		{
+			type: 'InteractionAtom',
+			id: 'concatString',
+			config: {
+				trigger: null,
+				dependencies: ['handleLoginResponse'],
+				params: [
+					{ source: 'exact', value: 'Bearer ' },
+					{ source: 'state', name: 'kyaToken' },
+				],
+				action: 'concatString',
+			},
+		},
+
+		// create headers for next api call in pipeline
+		{
+			type: 'InteractionAtom',
+			id: 'setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5',
+			config: {
+				trigger: null,
+				dependencies: ['concatString'],
+				action: 'setMethod',
+				params: [
+					{
+						source: 'exact',
+						value: {
+							accept: '*/*',
+							'content-type': 'application/json',
+							authorization: '',
+						},
+					},
+					{ source: 'exact', value: 'authorization' },
+					{ source: 'pipe' },
+				],
+			},
+		},
+
+		// make ontology api call
+		{
+			type: 'InteractionAtom',
+			id: 'getOntologyApiCall',
+			config: {
+				trigger: null,
+				dependencies: [
+					'setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5',
+				],
+				action: 'post',
+				params: [
+					// url
+					{
+						source: 'exact',
+						value: 'https://ig.gov-cloud.ai/pi-ontology-service/ontology/v2.0/get?graphDb=NEO4J&outPutType=JSON',
+					},
+					// req body
+					{
+						source: 'exact',
+						value: {
+							ontologyId: '6891a09c03d2e55af06e2fff',
+							pagination: {
+								skip: 0,
+								limit: 1000,
+							},
+						},
+					},
+					// service map key
+					{
+						source: 'exact',
+						value: '',
+					},
+					// get headers from above pipeline step
+					{
+						source: 'pipe',
 					},
 				],
 			},

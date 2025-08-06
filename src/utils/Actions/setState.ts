@@ -1,11 +1,15 @@
-import { BaseUIElement } from "../../Lib/BaseComponent/baseComponent";
+import { BaseUIElement } from '../../Lib/BaseComponent/baseComponent';
 
 export function setState(
 	this: BaseUIElement,
 	name: string,
 	value: unknown
 ): unknown {
-	console.log("SET STATE", name, value);
+	console.log(
+		`SET STATE: name: ${JSON.stringify(name)} and value: ${JSON.stringify(
+			value
+		)}`
+	);
 	if (typeof this?.store?.setState === 'function') {
 		this.store.setState(name, value);
 	}
