@@ -28,9 +28,7 @@ export function setMethod(
 	// 		current = current[key];
 	// 	}
 	// });
-	console.log("SET METHOD", object, path, value);
 	const current = set(object, path, value);
-	console.log("SET METHOD: AFTER", current);
 
 	return current;
 }
