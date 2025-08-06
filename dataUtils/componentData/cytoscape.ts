@@ -1,3 +1,4 @@
+import cyThirdPartAtomStaticJson from './cytoscapeSubAtoms/cyThirdPartAtomStaticJsonVersion';
 import cyThirdPartAtom from './cytoscapeSubAtoms/cyThirdPartyAtom';
 import ontologyApiCallJson from './cytoscapeSubAtoms/ontologyApiCall';
 
@@ -19,7 +20,7 @@ const cytoscapeGraph = {
 				align: 'center',
 			},
 		},
-		
+		// ...cyThirdPartAtomStaticJson,
 		...cyThirdPartAtom,
 		...ontologyApiCallJson,
 	],
