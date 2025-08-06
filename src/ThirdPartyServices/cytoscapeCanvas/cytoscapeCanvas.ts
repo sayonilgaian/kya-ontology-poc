@@ -50,6 +50,7 @@ export class CytoscapeService implements thirdParty {
 
     setContainer(context: HTMLElement) {
         this.container = context;
+        console.log("Cytoscape canvas initiated!")
     }
 
     init(context: HTMLElement, config: CytoscapeConfig = {}) {
