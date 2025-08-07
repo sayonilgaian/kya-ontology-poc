@@ -11,6 +11,16 @@ const cyThirdPartAtom = [
 			},
 		},
 	},
+	// Initialize the state to hold nodes to be deleted.
+	{
+		type: 'StateAtom',
+		id: 'deleteNodesState-94771855-da21-4b78-b98b-692366f3dd3e',
+		config: {
+			op: 'Initialize',
+			name: 'deleteNodeState',
+			value: '',
+		},
+	},
 	// use third part library
 	{
 		type: 'ThirdPartyAtom',
@@ -38,18 +48,6 @@ const cyThirdPartAtom = [
 					source: 'exact',
 					value: 'init',
 				},
-			],
-		},
-	},
-	// create cytoscape config from input (state, pipe etc)
-	{
-		type: 'InteractionAtom',
-		id: 'create-cy-config',
-		config: {
-			trigger: 'StateChange',
-			state: 'cyConfigElementsState',
-			action: 'setMethod',
-			params: [
 				{
 					source: 'exact',
 					value: {
@@ -112,26 +110,19 @@ const cyThirdPartAtom = [
 						autoungrabify: false,
 						autounselectify: false,
 						elements: [],
+						// onNodeClick: ,
 					},
-				},
-				{
-					source: 'exact',
-					value: 'elements',
-				},
-				{
-					source: 'state',
-					name: 'cyConfigElementsState',
 				},
 			],
 		},
 	},
-	// render cytoscape canvas using previously made config
+	// render cytoscape canvas using previously made config and updates elements state after api call
 	{
 		type: 'InteractionAtom',
 		id: 'render-cy-graph',
 		config: {
-			trigger: null,
-			dependencies: ['create-cy-config'],
+			trigger: 'StateChange',
+			state: 'cyConfigElementsState',
 			action: 'callThirdPartyService',
 			params: [
 				{
