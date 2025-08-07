@@ -74,6 +74,7 @@ import { GetDataFromIndexDb } from './Actions/getDataFromIndexDb';
 import { SetDataToIndexDb } from './Actions/setDataToIndexDb';
 import { addItemInArrayByKey } from './Actions/addItemInArrayByKey';
 import { transformOntologyData } from './Actions/transformOntologyDataIntoCytoscapeElements';
+import { transformKGData } from './Actions/transformKGdata';
 import { colorPicker } from './Actions/Components/ColorPicker';
 import { fileUpload } from './Actions/Components/fileupload';
 
@@ -794,4 +795,5 @@ export const actions: Record<string, Function> = {
 	},
 
 	transformOntologyData,
+	transformKGData
 };

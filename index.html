@@ -11,14 +11,16 @@
             import themeData from './dataUtils/themeData.ts';
             import getCookie from './src/utils/documentEntry/getCookie.ts';
             // Json imports =====
-            import cytoscapeGraph from "./dataUtils/componentData/cytoscape.ts";
+            // import cytoscapeGraph from "./dataUtils/componentData/cytoscape.ts";
             import projects from "./dataUtils/componentData/projects.ts";
+            import kgJson from "./dataUtils/componentData/kgJson.ts"
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
 
             rootElement.plan = projects;
-            rootElement.plan = cytoscapeGraph;
+            // rootElement.plan = cytoscapeGraph;
+            rootElement.plan = kgJson;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);
 
@@ -28,8 +30,8 @@
                 if (username && password) {
                     rootElement.routerService.navigate('/');
                 } else {
-                    rootElement.routerService.emptyPathToRestore();
-                    rootElement.routerService.navigate('/login');
+                    // rootElement.routerService.emptyPathToRestore();
+                    // rootElement.routerService.navigate('/login');
                 }
             }
 
