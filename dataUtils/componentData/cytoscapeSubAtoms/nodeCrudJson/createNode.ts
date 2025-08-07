@@ -24,6 +24,9 @@ const createNodeJson = [
 				type: 'LayoutAtom',
 				config: {
 					position: 'absolute',
+					display: 'flex',
+					align: 'center',
+					gap: '10px',
 					padding: '0.5rem 1rem',
 					bottom: '2rem',
 					right: '8rem',
@@ -39,7 +42,7 @@ const createNodeJson = [
 				config: {
 					op: 'Initialize',
 					name: 'createNodeState',
-					value: [],
+					value: '',
 				},
 			},
 
@@ -327,7 +330,71 @@ const createNodeJson = [
 				},
 			},
 		],
+		children: [
+			{
+				tag: 'create-node-label-input',
+				atoms: [
+					{
+						type: 'attributeAtom',
+						id: '7ed40074-53d7-489d-821a-f06775c39260',
+						config: {
+							attribute: 'contenteditable',
+							value: 'true',
+						},
+					},
+					{
+						type: 'LayoutAtom',
+						config: {
+							"min-width": '3rem',
+							width:'auto',
+							height: '1rem',
+							border: '1px solid #9AA4B2',
+							'border-radius': '0',
+							padding: '2px',
+							outline: '1px solid black',
+						},
+					},
+					{
+						type: 'InteractionAtom',
+						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319',
+						config: {
+							trigger: 'input',
+							dependencies: [],
+							params: [{}],
+							action: 'read',
+						},
+					},
+					{
+						type: 'InteractionAtom',
+						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
+						config: {
+							trigger: null,
+							dependencies: [
+								'create-node-input-928fa22d-187a-4063-8801-ea0425256319',
+							],
+							params: [{ source: 'pipe' }],
+							action: 'handleInput',
+						},
+					},
+					{
+						type: 'InteractionAtom',
+						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319-3',
+						config: {
+							trigger: null,
+							action: 'setState',
+							dependencies: [
+								'create-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
+							],
+							params: [
+								{ source: 'exact', value: 'createNodeState' },
+								{ source: 'pipe' },
+							],
+						},
+					},
+				],
+			},
+		],
 	},
 ];
 
-export default createNodeJson
+export default createNodeJson;
