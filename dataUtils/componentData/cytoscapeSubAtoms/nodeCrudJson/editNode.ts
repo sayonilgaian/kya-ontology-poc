@@ -1,17 +1,17 @@
-const createNodeJson = [
+const editNodeJson = [
 	{
-		tag: 'create-node',
+		tag: 'edit-node',
 		atoms: [
 			// styling of create button
 			{
 				type: 'ContentAtom',
 				config: {
-					text: 'Create node: ',
+					text: 'Edit node: ',
 				},
 			},
 			{
 				type: 'ColourAtom',
-				config: { role: 'background', value: '#54c25dff' },
+				config: { role: 'background', value: '#5456c2ff' },
 			},
 			{
 				type: 'TypographyAtom',
@@ -28,7 +28,7 @@ const createNodeJson = [
 					align: 'center',
 					gap: '10px',
 					padding: '0.5rem 1rem',
-					bottom: '8rem',
+					bottom: '5rem',
 					right: '2rem',
 					color: 'black',
 				},
@@ -547,4 +547,4 @@ const createNodeJson = [
 	},
 ];
 
-export default createNodeJson;
+export default editNodeJson;
