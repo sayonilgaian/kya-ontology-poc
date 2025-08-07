@@ -160,6 +160,16 @@ const ontologyApiCallJson = [
 			],
 		},
 	},
+	// save ontology id in state
+	{
+		type: 'StateAtom',
+		id: 'ontologyIdState',
+		config: {
+			op: 'Initialize',
+			name: 'ontologyId',
+			value: '6891a09c03d2e55af06e2fff',
+		},
+	},
 
 	// format ontology api response to cytoscape config
 	{
@@ -184,9 +194,7 @@ const ontologyApiCallJson = [
 		config: {
 			trigger: null,
 			action: 'setState',
-			dependencies: [
-				'formatOntologiApiResponse',
-			],
+			dependencies: ['formatOntologiApiResponse'],
 			params: [
 				{
 					source: 'exact',

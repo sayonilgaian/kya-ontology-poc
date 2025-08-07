@@ -174,6 +174,7 @@ export const actions: Record<string, Function> = {
 		value1: string,
 		value2: string
 	) {
+		console.log("Concat string result: ",value1+value2)
 		return value1 + value2;
 	},
 
