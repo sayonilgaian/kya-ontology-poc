@@ -10,6 +10,8 @@ import {
 	cytoscapeDefaultStyles,
 	cytoscapeDefaultLayout,
 } from './cytoscapeDataUtils/defaultStyles';
+import { setState } from '../../utils/Actions/setState';
+import { BaseUIElement } from '../../Lib/BaseComponent/baseComponent';
 
 interface CytoscapeConfig {
 	elements?: any[];
@@ -27,7 +29,7 @@ interface CytoscapeConfig {
 	selectionType?: SelectionType;
 	autoungrabify?: boolean;
 	autounselectify?: boolean;
-	onNodeClick?: (node: NodeSingular) => void;
+	onNodeClick?: { state: string };
 	onEdgeClick?: (edge: EdgeSingular) => void;
 	onNodeHover?: (node: NodeSingular) => void;
 	onEdgeHover?: (edge: EdgeSingular) => void;
@@ -72,40 +74,58 @@ export class CytoscapeService implements thirdParty {
 
 		this.cy = cytoscape(finalConfig as any);
 
-		// Set up event handlers
-		if (config.onNodeClick) {
-			this.cy.on('tap', 'node', (evt) => {
-				config.onNodeClick!(evt.target);
-			});
-		}
+		// // Set up event handlers
 
-		if (config.onEdgeClick) {
-			this.cy.on('tap', 'edge', (evt) => {
-				config.onEdgeClick!(evt.target);
-			});
-		}
+		// if (config.onEdgeClick) {
+		// 	this.cy.on('tap', 'edge', (evt) => {
+		// 		config.onEdgeClick!(evt.target);
+		// 	});
+		// }
 
-		if (config.onNodeHover) {
-			this.cy.on('mouseover', 'node', (evt) => {
-				config.onNodeHover!(evt.target);
-			});
-		}
+		// if (config.onNodeHover) {
+		// 	this.cy.on('mouseover', 'node', (evt) => {
+		// 		config.onNodeHover!(evt.target);
+		// 	});
+		// }
 
-		if (config.onEdgeHover) {
-			this.cy.on('mouseover', 'edge', (evt) => {
-				config.onEdgeHover!(evt.target);
-			});
-		}
+		// if (config.onEdgeHover) {
+		// 	this.cy.on('mouseover', 'edge', (evt) => {
+		// 		config.onEdgeHover!(evt.target);
+		// 	});
+		// }
 
-		if (config.onBackgroundClick) {
-			this.cy.on('tap', (evt) => {
-				if (evt.target === this.cy) {
-					config.onBackgroundClick!();
-				}
-			});
-		}
+		// if (config.onBackgroundClick) {
+		// 	this.cy.on('tap', (evt) => {
+		// 		if (evt.target === this.cy) {
+		// 			config.onBackgroundClick!();
+		// 		}
+		// 	});
+		// }
 
 		return this.cy;
+	}
+
+	nodeClick(context: HTMLElement) {
+		let nodeName = '';
+		if (this.cy) {
+			console.log(1);
+			this.cy.off('tap', 'node'); // remove existing listener to avoid stacking
+			console.log(2);
+
+			this.cy.on('tap', 'node', (evt) => {
+				console.log(3);
+
+				nodeName = evt.target?.data()?.label;
+				if (nodeName) {
+					console.log('clicked ', nodeName);
+					return ()=>{
+						return [nodeName]
+					};
+				}
+			});
+			console.log(nodeName)
+			return nodeName;
+		}
 	}
 
 	updateData(context: HTMLElement, elements: any[]) {
@@ -114,7 +134,7 @@ export class CytoscapeService implements thirdParty {
 			this.cy.add(elements);
 			this.cy.layout({ name: 'cose' }).run();
 		}
-        console.log("Cytoscape config successfully updated!")
+		console.log('Cytoscape config successfully updated!');
 	}
 
 	getInstance(context: HTMLElement): Core | null {
@@ -364,6 +384,7 @@ export class CytoscapeService implements thirdParty {
 		return {
 			init: this.init.bind(this),
 			// setContainer: this.setContainer.bind(this),
+			nodeClick: this.nodeClick.bind(this),
 			updateData: this.updateData.bind(this),
 			getInstance: this.getInstance.bind(this),
 			destroy: this.destroy.bind(this),
