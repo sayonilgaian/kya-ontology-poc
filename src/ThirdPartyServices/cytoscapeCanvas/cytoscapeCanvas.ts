@@ -38,7 +38,7 @@ interface CytoscapeConfig {
 }
 
 interface NodeData {
-	id: string;
+	id?: string;
 	label?: string;
 	[key: string]: any;
 }
@@ -54,6 +54,7 @@ interface EdgeData {
 export class CytoscapeService implements thirdParty {
 	private cy: Core | null = null;
 	private container: HTMLElement | null = null;
+	private selectedNode: NodeData = {};
 
 	init(context: HTMLElement, config: CytoscapeConfig = {}) {
 		if (!this.container || this.container !== context) {
@@ -106,7 +107,6 @@ export class CytoscapeService implements thirdParty {
 	}
 
 	nodeClick(context: HTMLElement) {
-		let nodeName = '';
 		if (this.cy) {
 			console.log(1);
 			this.cy.off('tap', 'node'); // remove existing listener to avoid stacking
@@ -115,16 +115,16 @@ export class CytoscapeService implements thirdParty {
 			this.cy.on('tap', 'node', (evt) => {
 				console.log(3);
 
-				nodeName = evt.target?.data()?.label;
-				if (nodeName) {
-					console.log('clicked ', nodeName);
-					return ()=>{
-						return [nodeName]
-					};
+				let nodeData: NodeData = evt.target?.data();
+				if (nodeData.id) {
+					console.log(
+						'clicked on Cytoscape node: ',
+						JSON.stringify(nodeData, null, 4)
+					);
+					this.selectedNode = evt.target?.data();
 				}
 			});
-			console.log(nodeName)
-			return nodeName;
+			return this.selectedNode;
 		}
 	}
 
