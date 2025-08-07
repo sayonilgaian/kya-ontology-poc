@@ -1,19 +1,17 @@
-import createNodeJson from "./createNode";
-
-const nodeCrudJson = [
+const createNodeJson = [
 	{
-		tag: 'delete-node',
+		tag: 'create-node',
 		atoms: [
-			// styling of delete button
+			// styling of create button
 			{
 				type: 'ContentAtom',
 				config: {
-					text: 'Delete',
+					text: 'Create node: ',
 				},
 			},
 			{
 				type: 'ColourAtom',
-				config: { role: 'background', value: '#6d0808ff' },
+				config: { role: 'background', value: '#54c25dff' },
 			},
 			{
 				type: 'TypographyAtom',
@@ -28,52 +26,24 @@ const nodeCrudJson = [
 					position: 'absolute',
 					padding: '0.5rem 1rem',
 					bottom: '2rem',
-					right: '2rem',
-					color: 'white',
+					right: '8rem',
+					color: 'black',
 				},
 			},
 
-			// interaction on delete button starts here =========================
-			// Initialize the state to hold nodes to be deleted.
+			// interaction on create button starts here =========================
+			// Initialize the state to hold node to be created.
 			{
 				type: 'StateAtom',
-				id: 'deleteNodesState-e5520008-410b-4f6f-a39d-54be90a463e7',
+				id: 'create-Node-State-015360f3-bdb9-436a-a8a2-4b9600a62d1f',
 				config: {
 					op: 'Initialize',
-					name: 'deleteNodesState',
+					name: 'createNodeState',
 					value: [],
 				},
 			},
-			// extract delete node name/label from node data
-			{
-				type: 'InteractionAtom',
-				id: 'getNodeName-97cef045-3335-43e9-8587-f85504cbcdee',
-				config: {
-					trigger: 'click',
-					action: 'getMethod',
-					params: [
-						{ source: 'state', name: 'selectedNodeState' },
-						{ source: 'exact', value: 'label' },
-					],
-				},
-			},
-			// push to state array
-			{
-				type: 'InteractionAtom',
-				id: 'pushNodeName-97cef045-3335-43e9-8587-f85504cbcdee',
-				config: {
-					trigger: null,
-					action: 'pushToArray',
-					dependencies: [
-						'getNodeName-97cef045-3335-43e9-8587-f85504cbcdee',
-					],
-					params: [
-						{ source: 'state', name: 'deleteNodesState' },
-						{ source: 'pipe' },
-					],
-				},
-			},
-			// update delete node State
+
+			// update create node State
 			{
 				type: 'InteractionAtom',
 				id: 'update-delete-state-bba5c0eb-bae2-42d9-973e-148d1153bb82',
@@ -120,14 +90,14 @@ const nodeCrudJson = [
 						{
 							source: 'pipe',
 						},
-						{ source: 'exact', value: '/delete' },
+						{ source: 'exact', value: '/create' },
 					],
 				},
 			},
 			// create access token
 			{
 				type: 'InteractionAtom',
-				id: 'create-access-token-dfdee895-76b0-404b-ad60-f40c0d1c4811',
+				id: 'create-access-token-4e6e533e-c323-46a5-b9a3-8515950ca842',
 				config: {
 					trigger: null,
 					action: 'concatString',
@@ -154,7 +124,6 @@ const nodeCrudJson = [
 						{
 							source: 'exact',
 							value: {
-								accept: '*/*',
 								'content-type': 'application/json',
 								authorization: '',
 							},
@@ -164,7 +133,7 @@ const nodeCrudJson = [
 					],
 				},
 			},
-			// make delete api call
+			// make create api call
 			{
 				type: 'InteractionAtom',
 				id: 'deleteNodeReuest-a6f9b186-574f-469b-b252-dcc1e6140d17',
@@ -199,22 +168,6 @@ const nodeCrudJson = [
 					],
 				},
 			},
-			// create bearer token for next api call in pipeline
-			{
-				type: 'InteractionAtom',
-				id: 'concatString-create-bearer-token-83edb680-6b8a-42aa-88ea-2aba2fe0c508',
-				config: {
-					trigger: null,
-					dependencies: [
-						'deleteNodeReuest-a6f9b186-574f-469b-b252-dcc1e6140d17',
-					],
-					params: [
-						{ source: 'exact', value: 'Bearer ' },
-						{ source: 'state', name: 'kyaToken' },
-					],
-					action: 'concatString',
-				},
-			},
 
 			// create headers for next api call in pipeline
 			{
@@ -223,7 +176,7 @@ const nodeCrudJson = [
 				config: {
 					trigger: null,
 					dependencies: [
-						'concatString-create-bearer-token-83edb680-6b8a-42aa-88ea-2aba2fe0c508',
+						'create-access-token-4e6e533e-c323-46a5-b9a3-8515950ca842',
 					],
 					action: 'setMethod',
 					params: [
@@ -375,7 +328,6 @@ const nodeCrudJson = [
 			},
 		],
 	},
-	...createNodeJson
 ];
 
-export default nodeCrudJson;
+export default createNodeJson
