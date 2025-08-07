@@ -45,33 +45,22 @@ const createNodeJson = [
 					value: '',
 				},
 			},
-
-			// update create node State
 			{
-				type: 'InteractionAtom',
-				id: 'update-delete-state-bba5c0eb-bae2-42d9-973e-148d1153bb82',
+				type: 'StateAtom',
+				id: 'create-temp-State',
 				config: {
-					trigger: null,
-					action: 'setState',
-					dependencies: [
-						'pushNodeName-97cef045-3335-43e9-8587-f85504cbcdee',
-					],
-					params: [
-						{ source: 'exact', value: 'deleteNodesState' },
-						{ source: 'pipe' },
-					],
+					op: 'Initialize',
+					name: 'tempArrayState',
+					value: [],
 				},
 			},
-			// create delete node url part 1
+			// create node url part 1
 			{
 				type: 'InteractionAtom',
-				id: 'create-delete-node-url-part-1',
+				id: 'create-node-url-part-1-1f7ddf40-c7d9-4c70-9c03-a34a7336f89d',
 				config: {
-					trigger: null,
+					trigger: 'click',
 					action: 'concatString',
-					dependencies: [
-						'update-delete-state-bba5c0eb-bae2-42d9-973e-148d1153bb82',
-					],
 					params: [
 						{
 							source: 'exact',
@@ -81,14 +70,16 @@ const createNodeJson = [
 					],
 				},
 			},
-			// create delete node url part 2
+			// create node url part 2
 			{
 				type: 'InteractionAtom',
-				id: 'create-delete-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
+				id: 'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
 				config: {
 					trigger: null,
 					action: 'concatString',
-					dependencies: ['create-delete-node-url-part-1'],
+					dependencies: [
+						'create-node-url-part-1-1f7ddf40-c7d9-4c70-9c03-a34a7336f89d',
+					],
 					params: [
 						{
 							source: 'pipe',
@@ -105,7 +96,7 @@ const createNodeJson = [
 					trigger: null,
 					action: 'concatString',
 					dependencies: [
-						'create-delete-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
+						'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
 					],
 					params: [
 						{ source: 'exact', value: 'Bearer ' },
@@ -116,11 +107,11 @@ const createNodeJson = [
 			// create api call headers
 			{
 				type: 'InteractionAtom',
-				id: 'create-headers-ef362ff4-73af-4ef3-a086-bbfc7e778d0a',
+				id: 'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
 				config: {
 					trigger: null,
 					dependencies: [
-						'create-access-token-dfdee895-76b0-404b-ad60-f40c0d1c4811',
+						'create-access-token-4e6e533e-c323-46a5-b9a3-8515950ca842',
 					],
 					action: 'setMethod',
 					params: [
@@ -136,27 +127,144 @@ const createNodeJson = [
 					],
 				},
 			},
+			// create request body object
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-1-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+				config: {
+					trigger: null,
+					action: 'concatString',
+					dependencies: [
+						'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+					],
+					params: [
+						{
+							source: 'exact',
+							value: 'http://www.semanticweb.org/mdebe/ontologies/example#',
+						},
+						{ source: 'state', name: 'createNodeState' },
+					],
+				},
+			},
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-2-bc73957f-7b72-4023-bd60-d9a2b65193f4',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-req-body-part-1-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+					],
+					action: 'setMethod',
+					params: [
+						{
+							source: 'exact',
+							value: {
+								name: '',
+								url: '',
+								attributes: {},
+								ontologyNodeTypeEnum: 'CLASS',
+							},
+						},
+						{ source: 'exact', value: 'url' },
+						{ source: 'pipe' },
+					],
+				},
+			},
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-3-40706680-6b9b-4e25-8e80-4943a016f796',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-req-body-part-2-bc73957f-7b72-4023-bd60-d9a2b65193f4',
+					],
+					action: 'setMethod',
+					params: [
+						{
+							source: 'pipe',
+						},
+						{ source: 'exact', value: 'name' },
+						{ source: 'state', name: 'createNodeState' },
+					],
+				},
+			},
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-4-56dbf607-6e12-4b84-bf06-2dfe4a214681',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-req-body-part-3-40706680-6b9b-4e25-8e80-4943a016f796',
+					],
+					action: 'setMethod',
+					params: [
+						{
+							source: 'exact',
+							value: {
+								properties: {},
+							},
+						},
+						{ source: 'exact', value: 'properties' },
+						{ source: 'pipe' },
+					],
+				},
+			},
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-5',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-req-body-part-4-56dbf607-6e12-4b84-bf06-2dfe4a214681',
+					],
+					action: 'pushToArray',
+					params: [
+						{
+							source: 'state',
+							name: 'tempArrayState',
+						},
+						{ source: 'pipe' },
+					],
+				},
+			},
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-part-6',
+				config: {
+					trigger: null,
+					dependencies: ['create-req-body-part-5'],
+					action: 'setState',
+					params: [
+						{
+							source: 'exact',
+							value: 'tempArrayState',
+						},
+						{ source: 'pipe' },
+					],
+				},
+			},
 			// make create api call
 			{
 				type: 'InteractionAtom',
-				id: 'deleteNodeReuest-a6f9b186-574f-469b-b252-dcc1e6140d17',
+				id: 'create-node-a6f9b186-574f-469b-b252-dcc1e6140d17',
 				config: {
 					trigger: null,
-					action: 'deleteCall',
+					action: 'post',
 					dependencies: [
-						'create-delete-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
-						'create-headers-ef362ff4-73af-4ef3-a086-bbfc7e778d0a',
+						'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
+						'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+						'create-req-body-part-6'
 					],
 					params: [
 						// url
 						{
 							source: 'pipe',
-							value: 'create-delete-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
+							value: 'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
 						},
 						// request body
 						{
 							source: 'state',
-							name: 'deleteNodesState',
+							name: 'tempArrayState',
 						},
 						// key of service map, if new service is created
 						{
@@ -166,7 +274,7 @@ const createNodeJson = [
 						// request headers
 						{
 							source: 'pipe',
-							value: 'create-headers-ef362ff4-73af-4ef3-a086-bbfc7e778d0a',
+							value: 'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
 						},
 					],
 				},
@@ -175,11 +283,12 @@ const createNodeJson = [
 			// create headers for next api call in pipeline
 			{
 				type: 'InteractionAtom',
-				id: 'setMethod-904a982d-425a-4f93-92a9-8dfd0d7edae9',
+				id: 'create-get-ontology-api-headers',
 				config: {
 					trigger: null,
 					dependencies: [
 						'create-access-token-4e6e533e-c323-46a5-b9a3-8515950ca842',
+						'create-node-a6f9b186-574f-469b-b252-dcc1e6140d17',
 					],
 					action: 'setMethod',
 					params: [
@@ -192,19 +301,21 @@ const createNodeJson = [
 							},
 						},
 						{ source: 'exact', value: 'authorization' },
-						{ source: 'pipe' },
+						{
+							source: 'pipe',
+							value: 'create-access-token-4e6e533e-c323-46a5-b9a3-8515950ca842',
+						},
 					],
 				},
 			},
+
 			// set api call request body
 			{
 				type: 'InteractionAtom',
 				id: 'create-req-body-get-ontology-api',
 				config: {
 					trigger: null,
-					dependencies: [
-						'setMethod-904a982d-425a-4f93-92a9-8dfd0d7edae9',
-					],
+					dependencies: ['create-get-ontology-api-headers'],
 					action: 'setMethod',
 					params: [
 						{
@@ -233,7 +344,7 @@ const createNodeJson = [
 					trigger: null,
 					dependencies: [
 						'create-req-body-get-ontology-api',
-						'setMethod-904a982d-425a-4f93-92a9-8dfd0d7edae9',
+						'create-get-ontology-api-headers',
 					],
 					action: 'post',
 					params: [
@@ -255,7 +366,7 @@ const createNodeJson = [
 						// get headers from above pipeline step
 						{
 							source: 'pipe',
-							value: 'setMethod-904a982d-425a-4f93-92a9-8dfd0d7edae9',
+							value: 'create-get-ontology-api-headers',
 						},
 					],
 				},
@@ -277,7 +388,7 @@ const createNodeJson = [
 				},
 			},
 
-			// Handle formatted response and store the token in state.
+			// Handle formatted response and store the config in state.
 			{
 				type: 'InteractionAtom',
 				id: 'setStateCyConfig-657a2762-23f1-47b5-9f13-f77971d40a48',
@@ -294,6 +405,30 @@ const createNodeJson = [
 						},
 						{
 							source: 'pipe',
+						},
+					],
+				},
+			},
+			// render cytoscape canvas using previously made config and updates elements state after api call
+			{
+				type: 'InteractionAtom',
+				id: 'render-cy-graph',
+				config: {
+					trigger: 'StateChange',
+					state: 'cyConfigElementsState',
+					action: 'callThirdPartyService',
+					params: [
+						{
+							source: 'exact',
+							value: 'cy-graph',
+						},
+						{
+							source: 'exact',
+							value: 'updateData',
+						},
+						{
+							source: 'state',
+							name: 'cyConfigElementsState',
 						},
 					],
 				},
@@ -329,6 +464,21 @@ const createNodeJson = [
 					],
 				},
 			},
+			{
+				type: 'InteractionAtom',
+				id: 'update-temp-array-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
+				config: {
+					trigger: null,
+					action: 'setState',
+					dependencies: [
+						'update-delete-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
+					],
+					params: [
+						{ source: 'exact', value: 'tempArrayState' },
+						{ source: 'exact', value: [] },
+					],
+				},
+			},
 		],
 		children: [
 			{
@@ -345,8 +495,8 @@ const createNodeJson = [
 					{
 						type: 'LayoutAtom',
 						config: {
-							"min-width": '3rem',
-							width:'auto',
+							'min-width': '3rem',
+							width: 'auto',
 							height: '1rem',
 							border: '1px solid #9AA4B2',
 							'border-radius': '0',
