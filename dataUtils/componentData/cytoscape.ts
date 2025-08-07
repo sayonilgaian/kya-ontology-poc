@@ -1,4 +1,3 @@
-import cyThirdPartAtomStaticJson from './cytoscapeSubAtoms/cyThirdPartAtomStaticJsonVersion';
 import cyThirdPartAtom from './cytoscapeSubAtoms/cyThirdPartyAtom';
 import nodeCrudJson from './cytoscapeSubAtoms/nodeCrudJson/nodeCrudJson';
 import ontologyApiCallJson from './cytoscapeSubAtoms/ontologyApiCall';

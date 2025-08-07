@@ -75,34 +75,6 @@ export class CytoscapeService implements thirdParty {
 
 		this.cy = cytoscape(finalConfig as any);
 
-		// // Set up event handlers
-
-		// if (config.onEdgeClick) {
-		// 	this.cy.on('tap', 'edge', (evt) => {
-		// 		config.onEdgeClick!(evt.target);
-		// 	});
-		// }
-
-		// if (config.onNodeHover) {
-		// 	this.cy.on('mouseover', 'node', (evt) => {
-		// 		config.onNodeHover!(evt.target);
-		// 	});
-		// }
-
-		// if (config.onEdgeHover) {
-		// 	this.cy.on('mouseover', 'edge', (evt) => {
-		// 		config.onEdgeHover!(evt.target);
-		// 	});
-		// }
-
-		// if (config.onBackgroundClick) {
-		// 	this.cy.on('tap', (evt) => {
-		// 		if (evt.target === this.cy) {
-		// 			config.onBackgroundClick!();
-		// 		}
-		// 	});
-		// }
-
 		return this.cy;
 	}
 
