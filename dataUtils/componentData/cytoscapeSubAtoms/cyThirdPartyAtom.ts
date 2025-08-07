@@ -156,7 +156,7 @@ const cyThirdPartAtom = [
 				},
 				{
 					source: 'exact',
-					value: 'nodeClick',
+					value: 'elementClick',
 				},
 			],
 		},

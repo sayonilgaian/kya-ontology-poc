@@ -54,7 +54,7 @@ interface EdgeData {
 export class CytoscapeService implements thirdParty {
 	private cy: Core | null = null;
 	private container: HTMLElement | null = null;
-	private selectedNode: NodeData = {};
+	private selectedElement: NodeData | EdgeData = {};
 
 	init(context: HTMLElement, config: CytoscapeConfig = {}) {
 		if (!this.container || this.container !== context) {
@@ -78,10 +78,11 @@ export class CytoscapeService implements thirdParty {
 		return this.cy;
 	}
 
-	nodeClick(context: HTMLElement) {
+	elementClick(context: HTMLElement) {
 		if (this.cy) {
 			console.log(1);
 			this.cy.off('tap', 'node'); // remove existing listener to avoid stacking
+			this.cy.off('tap', 'edge')
 			console.log(2);
 
 			this.cy.on('tap', 'node', (evt) => {
@@ -93,10 +94,22 @@ export class CytoscapeService implements thirdParty {
 						'clicked on Cytoscape node: ',
 						JSON.stringify(nodeData, null, 4)
 					);
-					this.selectedNode = evt.target?.data();
+					this.selectedElement = evt.target?.data();
 				}
 			});
-			return this.selectedNode;
+			this.cy.on('tap', 'edge', (evt) => {
+				console.log(4);
+
+				let edgeData: NodeData = evt.target?.data();
+				if (edgeData.id) {
+					console.log(
+						'clicked on Cytoscape node: ',
+						JSON.stringify(edgeData, null, 4)
+					);
+					this.selectedElement = evt.target?.data();
+				}
+			});
+			return this.selectedElement;
 		}
 	}
 
@@ -356,7 +369,7 @@ export class CytoscapeService implements thirdParty {
 		return {
 			init: this.init.bind(this),
 			// setContainer: this.setContainer.bind(this),
-			nodeClick: this.nodeClick.bind(this),
+			elementClick: this.elementClick.bind(this),
 			updateData: this.updateData.bind(this),
 			getInstance: this.getInstance.bind(this),
 			destroy: this.destroy.bind(this),
