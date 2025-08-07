@@ -1,26 +1,4 @@
-const cyThirdPartAtom = [
-	// Initialize the state to hold cytoscapeConfig.
-	{
-		type: 'StateAtom',
-		id: 'cyConfigElementsState',
-		config: {
-			op: 'Initialize',
-			name: 'cyConfigElementsState',
-			value: {
-				elements: [],
-			},
-		},
-	},
-	// Initialize the state to hold nodes to be deleted.
-	{
-		type: 'StateAtom',
-		id: 'deleteNodesState-94771855-da21-4b78-b98b-692366f3dd3e',
-		config: {
-			op: 'Initialize',
-			name: 'deleteNodeState',
-			value: [],
-		},
-	},
+const cyThirdPartAtomStaticJson = [
 	// use third part library
 	{
 		type: 'ThirdPartyAtom',
@@ -37,7 +15,6 @@ const cyThirdPartAtom = [
 		id: 'setup-cy-container',
 		config: {
 			trigger: 'OnLoad',
-			state: 'cyConfigElementsState',
 			action: 'callThirdPartyService',
 			params: [
 				{
@@ -51,6 +28,33 @@ const cyThirdPartAtom = [
 				{
 					source: 'exact',
 					value: {
+						elements: [
+							{
+								group: 'nodes',
+								data: {
+									id: 'node-id-1',
+									label: 'Person',
+									customProperty: '',
+								},
+							},
+							{
+								group: 'nodes',
+								data: {
+									id: 'node-id-2',
+									label: 'Age',
+									customProperty: '',
+								},
+							},
+							{
+								group: 'edges',
+								data: {
+									id: 'edge-id-1',
+									source: 'node-id-1',
+									target: 'node-id-2',
+									label: 'hasAge',
+								},
+							},
+						],
 						layout: {
 							name: 'cose',
 							idealEdgeLength: 100,
@@ -109,76 +113,11 @@ const cyThirdPartAtom = [
 						selectionType: 'single',
 						autoungrabify: false,
 						autounselectify: false,
-						elements: [],
-						onNodeClick: {
-							state: 'deleteNodeState',
-						},
 					},
-				},
-			],
-		},
-	},
-	// render cytoscape canvas using previously made config and updates elements state after api call
-	{
-		type: 'InteractionAtom',
-		id: 'render-cy-graph',
-		config: {
-			trigger: 'StateChange',
-			state: 'cyConfigElementsState',
-			action: 'callThirdPartyService',
-			params: [
-				{
-					source: 'exact',
-					value: 'cy-graph',
-				},
-				{
-					source: 'exact',
-					value: 'updateData',
-				},
-				{
-					source: 'state',
-					name: 'cyConfigElementsState',
-				},
-			],
-		},
-	},
-	{
-		type: 'InteractionAtom',
-		id: 'register-on-node-click',
-		config: {
-			trigger: 'click',
-			action: 'callThirdPartyService',
-			params: [
-				{
-					source: 'exact',
-					value: 'cy-graph',
-				},
-				{
-					source: 'exact',
-					value: 'nodeClick',
-				},
-			],
-		},
-	},
-	// Handle formatted response and store the token in state.
-	{
-		type: 'InteractionAtom',
-		id: 'set',
-		config: {
-			trigger: null,
-			action: 'setState',
-			dependencies: ['register-on-node-click'],
-			params: [
-				{
-					source: 'exact',
-					value: 'deleteNodeState',
-				},
-				{
-					source: 'pipe',
 				},
 			],
 		},
 	},
 ];
 
-export default cyThirdPartAtom;
+export default cyThirdPartAtomStaticJson;

@@ -1,4 +1,6 @@
+import cyThirdPartAtomStaticJson from './cytoscapeSubAtoms/cyThirdPartAtomStaticJsonVersion';
 import cyThirdPartAtom from './cytoscapeSubAtoms/cyThirdPartyAtom';
+import nodeCrudJson from './cytoscapeSubAtoms/nodeCrudJson/nodeCrudJson';
 import ontologyApiCallJson from './cytoscapeSubAtoms/ontologyApiCall';
 
 const cytoscapeGraph = {
@@ -12,22 +14,18 @@ const cytoscapeGraph = {
 		{
 			type: 'LayoutAtom',
 			config: {
-				display: 'flex',
+				display: 'block',
 				width: '100%',
 				height: '100%',
 				justify: 'center',
 				align: 'center',
 			},
 		},
-		
+		// ...cyThirdPartAtomStaticJson,
 		...cyThirdPartAtom,
 		...ontologyApiCallJson,
 	],
-	children: [
-		{
-			atoms: [{}],
-		},
-	],
+	children: [...nodeCrudJson],
 };
 
 export default cytoscapeGraph;
