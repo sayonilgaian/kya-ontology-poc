@@ -18,7 +18,7 @@ const cyThirdPartAtom = [
 		config: {
 			op: 'Initialize',
 			name: 'deleteNodeState',
-			value: '',
+			value: [],
 		},
 	},
 	// use third part library
@@ -110,7 +110,9 @@ const cyThirdPartAtom = [
 						autoungrabify: false,
 						autounselectify: false,
 						elements: [],
-						// onNodeClick: ,
+						onNodeClick: {
+							state: 'deleteNodeState',
+						},
 					},
 				},
 			],
@@ -136,6 +138,43 @@ const cyThirdPartAtom = [
 				{
 					source: 'state',
 					name: 'cyConfigElementsState',
+				},
+			],
+		},
+	},
+	{
+		type: 'InteractionAtom',
+		id: 'register-on-node-click',
+		config: {
+			trigger: 'click',
+			action: 'callThirdPartyService',
+			params: [
+				{
+					source: 'exact',
+					value: 'cy-graph',
+				},
+				{
+					source: 'exact',
+					value: 'nodeClick',
+				},
+			],
+		},
+	},
+	// Handle formatted response and store the token in state.
+	{
+		type: 'InteractionAtom',
+		id: 'set',
+		config: {
+			trigger: null,
+			action: 'setState',
+			dependencies: ['register-on-node-click'],
+			params: [
+				{
+					source: 'exact',
+					value: 'deleteNodeState',
+				},
+				{
+					source: 'pipe',
 				},
 			],
 		},
