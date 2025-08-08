@@ -52,9 +52,9 @@ const cyThirdPartAtom = [
 						layout: {
 							name: 'euler',
 							springLength: 300,
-							springCoeff: 0.1,
+							springCoeff: 0.0001,
 							mass: 50,
-							gravity: -1,
+							gravity: -10,
 							pull: 0.001,
 							theta: 0.7,
 							dragCoeff: 0.02,
@@ -68,7 +68,6 @@ const cyThirdPartAtom = [
 							maxSimulationTime: 4000,
 							ungrabifyWhileSimulating: false,
 							fit: true,
-							// padding: 30,
 							// name: 'cola', // options: grid, cose, breadthfirst, concentric, circle, cola
 							// animate: true, // whether to show the layout as it's running
 							// refresh: 1, // number of ticks per frame; higher is faster but more jerky

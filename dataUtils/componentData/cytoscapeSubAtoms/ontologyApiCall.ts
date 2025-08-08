@@ -141,7 +141,7 @@ const ontologyApiCallJson = [
 				{
 					source: 'exact',
 					value: {
-						ontologyId: '6891a09c03d2e55af06e2fff',
+						ontologyId: '68909faf03d2e55af06e2ff9',
 					},
 				},
 				// service map key
@@ -171,7 +171,7 @@ const ontologyApiCallJson = [
 				},
 				{
 					source: 'pipe',
-					value:''
+					value: '',
 				},
 			],
 		},
@@ -202,13 +202,14 @@ const ontologyApiCallJson = [
 			params: [
 				{
 					source: 'state',
-					name: 'cyConfigElementsState'},
+					name: 'cyConfigElementsState',
+				},
 				{ source: 'exact', value: 'element' },
 				{ source: 'pipe' },
 			],
 		},
 	},
-		{
+	{
 		type: 'InteractionAtom',
 		id: 'save-ontology-data-after-transformed',
 		config: {
@@ -222,14 +223,11 @@ const ontologyApiCallJson = [
 				},
 				{
 					source: 'pipe',
-					value:''
+					value: '',
 				},
 			],
 		},
 	},
-
-	
-
 
 	// save ontology id in state
 	{
@@ -238,10 +236,9 @@ const ontologyApiCallJson = [
 		config: {
 			op: 'Initialize',
 			name: 'ontologyId',
-			value: '6891a09c03d2e55af06e2fff',
+			value: '68909faf03d2e55af06e2ff9',
 		},
 	},
-	
 
 	// {
 	// 	type: 'InteractionAtom',
