@@ -11,9 +11,12 @@ import {
 } from './cytoscapeDataUtils/defaultStyles';
 // @ts-ignore
 import cola from 'cytoscape-cola';
+// @ts-ignore
+import euler from 'cytoscape-euler';
 import colaDefaultLayout from './cytoscapeDataUtils/colaLayoutDefault';
 
 cytoscape.use( cola );
+cytoscape.use( euler );
 
 interface CytoscapeConfig {
 	elements?: any[];
@@ -123,7 +126,6 @@ export class CytoscapeService implements thirdParty {
 			this.cy.elements().remove();
 			this.cy.add(elements);
 			this.cy.layout({ ...this.cyConfig.layout }).run();
-			// console.log(this.cyConfig.style)
 		}
 		console.log('Cytoscape config successfully updated!');
 	}

@@ -52,14 +52,33 @@ const cyThirdPartAtom = [
 					source: 'exact',
 					value: {
 						layout: {
-							name: 'cola', // options: grid, cose, breadthfirst, concentric, circle, cola
-							animate: true, // whether to show the layout as it's running
-							refresh: 1, // number of ticks per frame; higher is faster but more jerky
-							avoidOverlap: true, // if true, prevents overlap of node bounding boxes
-							handleDisconnected: true, // if true, avoids disconnected components from overlapping
-							// edgeLength: 300, // sets edge length directly in simulation
-							maxSimulationTime: 4000, // max length in ms to run the layout
-							centerGraph: true, // adjusts the node positions initially to center the graph (pass false if you want to start the layout from the current position)
+							name: 'euler',
+							springLength: 300,
+							springCoeff: 0.1,
+							mass: 50,
+							gravity: -1,
+							pull: 0.001,
+							theta: 0.7,
+							dragCoeff: 0.02,
+							movementThreshold: 1,
+							timeStep: 20,
+							refresh: 10,
+							animate: true,
+							animationDuration: undefined,
+							animationEasing: undefined,
+							maxIterations: 1000,
+							maxSimulationTime: 4000,
+							ungrabifyWhileSimulating: false,
+							fit: true,
+							// padding: 30,
+							// name: 'cola', // options: grid, cose, breadthfirst, concentric, circle, cola
+							// animate: true, // whether to show the layout as it's running
+							// refresh: 1, // number of ticks per frame; higher is faster but more jerky
+							// avoidOverlap: true, // if true, prevents overlap of node bounding boxes
+							// handleDisconnected: true, // if true, avoids disconnected components from overlapping
+							// // edgeLength: 300, // sets edge length directly in simulation
+							// maxSimulationTime: 4000, // max length in ms to run the layout
+							// centerGraph: true, // adjusts the node positions initially to center the graph (pass false if you want to start the layout from the current position)
 							// idealEdgeLength: 100,
 							// nodeOverlap: 20,
 							// refresh: 20,
