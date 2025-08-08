@@ -2,7 +2,6 @@ import cytoscape, {
 	Core,
 	NodeSingular,
 	EdgeSingular,
-	ElementDefinition,
 	SelectionType,
 } from 'cytoscape';
 import { thirdParty } from '../thirdPartyType';
@@ -10,8 +9,6 @@ import {
 	cytoscapeDefaultStyles,
 	cytoscapeDefaultLayout,
 } from './cytoscapeDataUtils/defaultStyles';
-import { setState } from '../../utils/Actions/setState';
-import { BaseUIElement } from '../../Lib/BaseComponent/baseComponent';
 
 interface CytoscapeConfig {
 	elements?: any[];
@@ -55,6 +52,7 @@ export class CytoscapeService implements thirdParty {
 	private cy: Core | null = null;
 	private container: HTMLElement | null = null;
 	private selectedElement: NodeData | EdgeData = {};
+	private cyConfig: CytoscapeConfig = {};
 
 	init(context: HTMLElement, config: CytoscapeConfig = {}) {
 		if (!this.container || this.container !== context) {
@@ -67,11 +65,13 @@ export class CytoscapeService implements thirdParty {
 			container: this.container,
 			elements: config.elements || [],
 			style: config.style || cytoscapeDefaultStyles,
+			// layout: config.layout,
 			layout: config.layout || cytoscapeDefaultLayout,
 		};
 
 		// Merge user config with defaults
 		const finalConfig = { ...defaultConfig, ...config };
+		this.cyConfig = finalConfig
 
 		this.cy = cytoscape(finalConfig as any);
 
@@ -117,7 +117,8 @@ export class CytoscapeService implements thirdParty {
 		if (this.cy) {
 			this.cy.elements().remove();
 			this.cy.add(elements);
-			this.cy.layout({ name: 'cose' }).run();
+			this.cy.layout({ ...this.cyConfig.layout }).run();
+			// console.log(this.cyConfig.style)
 		}
 		console.log('Cytoscape config successfully updated!');
 	}
@@ -134,173 +135,6 @@ export class CytoscapeService implements thirdParty {
 		if (this.container) {
 			this.container.innerHTML = '';
 		}
-	}
-
-	// CRUD Operations for Nodes
-	addNode(nodeData: NodeData): NodeSingular | null {
-		if (!this.cy) return null;
-
-		const node = this.cy.add({
-			group: 'nodes' as 'nodes',
-			data: nodeData,
-		} as ElementDefinition);
-
-		// Refresh layout
-		this.cy.layout({ name: 'cose' }).run();
-		return node;
-	}
-
-	addNodes(nodesData: NodeData[]): void {
-		if (!this.cy) return;
-
-		const nodesToAdd: ElementDefinition[] = nodesData.map((nodeData) => ({
-			group: 'nodes' as 'nodes',
-			data: nodeData,
-		}));
-
-		this.cy.add(nodesToAdd);
-		this.cy.layout({ name: 'cose' }).run();
-	}
-
-	updateNode(
-		nodeId: string,
-		newData: Partial<NodeData>
-	): NodeSingular | null {
-		if (!this.cy) return null;
-
-		const node = this.cy.getElementById(nodeId);
-		if (node.length > 0) {
-			// Update node data
-			Object.keys(newData).forEach((key) => {
-				node.data(key, newData[key]);
-			});
-			return node;
-		}
-		return null;
-	}
-
-	deleteNode(nodeId: string): boolean {
-		if (!this.cy) return false;
-
-		const node = this.cy.getElementById(nodeId);
-		if (node.length > 0) {
-			node.remove();
-			this.cy.layout({ name: 'cose' }).run();
-			return true;
-		}
-		return false;
-	}
-
-	deleteNodes(nodeIds: string[]): number {
-		if (!this.cy) return 0;
-
-		let deletedCount = 0;
-		nodeIds.forEach((nodeId) => {
-			const node = this.cy!.getElementById(nodeId);
-			if (node.length > 0) {
-				node.remove();
-				deletedCount++;
-			}
-		});
-
-		if (deletedCount > 0) {
-			this.cy.layout({ name: 'cose' }).run();
-		}
-
-		return deletedCount;
-	}
-
-	getNode(nodeId: string): NodeSingular | null {
-		if (!this.cy) return null;
-
-		const node = this.cy.getElementById(nodeId);
-		return node.length > 0 ? node : null;
-	}
-
-	getAllNodes(): NodeSingular[] {
-		if (!this.cy) return [];
-		return this.cy.nodes().toArray();
-	}
-
-	// CRUD Operations for Edges
-	addEdge(edgeData: EdgeData): EdgeSingular | null {
-		if (!this.cy) return null;
-
-		const edge = this.cy.add({
-			group: 'edges' as 'edges',
-			data: edgeData,
-		} as ElementDefinition);
-
-		return edge;
-	}
-
-	addEdges(edgesData: EdgeData[]): void {
-		if (!this.cy) return;
-
-		const edgesToAdd: ElementDefinition[] = edgesData.map((edgeData) => ({
-			group: 'edges' as 'edges',
-			data: edgeData,
-		}));
-
-		this.cy.add(edgesToAdd);
-	}
-
-	updateEdge(
-		edgeId: string,
-		newData: Partial<EdgeData>
-	): EdgeSingular | null {
-		if (!this.cy) return null;
-
-		const edge = this.cy.getElementById(edgeId);
-		if (edge.length > 0) {
-			// Update edge data
-			Object.keys(newData).forEach((key) => {
-				if (key !== 'source' && key !== 'target') {
-					// Don't allow changing source/target
-					edge.data(key, newData[key]);
-				}
-			});
-			return edge;
-		}
-		return null;
-	}
-
-	deleteEdge(edgeId: string): boolean {
-		if (!this.cy) return false;
-
-		const edge = this.cy.getElementById(edgeId);
-		if (edge.length > 0) {
-			edge.remove();
-			return true;
-		}
-		return false;
-	}
-
-	deleteEdges(edgeIds: string[]): number {
-		if (!this.cy) return 0;
-
-		let deletedCount = 0;
-		edgeIds.forEach((edgeId) => {
-			const edge = this.cy!.getElementById(edgeId);
-			if (edge.length > 0) {
-				edge.remove();
-				deletedCount++;
-			}
-		});
-
-		return deletedCount;
-	}
-
-	getEdge(edgeId: string): EdgeSingular | null {
-		if (!this.cy) return null;
-
-		const edge = this.cy.getElementById(edgeId);
-		return edge.length > 0 ? edge : null;
-	}
-
-	getAllEdges(): EdgeSingular[] {
-		if (!this.cy) return [];
-		return this.cy.edges().toArray();
 	}
 
 	// Utility methods
@@ -373,24 +207,6 @@ export class CytoscapeService implements thirdParty {
 			updateData: this.updateData.bind(this),
 			getInstance: this.getInstance.bind(this),
 			destroy: this.destroy.bind(this),
-
-			// Node CRUD operations
-			addNode: this.addNode.bind(this),
-			addNodes: this.addNodes.bind(this),
-			updateNode: this.updateNode.bind(this),
-			deleteNode: this.deleteNode.bind(this),
-			deleteNodes: this.deleteNodes.bind(this),
-			getNode: this.getNode.bind(this),
-			getAllNodes: this.getAllNodes.bind(this),
-
-			// Edge CRUD operations
-			addEdge: this.addEdge.bind(this),
-			addEdges: this.addEdges.bind(this),
-			updateEdge: this.updateEdge.bind(this),
-			deleteEdge: this.deleteEdge.bind(this),
-			deleteEdges: this.deleteEdges.bind(this),
-			getEdge: this.getEdge.bind(this),
-			getAllEdges: this.getAllEdges.bind(this),
 
 			// Utility methods
 			fit: this.fit.bind(this),

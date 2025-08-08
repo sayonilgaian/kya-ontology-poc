@@ -2,7 +2,7 @@ const cytoscapeDefaultStyles = [
     {
         selector: 'node',
         style: {
-            'background-color': '#666',
+            'background-color': '#123456',
             'label': 'data(label)',
             'text-valign': 'center',
             'text-halign': 'center',

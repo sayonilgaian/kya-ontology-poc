@@ -24,10 +24,12 @@ const deleteNodeJson = [
 				type: 'LayoutAtom',
 				config: {
 					position: 'absolute',
-					padding: '0.5rem 1rem',
-					bottom: '2rem',
+					padding: '0.8rem 1rem',
+					bottom: '1.6rem',
 					right: '2rem',
 					color: 'white',
+					borderRadius: '10px',
+					cursor: 'pointer',
 				},
 			},
 
