@@ -114,14 +114,30 @@ const cyThirdPartAtom = [
 							{
 								selector: 'edge',
 								style: {
-									width: 3,
-									'line-color': '#123456',
+									width: 5,
+									'line-color': '#76baff',
 									'target-arrow-color': '#123456',
 									'target-arrow-shape': 'triangle',
 									'curve-style': 'bezier',
 									label: 'data(label)',
 									'font-size': 20,
 									color: '#123456',
+								},
+							},
+							{
+								selector: 'node:selected',
+								style: {
+									'background-color': '#ff6b6b',
+									'border-width': 3,
+									'border-color': '#ff4757',
+								},
+							},
+							{
+								selector: 'edge:selected',
+								style: {
+									'line-color': '#0026ff',
+									'target-arrow-color': '#0026ff',
+									width: 4,
 								},
 							},
 						],

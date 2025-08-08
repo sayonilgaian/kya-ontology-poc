@@ -1,6 +1,7 @@
 import cyThirdPartAtom from './cytoscapeSubAtoms/cyThirdPartyAtom';
 import nodeCrudJson from './cytoscapeSubAtoms/nodeCrudJson/nodeCrudJson';
 import ontologyApiCallJson from './cytoscapeSubAtoms/ontologyApiCall';
+import selectedNodeJson from './cytoscapeSubAtoms/selectedNodeOverlay';
 
 const cytoscapeGraph = {
 	tag: 'cytoscape-graph',
@@ -21,6 +22,7 @@ const cytoscapeGraph = {
 			},
 		},
 		// ...cyThirdPartAtomStaticJson,
+		// ...selectedNodeJson,
 		...cyThirdPartAtom,
 		...ontologyApiCallJson,
 	],
