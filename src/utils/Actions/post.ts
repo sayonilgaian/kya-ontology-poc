@@ -7,7 +7,7 @@ export async function post(
   serviceKey: string,
   headers: HeadersInit = {}
 ): Promise<unknown> {
-  // console.log(this, url, data);
+  console.log(this, url, data);
   const response = await this.apiService?.post(url, data, headers, serviceKey);
   // Optionally transform or inspect the response
   return response;
