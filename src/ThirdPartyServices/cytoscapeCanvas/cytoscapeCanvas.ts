@@ -15,8 +15,8 @@ import cola from 'cytoscape-cola';
 import euler from 'cytoscape-euler';
 import colaDefaultLayout from './cytoscapeDataUtils/colaLayoutDefault';
 
-cytoscape.use( cola );
-cytoscape.use( euler );
+cytoscape.use(cola);
+cytoscape.use(euler);
 
 interface CytoscapeConfig {
 	elements?: any[];
@@ -80,44 +80,39 @@ export class CytoscapeService implements thirdParty {
 
 		// Merge user config with defaults
 		const finalConfig = { ...defaultConfig, ...config };
-		this.cyConfig = finalConfig
+		this.cyConfig = finalConfig;
 
 		this.cy = cytoscape(finalConfig as any);
+
+		this.cy.off('tap', 'node'); // remove existing listener to avoid stacking
+		this.cy.off('tap', 'edge');
+
+		this.cy.on('tap', 'node', (evt) => {
+			let nodeData: NodeData = evt.target?.data();
+			if (nodeData.id) {
+				console.log(
+					'clicked on Cytoscape node: ',
+					JSON.stringify(nodeData, null, 4)
+				);
+				this.selectedElement = evt.target?.data();
+			}
+		});
+		this.cy.on('tap', 'edge', (evt) => {
+			let edgeData: NodeData = evt.target?.data();
+			if (edgeData.id) {
+				console.log(
+					'clicked on Cytoscape node: ',
+					JSON.stringify(edgeData, null, 4)
+				);
+				this.selectedElement = evt.target?.data();
+			}
+		});
 
 		return this.cy;
 	}
 
 	elementClick(context: HTMLElement) {
 		if (this.cy) {
-			console.log(1);
-			this.cy.off('tap', 'node'); // remove existing listener to avoid stacking
-			this.cy.off('tap', 'edge')
-			console.log(2);
-
-			this.cy.on('tap', 'node', (evt) => {
-				console.log(3);
-
-				let nodeData: NodeData = evt.target?.data();
-				if (nodeData.id) {
-					console.log(
-						'clicked on Cytoscape node: ',
-						JSON.stringify(nodeData, null, 4)
-					);
-					this.selectedElement = evt.target?.data();
-				}
-			});
-			this.cy.on('tap', 'edge', (evt) => {
-				console.log(4);
-
-				let edgeData: NodeData = evt.target?.data();
-				if (edgeData.id) {
-					console.log(
-						'clicked on Cytoscape node: ',
-						JSON.stringify(edgeData, null, 4)
-					);
-					this.selectedElement = evt.target?.data();
-				}
-			});
 			return this.selectedElement;
 		}
 	}
