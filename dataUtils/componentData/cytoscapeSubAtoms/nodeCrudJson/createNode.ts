@@ -32,6 +32,7 @@ const createNodeJson = [
 					right: '2rem',
 					color: 'white',
 					borderRadius: '10px',
+					cursor: 'pointer',
 				},
 			},
 
@@ -503,6 +504,7 @@ const createNodeJson = [
 							outline: 'none',
 							'background-color': '#dadadaff',
 							color: 'black',
+							cursor:'text',
 						},
 					},
 					{

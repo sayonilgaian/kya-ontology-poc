@@ -34,6 +34,7 @@ const editNodeJson = [
 					right: '2rem',
 					color: 'white',
 					borderRadius: '10px',
+					cursor: 'pointer',
 				},
 			},
 
@@ -132,7 +133,7 @@ const editNodeJson = [
 			},
 			// create request body object
 			...editNodeApiRequestBody,
-			
+
 			// make edit node api call
 			{
 				type: 'InteractionAtom',
@@ -392,6 +393,7 @@ const editNodeJson = [
 							outline: 'none',
 							'background-color': '#dadadaff',
 							color: 'black',
+							cursor:'text'
 						},
 					},
 					{

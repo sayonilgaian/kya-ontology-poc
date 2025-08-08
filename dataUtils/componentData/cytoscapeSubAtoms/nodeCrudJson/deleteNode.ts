@@ -29,6 +29,7 @@ const deleteNodeJson = [
 					right: '2rem',
 					color: 'white',
 					borderRadius: '10px',
+					cursor: 'pointer',
 				},
 			},
 

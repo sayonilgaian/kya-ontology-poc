@@ -52,7 +52,7 @@ const cyThirdPartAtom = [
 					source: 'exact',
 					value: {
 						layout: {
-							name: 'circle', // options: grid, cose, breadthfirst, concentric, circle
+							name: 'cose', // options: grid, cose, breadthfirst, concentric, circle
 							idealEdgeLength: 100,
 							nodeOverlap: 20,
 							refresh: 20,
