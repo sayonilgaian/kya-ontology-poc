@@ -156,6 +156,81 @@ const ontologyApiCallJson = [
 			],
 		},
 	},
+
+	{
+		type: 'InteractionAtom',
+		id: 'save-ontology-data-from-api',
+		config: {
+			trigger: null,
+			action: 'setState',
+			dependencies: ['getOntologyApiCall'],
+			params: [
+				{
+					source: 'exact',
+					value: 'cyConfigElementsState',
+				},
+				{
+					source: 'pipe',
+					value:''
+				},
+			],
+		},
+	},
+
+	// // format ontology api response to cytoscape config
+	{
+		type: 'InteractionAtom',
+		id: 'formatOntologiApiResponse',
+		config: {
+			trigger: null,
+			dependencies: ['save-ontology-data-from-api'],
+			action: 'transformOntologyData',
+			params: [
+				{
+					source: 'pipe',
+				},
+			],
+		},
+	},
+	{
+		type: 'InteractionAtom',
+		id: 'set-new-format-in-object',
+		config: {
+			trigger: null,
+			dependencies: ['formatOntologiApiResponse'],
+			action: 'setMethod',
+			params: [
+				{
+					source: 'state',
+					name: 'cyConfigElementsState'},
+				{ source: 'exact', value: 'element' },
+				{ source: 'pipe' },
+			],
+		},
+	},
+		{
+		type: 'InteractionAtom',
+		id: 'save-ontology-data-after-transformed',
+		config: {
+			trigger: null,
+			action: 'setState',
+			dependencies: ['set-new-format-in-object'],
+			params: [
+				{
+					source: 'exact',
+					value: 'cyConfigElementsState',
+				},
+				{
+					source: 'pipe',
+					value:''
+				},
+			],
+		},
+	},
+
+	
+
+
 	// save ontology id in state
 	{
 		type: 'StateAtom',
@@ -166,42 +241,176 @@ const ontologyApiCallJson = [
 			value: '6891a09c03d2e55af06e2fff',
 		},
 	},
+	
 
-	// format ontology api response to cytoscape config
-	{
-		type: 'InteractionAtom',
-		id: 'formatOntologiApiResponse',
-		config: {
-			trigger: null,
-			dependencies: ['getOntologyApiCall'],
-			action: 'transformOntologyData',
-			params: [
-				{
-					source: 'pipe',
-				},
-			],
-		},
-	},
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'get-class-list',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['getOntologyApiCall'],
+	// 		action: 'getMethod',
+	// 		params: [{ source: 'pipe' }, { source: 'exact', value: 'classes' }],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'set-classlist-in-object',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['get-class-list'],
+	// 		action: 'setMethod',
+	// 		params: [
+	// 			{
+	// 				source: 'exact',
+	// 				value: {
+	// 					classes: [],
+	// 					properties: [],
+	// 					formatOntologyData: []
+	// 				},
+	// 			},
+	// 			{ source: 'exact', value: 'classes' },
+	// 			{ source: 'pipe' },
+	// 		],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'setStateCyConfig-01',
+	// 	config: {
+	// 		trigger: null,
+	// 		action: 'setState',
+	// 		dependencies: ['set-classlist-in-object'],
+	// 		params: [
+	// 			{
+	// 				source: 'exact',
+	// 				value: 'cyConfigElementsState',
+	// 			},
+	// 			{
+	// 				source: 'pipe',
+	// 				value:''
+	// 			},
+	// 		],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'get-properties-list',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['setStateCyConfig-01', ''],
+	// 		action: 'getMethod',
+	// 		params: [{ source: 'pipe' }, { source: 'exact', value: 'properties' }],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'set-properties-in-object',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['setStateCyConfig-01'],
+	// 		action: 'setMethod',
+	// 		params: [
+	// 			{
+	// 				source: 'state',
+	// 				name:'cyConfigElementsState',
+	// 			},
+	// 			{ source: 'exact', value: 'properties' },
+	// 			{ source: 'pipe' },
+	// 		],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'setStateCyConfig-02',
+	// 	config: {
+	// 		trigger: null,
+	// 		action: 'setState',
+	// 		dependencies: ['set-properties-in-object'],
+	// 		params: [
+	// 			{
+	// 				source: 'exact',
+	// 				value: 'cyConfigElementsState',
+	// 			},
+	// 			{
+	// 				source: 'pipe',
+	// 				value:''
+	// 			},
+	// 		],
+	// 	},
+	// },
+	// // format ontology api response to cytoscape config
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'formatOntologiApiResponse',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['getOntologyApiCall'],
+	// 		action: 'transformOntologyData',
+	// 		params: [
+	// 			{
+	// 				source: 'pipe',
+	// 			},
+	// 		],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'set-formatOntologyData-in-object',
+	// 	config: {
+	// 		trigger: null,
+	// 		dependencies: ['setStateCyConfig-02' , 'formatOntologiApiResponse'],
+	// 		action: 'setMethod',
+	// 		params: [
+	// 			{
+	// 				source: 'state',
+	// 				name:'cyConfigElementsState',
+	// 			},
+	// 			{ source: 'exact', value: 'formatOntologyData' },
+	// 			{ source: 'pipe' , value:'formatOntologiApiResponse'},
+	// 		],
+	// 	},
+	// },
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'setStateCyConfig-01',
+	// 	config: {
+	// 		trigger: null,
+	// 		action: 'setState',
+	// 		dependencies: ['set-formatOntologyData-in-object'],
+	// 		params: [
+	// 			{
+	// 				source: 'exact',
+	// 				value: 'cyConfigElementsState',
+	// 			},
+	// 			{
+	// 				source: 'pipe',
+	// 				value:''
+	// 			},
+	// 		],
+	// 	},
+	// },
 
 	// Handle formatted response and store the token in state.
-	{
-		type: 'InteractionAtom',
-		id: 'setStateCyConfig',
-		config: {
-			trigger: null,
-			action: 'setState',
-			dependencies: ['formatOntologiApiResponse'],
-			params: [
-				{
-					source: 'exact',
-					value: 'cyConfigElementsState',
-				},
-				{
-					source: 'pipe',
-				},
-			],
-		},
-	},
+	// {
+	// 	type: 'InteractionAtom',
+	// 	id: 'setStateCyConfig',
+	// 	config: {
+	// 		trigger: null,
+	// 		action: 'setState',
+	// 		dependencies: ['set-classlist-in-object'],
+	// 		params: [
+	// 			{
+	// 				source: 'exact',
+	// 				value: 'cyConfigElementsState',
+	// 			},
+	// 			{
+	// 				source: 'pipe',
+	// 				value:'set-classlist-in-object'
+	// 			},
+	// 		],
+	// 	},
+	// },
 ];
 
 export default ontologyApiCallJson;
