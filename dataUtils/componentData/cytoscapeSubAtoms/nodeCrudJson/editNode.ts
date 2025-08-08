@@ -30,7 +30,8 @@ const editNodeJson = [
 					padding: '0.5rem 1rem',
 					bottom: '5rem',
 					right: '2rem',
-					color: 'black',
+					color: 'white',
+					borderRadius: '10px',
 				},
 			},
 
@@ -253,7 +254,7 @@ const editNodeJson = [
 					dependencies: [
 						'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
 						'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
-						'create-req-body-part-6'
+						'create-req-body-part-6',
 					],
 					params: [
 						// url
@@ -496,12 +497,12 @@ const editNodeJson = [
 						type: 'LayoutAtom',
 						config: {
 							'min-width': '3rem',
-							width: 'auto',
-							height: '1rem',
-							border: '1px solid #9AA4B2',
-							'border-radius': '0',
-							padding: '2px',
-							outline: '1px solid black',
+							border: 'none',
+							'border-radius': '8px',
+							padding: '8px',
+							outline: 'none',
+							'background-color': '#dadadaff',
+							color: 'black',
 						},
 					},
 					{
