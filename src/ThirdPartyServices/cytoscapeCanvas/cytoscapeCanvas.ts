@@ -72,6 +72,7 @@ export class CytoscapeService implements thirdParty {
 		const defaultConfig = {
 			container: this.container,
 			elements: config.elements || [],
+			// style: config.style,
 			style: config.style || cytoscapeDefaultStyles,
 			layout: config.layout || colaDefaultLayout,
 			// layout: config.layout || cytoscapeDefaultLayout,
