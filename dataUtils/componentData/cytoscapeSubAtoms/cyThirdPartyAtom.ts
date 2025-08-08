@@ -52,22 +52,29 @@ const cyThirdPartAtom = [
 					source: 'exact',
 					value: {
 						layout: {
-							name: 'cose', // options: grid, cose, breadthfirst, concentric, circle
-							idealEdgeLength: 100,
-							nodeOverlap: 20,
-							refresh: 20,
-							fit: true,
-							padding: 30,
-							randomize: false,
-							componentSpacing: 40,
-							nodeRepulsion: 400000,
-							edgeElasticity: 100,
-							nestingFactor: 5,
-							gravity: 8,
-							numIter: 1000,
-							initialTemp: 200,
-							coolingFactor: 0.95,
-							minTemp: 1.0,
+							name: 'cola', // options: grid, cose, breadthfirst, concentric, circle, cola
+							animate: true, // whether to show the layout as it's running
+							refresh: 1, // number of ticks per frame; higher is faster but more jerky
+							avoidOverlap: true, // if true, prevents overlap of node bounding boxes
+							handleDisconnected: true, // if true, avoids disconnected components from overlapping
+							// edgeLength: 300, // sets edge length directly in simulation
+							maxSimulationTime: 4000, // max length in ms to run the layout
+							centerGraph: true, // adjusts the node positions initially to center the graph (pass false if you want to start the layout from the current position)
+							// idealEdgeLength: 100,
+							// nodeOverlap: 20,
+							// refresh: 20,
+							// fit: true,
+							// padding: 30,
+							// randomize: false,
+							// componentSpacing: 40,
+							// nodeRepulsion: 400000,
+							// edgeElasticity: 100,
+							// nestingFactor: 5,
+							// gravity: 8,
+							// numIter: 1000,
+							// initialTemp: 200,
+							// coolingFactor: 0.95,
+							// minTemp: 1.0,
 						},
 						style: [
 							{
@@ -168,7 +175,9 @@ const cyThirdPartAtom = [
 		config: {
 			trigger: null,
 			action: 'setState',
-			dependencies: ['register-on-node-click-3040cdb6-d161-4ea9-94e6-ee0022b39eef'],
+			dependencies: [
+				'register-on-node-click-3040cdb6-d161-4ea9-94e6-ee0022b39eef',
+			],
 			params: [
 				{
 					source: 'exact',

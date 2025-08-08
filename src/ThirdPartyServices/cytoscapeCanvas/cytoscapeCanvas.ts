@@ -9,6 +9,11 @@ import {
 	cytoscapeDefaultStyles,
 	cytoscapeDefaultLayout,
 } from './cytoscapeDataUtils/defaultStyles';
+// @ts-ignore
+import cola from 'cytoscape-cola';
+import colaDefaultLayout from './cytoscapeDataUtils/colaLayoutDefault';
+
+cytoscape.use( cola );
 
 interface CytoscapeConfig {
 	elements?: any[];
@@ -65,8 +70,8 @@ export class CytoscapeService implements thirdParty {
 			container: this.container,
 			elements: config.elements || [],
 			style: config.style || cytoscapeDefaultStyles,
-			// layout: config.layout,
-			layout: config.layout || cytoscapeDefaultLayout,
+			layout: config.layout || colaDefaultLayout,
+			// layout: config.layout || cytoscapeDefaultLayout,
 		};
 
 		// Merge user config with defaults
