@@ -391,7 +391,7 @@ const editNodeJson = [
 							'border-radius': '8px',
 							padding: '8px',
 							outline: 'none',
-							'background-color': '#dadadaff',
+							'background-color': '#ffffffff',
 							color: 'black',
 							cursor:'text'
 						},

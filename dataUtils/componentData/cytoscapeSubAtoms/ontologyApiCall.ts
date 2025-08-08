@@ -142,10 +142,6 @@ const ontologyApiCallJson = [
 					source: 'exact',
 					value: {
 						ontologyId: '6891a09c03d2e55af06e2fff',
-						pagination: {
-							skip: 0,
-							limit: 1000,
-						},
 					},
 				},
 				// service map key

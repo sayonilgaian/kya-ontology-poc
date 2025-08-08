@@ -8,7 +8,7 @@ const cytoscapeGraph = {
 		// styling
 		{
 			type: 'ColourAtom',
-			config: { role: 'background', value: '#d3d3d3ff' },
+			config: { role: 'background', value: '#ffffffff' },
 		},
 		{
 			type: 'LayoutAtom',
