@@ -1,3 +1,5 @@
+import editNodeApiRequestBody from './editNodeRequestBody/editNodeRequestBody';
+
 const editNodeJson = [
 	{
 		tag: 'edit-node',
@@ -30,7 +32,9 @@ const editNodeJson = [
 					padding: '0.5rem 1rem',
 					bottom: '5rem',
 					right: '2rem',
-					color: 'black',
+					color: 'white',
+					borderRadius: '10px',
+					cursor: 'pointer',
 				},
 			},
 
@@ -38,10 +42,10 @@ const editNodeJson = [
 			// Initialize the state to hold node to be created.
 			{
 				type: 'StateAtom',
-				id: 'create-Node-State-015360f3-bdb9-436a-a8a2-4b9600a62d1f',
+				id: 'edit-Node-State-015360f3-bdb9-436a-a8a2-4b9600a62d1f',
 				config: {
 					op: 'Initialize',
-					name: 'createNodeState',
+					name: 'editNodeState',
 					value: '',
 				},
 			},
@@ -84,7 +88,7 @@ const editNodeJson = [
 						{
 							source: 'pipe',
 						},
-						{ source: 'exact', value: '/create' },
+						{ source: 'exact', value: '/update' },
 					],
 				},
 			},
@@ -107,7 +111,7 @@ const editNodeJson = [
 			// create api call headers
 			{
 				type: 'InteractionAtom',
-				id: 'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+				id: 'create-headers-for-edit-node',
 				config: {
 					trigger: null,
 					dependencies: [
@@ -128,132 +132,19 @@ const editNodeJson = [
 				},
 			},
 			// create request body object
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-1-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
-				config: {
-					trigger: null,
-					action: 'concatString',
-					dependencies: [
-						'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
-					],
-					params: [
-						{
-							source: 'exact',
-							value: 'http://www.semanticweb.org/mdebe/ontologies/example#',
-						},
-						{ source: 'state', name: 'createNodeState' },
-					],
-				},
-			},
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-2-bc73957f-7b72-4023-bd60-d9a2b65193f4',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-req-body-part-1-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
-					],
-					action: 'setMethod',
-					params: [
-						{
-							source: 'exact',
-							value: {
-								name: '',
-								url: '',
-								attributes: {},
-								ontologyNodeTypeEnum: 'CLASS',
-							},
-						},
-						{ source: 'exact', value: 'url' },
-						{ source: 'pipe' },
-					],
-				},
-			},
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-3-40706680-6b9b-4e25-8e80-4943a016f796',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-req-body-part-2-bc73957f-7b72-4023-bd60-d9a2b65193f4',
-					],
-					action: 'setMethod',
-					params: [
-						{
-							source: 'pipe',
-						},
-						{ source: 'exact', value: 'name' },
-						{ source: 'state', name: 'createNodeState' },
-					],
-				},
-			},
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-4-56dbf607-6e12-4b84-bf06-2dfe4a214681',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-req-body-part-3-40706680-6b9b-4e25-8e80-4943a016f796',
-					],
-					action: 'setMethod',
-					params: [
-						{
-							source: 'exact',
-							value: {
-								properties: {},
-							},
-						},
-						{ source: 'exact', value: 'properties' },
-						{ source: 'pipe' },
-					],
-				},
-			},
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-5',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-req-body-part-4-56dbf607-6e12-4b84-bf06-2dfe4a214681',
-					],
-					action: 'pushToArray',
-					params: [
-						{
-							source: 'state',
-							name: 'tempArrayState',
-						},
-						{ source: 'pipe' },
-					],
-				},
-			},
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-part-6',
-				config: {
-					trigger: null,
-					dependencies: ['create-req-body-part-5'],
-					action: 'setState',
-					params: [
-						{
-							source: 'exact',
-							value: 'tempArrayState',
-						},
-						{ source: 'pipe' },
-					],
-				},
-			},
-			// make create api call
+			...editNodeApiRequestBody,
+
+			// make edit node api call
 			{
 				type: 'InteractionAtom',
 				id: 'create-node-a6f9b186-574f-469b-b252-dcc1e6140d17',
 				config: {
 					trigger: null,
-					action: 'post',
+					action: 'put',
 					dependencies: [
 						'create-node-url-part-2-9f3154a5-53a9-4d4c-8eb7-8900d2dc2fb3',
-						'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
-						'create-req-body-part-6'
+						'create-headers-for-edit-node',
+						'edit-req-body-part-7',
 					],
 					params: [
 						// url
@@ -274,7 +165,7 @@ const editNodeJson = [
 						// request headers
 						{
 							source: 'pipe',
-							value: 'create-headers-bf127fc7-04fd-4011-a82a-e21e4fc68ccb',
+							value: 'create-headers-for-edit-node',
 						},
 					],
 				},
@@ -433,10 +324,10 @@ const editNodeJson = [
 					],
 				},
 			},
-			// clear delete nodes state and selected nodes state
+			// clear edit node state and selected nodes state
 			{
 				type: 'InteractionAtom',
-				id: 'update-delete-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
+				id: 'update-edit-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
 				config: {
 					trigger: null,
 					action: 'setState',
@@ -444,7 +335,7 @@ const editNodeJson = [
 						'setStateCyConfig-657a2762-23f1-47b5-9f13-f77971d40a48',
 					],
 					params: [
-						{ source: 'exact', value: 'deleteNodesState' },
+						{ source: 'exact', value: 'editNodesState' },
 						{ source: 'exact', value: [] },
 					],
 				},
@@ -456,7 +347,7 @@ const editNodeJson = [
 					trigger: null,
 					action: 'setState',
 					dependencies: [
-						'update-delete-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
+						'update-edit-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
 					],
 					params: [
 						{ source: 'exact', value: 'selectedNode' },
@@ -471,7 +362,7 @@ const editNodeJson = [
 					trigger: null,
 					action: 'setState',
 					dependencies: [
-						'update-delete-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
+						'update-edit-state-2b6b3512-8b56-4ea3-9c1d-209af2960d20',
 					],
 					params: [
 						{ source: 'exact', value: 'tempArrayState' },
@@ -482,11 +373,11 @@ const editNodeJson = [
 		],
 		children: [
 			{
-				tag: 'create-node-label-input',
+				tag: 'edit-node-label-input',
 				atoms: [
 					{
 						type: 'attributeAtom',
-						id: '7ed40074-53d7-489d-821a-f06775c39260',
+						id: '8b7d03f0-1f62-437d-9311-ba9a9bf8bc75',
 						config: {
 							attribute: 'contenteditable',
 							value: 'true',
@@ -496,17 +387,18 @@ const editNodeJson = [
 						type: 'LayoutAtom',
 						config: {
 							'min-width': '3rem',
-							width: 'auto',
-							height: '1rem',
-							border: '1px solid #9AA4B2',
-							'border-radius': '0',
-							padding: '2px',
-							outline: '1px solid black',
+							border: 'none',
+							'border-radius': '8px',
+							padding: '8px',
+							outline: 'none',
+							'background-color': '#dadadaff',
+							color: 'black',
+							cursor:'text'
 						},
 					},
 					{
 						type: 'InteractionAtom',
-						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319',
+						id: 'edit-node-input-928fa22d-187a-4063-8801-ea0425256319',
 						config: {
 							trigger: 'input',
 							dependencies: [],
@@ -516,11 +408,11 @@ const editNodeJson = [
 					},
 					{
 						type: 'InteractionAtom',
-						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
+						id: 'edit-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
 						config: {
 							trigger: null,
 							dependencies: [
-								'create-node-input-928fa22d-187a-4063-8801-ea0425256319',
+								'edit-node-input-928fa22d-187a-4063-8801-ea0425256319',
 							],
 							params: [{ source: 'pipe' }],
 							action: 'handleInput',
@@ -528,15 +420,15 @@ const editNodeJson = [
 					},
 					{
 						type: 'InteractionAtom',
-						id: 'create-node-input-928fa22d-187a-4063-8801-ea0425256319-3',
+						id: 'edit-node-input-928fa22d-187a-4063-8801-ea0425256319-3',
 						config: {
 							trigger: null,
 							action: 'setState',
 							dependencies: [
-								'create-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
+								'edit-node-input-928fa22d-187a-4063-8801-ea0425256319-2',
 							],
 							params: [
-								{ source: 'exact', value: 'createNodeState' },
+								{ source: 'exact', value: 'editNodeState' },
 								{ source: 'pipe' },
 							],
 						},
