@@ -141,7 +141,7 @@ const ontologyApiCallJson = [
 				{
 					source: 'exact',
 					value: {
-						ontologyId: '6891a09c03d2e55af06e2fff',
+						ontologyId: '6896099b2bc8a3006b70805c',
 					},
 				},
 				// service map key
@@ -163,7 +163,7 @@ const ontologyApiCallJson = [
 		config: {
 			op: 'Initialize',
 			name: 'ontologyId',
-			value: '6891a09c03d2e55af06e2fff',
+			value: '6896099b2bc8a3006b70805c',
 		},
 	},
 
