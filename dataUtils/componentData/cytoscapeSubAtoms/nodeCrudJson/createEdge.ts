@@ -6,7 +6,7 @@ const createEdgeJson = [
 			{ type: 'ContentAtom', config: { text: 'Create Edge:' } },
 			{
 				type: 'ColourAtom',
-				config: { role: 'background',  value: '#005a08ff' },
+				config: { role: 'background', value: '#005a08ff' },
 			},
 			{
 				type: 'TypographyAtom',
@@ -18,7 +18,7 @@ const createEdgeJson = [
 			{
 				type: 'LayoutAtom',
 				config: {
-					display: 'flex',
+					// display: 'flex',
 					align: 'center',
 					gap: '16px',
 					padding: '0.5rem 1rem',
@@ -27,7 +27,8 @@ const createEdgeJson = [
 					bottom: '6rem',
 					left: '2rem',
 					color: 'white',
-					cursor: 'pointer',
+					display: 'grid',
+					width: '9rem',
 				},
 			},
 
@@ -62,118 +63,244 @@ const createEdgeJson = [
 			},
 		],
 		children: [
-			// Inputs (label + input) for edgeName, domainName, rangeName:
 			{
 				tag: 'edge-name-input',
 				atoms: [
-					{ type: 'ContentAtom', config: { text: '' } },
-					{
-						type: 'attributeAtom',
-						config: { attribute: 'contenteditable', value: 'true' },
-					},
 					{
 						type: 'LayoutAtom',
 						config: {
 							'min-width': '3rem',
 							border: 'none',
 							borderRadius: '8px',
-							padding: '8px',
 							outline: 'none',
-							background: '#fff',
-							color: 'black',
+							color: '#fff',
 							cursor: 'text',
+							display: 'flex',
+							'align-items': 'center',
 						},
 					},
-					// input pipeline
+				],
+				children: [
 					{
-						type: 'InteractionAtom',
-						id: 'edge-name-input-read',
-						config: {
-							trigger: 'input',
-							action: 'read',
-							params: [{}],
-						},
+						tag: 'edge-name-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: 'Name' } },
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '3rem',
+									border: 'none',
+									borderRadius: '8px',
+									// padding: '8px',
+									outline: 'none',
+									color: '#fff',
+									cursor: 'text',
+								},
+							},
+						],
 					},
 					{
-						type: 'InteractionAtom',
-						id: 'edge-name-handle',
-						config: {
-							trigger: null,
-							dependencies: ['edge-name-input-read'],
-							action: 'handleInput',
-							params: [{ source: 'pipe' }],
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'set-state-edge-name',
-						config: {
-							trigger: null,
-							dependencies: ['edge-name-handle'],
-							action: 'setState',
-							params: [
-								{ source: 'exact', value: 'edgeNameState' },
-								{ source: 'pipe' },
-							],
-						},
+						tag: 'edge-name-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: 'c' } },
+							{
+								type: 'attributeAtom',
+								config: {
+									attribute: 'contenteditable',
+									value: 'true',
+								},
+							},
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '3rem',
+									border: 'none',
+									borderRadius: '8px',
+									padding: '8px',
+									outline: 'none',
+									background: '#fff',
+									color: 'black',
+									cursor: 'text',
+									width: '7rem',
+									display: 'flex',
+								},
+							},
+							// input pipeline
+							{
+								type: 'InteractionAtom',
+								id: 'edge-name-input-read',
+								config: {
+									trigger: 'input',
+									action: 'read',
+									params: [{}],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'edge-name-handle',
+								config: {
+									trigger: null,
+									dependencies: ['edge-name-input-read'],
+									action: 'handleInput',
+									params: [{ source: 'pipe' }],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'set-state-edge-name',
+								config: {
+									trigger: null,
+									dependencies: ['edge-name-handle'],
+									action: 'setState',
+									params: [
+										{
+											source: 'exact',
+											value: 'edgeNameState',
+										},
+										{ source: 'pipe' },
+									],
+								},
+							},
+						],
 					},
 				],
 			},
 			{
 				tag: 'edge-domain-input',
 				atoms: [
-					{ type: 'ContentAtom', config: { text: '' } },
-					{
-						type: 'attributeAtom',
-						config: { attribute: 'contenteditable', value: 'true' },
-					},
 					{
 						type: 'LayoutAtom',
 						config: {
 							'min-width': '3rem',
 							border: 'none',
 							borderRadius: '8px',
-							padding: '8px',
 							outline: 'none',
-							background: '#fff',
-							color: 'black',
+							color: '#fff',
 							cursor: 'text',
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'edge-domain-input-read',
-						config: {
-							trigger: 'input',
-							action: 'read',
-							params: [{}],
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'edge-domain-handle',
-						config: {
-							trigger: null,
-							dependencies: ['edge-domain-input-read'],
-							action: 'handleInput',
-							params: [{ source: 'pipe' }],
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'set-state-edge-domain',
-						config: {
-							trigger: null,
-							dependencies: ['edge-domain-handle'],
-							action: 'setState',
-							params: [
-								{ source: 'exact', value: 'edgeDomainState' },
-								{ source: 'pipe' },
-							],
+							display: 'flex',
+							'align-items': 'center',
 						},
 					},
 				],
+				children: [
+					{
+						tag: 'edge-domain-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: 'domain' } },
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '3rem',
+									border: 'none',
+									borderRadius: '8px',
+									// padding: '8px',
+									outline: 'none',
+									color: '#fff',
+									cursor: 'text',
+								},
+							},
+						],
+					},
+					{
+						tag: 'edge-domain-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: '' } },
+							{
+								type: 'attributeAtom',
+								config: {
+									attribute: 'contenteditable',
+									value: 'true',
+								},
+							},
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '5rem',
+									border: 'none',
+									borderRadius: '8px',
+									padding: '8px',
+									outline: 'none',
+									background: '#fff',
+									color: 'black',
+									cursor: 'text',
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'edge-domain-input-read',
+								config: {
+									trigger: 'input',
+									action: 'read',
+									params: [{}],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'edge-domain-handle',
+								config: {
+									trigger: null,
+									dependencies: ['edge-domain-input-read'],
+									action: 'handleInput',
+									params: [{ source: 'pipe' }],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'set-state-edge-domain',
+								config: {
+									trigger: null,
+									dependencies: ['edge-domain-handle'],
+									action: 'setState',
+									params: [
+										{
+											source: 'exact',
+											value: 'edgeDomainState',
+										},
+										{ source: 'pipe' },
+									],
+								},
+							},
+						],
+					},
+				],
 			},
+{
+				tag: 'edge-domain-input',
+				atoms: [
+					{
+						type: 'LayoutAtom',
+						config: {
+							'min-width': '3rem',
+							border: 'none',
+							borderRadius: '8px',
+							outline: 'none',
+							color: '#fff',
+							cursor: 'text',
+							display: 'flex',
+							'align-items': 'center',
+						},
+					},
+				],
+				children: [
+					{
+						tag: 'edge-domain-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: 'range' } },
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '3rem',
+									border: 'none',
+									borderRadius: '8px',
+									// padding: '8px',
+									outline: 'none',
+									color: '#fff',
+									cursor: 'text',
+								},
+							},
+						],
+					},
+					
 			{
 				tag: 'edge-range-input',
 				atoms: [
@@ -185,7 +312,7 @@ const createEdgeJson = [
 					{
 						type: 'LayoutAtom',
 						config: {
-							'min-width': '3rem',
+							'min-width': '5rem',
 							border: 'none',
 							borderRadius: '8px',
 							padding: '8px',
@@ -229,14 +356,16 @@ const createEdgeJson = [
 					},
 				],
 			},
+				],
+			},
 			{
 				tag: 'edge-button-create',
 				atoms: [
 					{ type: 'ContentAtom', config: { text: 'Create' } },
 					{
-				type: 'ColourAtom',
-				config: { role: 'background', value: '#0d3b10ff' },
-			},
+						type: 'ColourAtom',
+						config: { role: 'background', value: '#0d3b10ff' },
+					},
 					{
 						type: 'LayoutAtom',
 						config: {
@@ -246,7 +375,8 @@ const createEdgeJson = [
 							padding: '8px',
 							outline: 'none',
 							color: '#fff',
-                            cursor: 'pointer'
+							cursor: 'pointer',
+							'text-align':'center'
 						},
 					},
 					// -- 1. Compose edge property URL --
@@ -628,160 +758,160 @@ const createEdgeJson = [
 						},
 					},
 					// create headers for next api call in pipeline
-			{
-				type: 'InteractionAtom',
-				id: 'create-get-ontology-api-headers',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
-						'clear-state-tempEdgeArrayState',
-						'post-create-edge-api',
-					],
-					action: 'setMethod',
-					params: [
-						{
-							source: 'exact',
-							value: {
-								accept: '*/*',
-								'content-type': 'application/json',
-								authorization: '',
-							},
+					{
+						type: 'InteractionAtom',
+						id: 'create-get-ontology-api-headers',
+						config: {
+							trigger: null,
+							dependencies: [
+								'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
+								'clear-state-tempEdgeArrayState',
+								'post-create-edge-api',
+							],
+							action: 'setMethod',
+							params: [
+								{
+									source: 'exact',
+									value: {
+										accept: '*/*',
+										'content-type': 'application/json',
+										authorization: '',
+									},
+								},
+								{ source: 'exact', value: 'authorization' },
+								{
+									source: 'pipe',
+									value: 'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
+								},
+							],
 						},
-						{ source: 'exact', value: 'authorization' },
-						{
-							source: 'pipe',
-							value: 'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
-						},
-					],
-				},
-			},
+					},
 
-			// set api call request body
-			{
-				type: 'InteractionAtom',
-				id: 'create-req-body-get-ontology-api',
-				config: {
-					trigger: null,
-					dependencies: ['create-get-ontology-api-headers'],
-					action: 'setMethod',
-					params: [
-						{
-							source: 'exact',
-							value: {
-								ontologyId: '',
-							},
+					// set api call request body
+					{
+						type: 'InteractionAtom',
+						id: 'create-req-body-get-ontology-api',
+						config: {
+							trigger: null,
+							dependencies: ['create-get-ontology-api-headers'],
+							action: 'setMethod',
+							params: [
+								{
+									source: 'exact',
+									value: {
+										ontologyId: '',
+									},
+								},
+								{
+									source: 'exact',
+									value: 'ontologyId',
+								},
+								{
+									source: 'state',
+									name: 'ontologyId',
+								},
+							],
 						},
-						{
-							source: 'exact',
-							value: 'ontologyId',
-						},
-						{
-							source: 'state',
-							name: 'ontologyId',
-						},
-					],
-				},
-			},
+					},
 
-			// make ontology api call
-			{
-				type: 'InteractionAtom',
-				id: 'getOntologyApiCall',
-				config: {
-					trigger: null,
-					dependencies: [
-						'create-req-body-get-ontology-api',
-						'create-get-ontology-api-headers',
-					],
-					action: 'post',
-					params: [
-						// url
-						{
-							source: 'exact',
-							value: 'https://ig.gov-cloud.ai/pi-ontology-service/ontology/v2.0/get?graphDb=NEO4J&outPutType=JSON',
+					// make ontology api call
+					{
+						type: 'InteractionAtom',
+						id: 'getOntologyApiCall',
+						config: {
+							trigger: null,
+							dependencies: [
+								'create-req-body-get-ontology-api',
+								'create-get-ontology-api-headers',
+							],
+							action: 'post',
+							params: [
+								// url
+								{
+									source: 'exact',
+									value: 'https://ig.gov-cloud.ai/pi-ontology-service/ontology/v2.0/get?graphDb=NEO4J&outPutType=JSON',
+								},
+								// req body
+								{
+									source: 'pipe',
+									value: 'create-req-body-get-ontology-api',
+								},
+								// service map key
+								{
+									source: 'exact',
+									value: '',
+								},
+								// get headers from above pipeline step
+								{
+									source: 'pipe',
+									value: 'create-get-ontology-api-headers',
+								},
+							],
 						},
-						// req body
-						{
-							source: 'pipe',
-							value: 'create-req-body-get-ontology-api',
-						},
-						// service map key
-						{
-							source: 'exact',
-							value: '',
-						},
-						// get headers from above pipeline step
-						{
-							source: 'pipe',
-							value: 'create-get-ontology-api-headers',
-						},
-					],
-				},
-			},
+					},
 
-			// format ontology api response to cytoscape config
-			{
-				type: 'InteractionAtom',
-				id: 'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
-				config: {
-					trigger: null,
-					dependencies: ['getOntologyApiCall'],
-					action: 'transformOntologyData',
-					params: [
-						{
-							source: 'pipe',
+					// format ontology api response to cytoscape config
+					{
+						type: 'InteractionAtom',
+						id: 'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
+						config: {
+							trigger: null,
+							dependencies: ['getOntologyApiCall'],
+							action: 'transformOntologyData',
+							params: [
+								{
+									source: 'pipe',
+								},
+							],
 						},
-					],
-				},
-			},
+					},
 
-			// Handle formatted response and store the config in state.
-			{
-				type: 'InteractionAtom',
-				id: 'setStateCyConfig-657a2762-23f1-47b5-9f13-f77971d40a48',
-				config: {
-					trigger: null,
-					action: 'setState',
-					dependencies: [
-						'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
-					],
-					params: [
-						{
-							source: 'exact',
-							value: 'cyConfigElementsState',
+					// Handle formatted response and store the config in state.
+					{
+						type: 'InteractionAtom',
+						id: 'setStateCyConfig-657a2762-23f1-47b5-9f13-f77971d40a48',
+						config: {
+							trigger: null,
+							action: 'setState',
+							dependencies: [
+								'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
+							],
+							params: [
+								{
+									source: 'exact',
+									value: 'cyConfigElementsState',
+								},
+								{
+									source: 'pipe',
+								},
+							],
 						},
-						{
-							source: 'pipe',
+					},
+					// render cytoscape canvas using previously made config and updates elements state after api call
+					{
+						type: 'InteractionAtom',
+						id: 'render-cy-graph',
+						config: {
+							trigger: 'StateChange',
+							state: 'cyConfigElementsState',
+							action: 'callThirdPartyService',
+							params: [
+								{
+									source: 'exact',
+									value: 'cy-graph',
+								},
+								{
+									source: 'exact',
+									value: 'updateData',
+								},
+								{
+									source: 'state',
+									name: 'cyConfigElementsState',
+								},
+							],
 						},
-					],
-				},
-			},
-			// render cytoscape canvas using previously made config and updates elements state after api call
-			{
-				type: 'InteractionAtom',
-				id: 'render-cy-graph',
-				config: {
-					trigger: 'StateChange',
-					state: 'cyConfigElementsState',
-					action: 'callThirdPartyService',
-					params: [
-						{
-							source: 'exact',
-							value: 'cy-graph',
-						},
-						{
-							source: 'exact',
-							value: 'updateData',
-						},
-						{
-							source: 'state',
-							name: 'cyConfigElementsState',
-						},
-					],
-				},
-			},
-                    // {
+					},
+					// {
 					// 	type: 'InteractionAtom',
 					// 	id: 'clear-state-edgeDomainState',
 					// 	config: {
@@ -797,7 +927,7 @@ const createEdgeJson = [
 					// 		],
 					// 	},
 					// },
-                    // {
+					// {
 					// 	type: 'InteractionAtom',
 					// 	id: 'clear-state-edgeNameState',
 					// 	config: {
@@ -813,7 +943,7 @@ const createEdgeJson = [
 					// 		],
 					// 	},
 					// },
-                    // {
+					// {
 					// 	type: 'InteractionAtom',
 					// 	id: 'clear-state-edgeRangeState',
 					// 	config: {
