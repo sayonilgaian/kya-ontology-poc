@@ -1,4 +1,4 @@
-import editEdgeApiRequestBody from "./editNodeRequestBody/editEdgeRequestBody";
+import editEdgeApiRequestBody from './editNodeRequestBody/editEdgeRequestBody';
 
 const editEdgeJson = [
 	{
@@ -27,14 +27,16 @@ const editEdgeJson = [
 				config: {
 					position: 'absolute',
 					display: 'flex',
+					'justify-content': 'space-between',
 					align: 'center',
-					gap: '10px',
+					gap: '5px',
 					padding: '0.5rem 1rem',
 					bottom: '2rem',
 					left: '2rem',
 					color: 'white',
 					borderRadius: '10px',
 					cursor: 'pointer',
+					width: '11rem',
 				},
 			},
 
@@ -386,14 +388,14 @@ const editEdgeJson = [
 					{
 						type: 'LayoutAtom',
 						config: {
-							'min-width': '3rem',
+							'min-width': '5rem',
 							border: 'none',
 							'border-radius': '8px',
 							padding: '8px',
 							outline: 'none',
 							'background-color': '#ffffffff',
 							color: 'black',
-							cursor:'text'
+							cursor: 'text',
 						},
 					},
 					{

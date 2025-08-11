@@ -28,7 +28,7 @@ const createEdgeJson = [
 					left: '2rem',
 					color: 'white',
 					display: 'grid',
-					width: '9rem',
+					width: '11rem',
 				},
 			},
 
@@ -76,6 +76,7 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
+							gap:'5px',
 							'align-items': 'center',
 						},
 					},
@@ -88,7 +89,7 @@ const createEdgeJson = [
 							{
 								type: 'LayoutAtom',
 								config: {
-									'min-width': '3rem',
+									// 'min-width': '3rem',
 									border: 'none',
 									borderRadius: '8px',
 									// padding: '8px',
@@ -102,7 +103,7 @@ const createEdgeJson = [
 					{
 						tag: 'edge-name-input',
 						atoms: [
-							{ type: 'ContentAtom', config: { text: 'c' } },
+							{ type: 'ContentAtom', config: { text: '' } },
 							{
 								type: 'attributeAtom',
 								config: {
@@ -178,6 +179,8 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
+							gap:'5px',
+							'justify-content': 'space-between',
 							'align-items': 'center',
 						},
 					},
@@ -190,13 +193,13 @@ const createEdgeJson = [
 							{
 								type: 'LayoutAtom',
 								config: {
-									'min-width': '3rem',
+									// 'min-width': '3rem',
 									border: 'none',
 									borderRadius: '8px',
 									// padding: '8px',
 									outline: 'none',
 									color: '#fff',
-									cursor: 'text',
+									cursor: 'text'
 								},
 							},
 						],
@@ -215,7 +218,7 @@ const createEdgeJson = [
 							{
 								type: 'LayoutAtom',
 								config: {
-									'min-width': '5rem',
+									'min-width': '6rem',
 									border: 'none',
 									borderRadius: '8px',
 									padding: '8px',
@@ -277,6 +280,8 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
+							gap:'5px',
+							'justify-content': 'space-between',
 							'align-items': 'center',
 						},
 					},
@@ -312,7 +317,7 @@ const createEdgeJson = [
 					{
 						type: 'LayoutAtom',
 						config: {
-							'min-width': '5rem',
+							'min-width': '7rem',
 							border: 'none',
 							borderRadius: '8px',
 							padding: '8px',
