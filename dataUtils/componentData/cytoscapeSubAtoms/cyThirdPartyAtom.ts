@@ -124,6 +124,22 @@ const cyThirdPartAtom = [
 									color: '#123456',
 								},
 							},
+							{
+								selector: 'node:selected',
+								style: {
+									'background-color': '#55f090',
+									'border-width': 5,
+									'border-color': '#55f090',
+								},
+							},
+							{
+								selector: 'edge:selected',
+								style: {
+									'line-color': '#ff6b6b',
+									'target-arrow-color': '#ff6b6b',
+									width: 6,
+								},
+							},
 						],
 						zoom: 1,
 						pan: { x: 0, y: 0 },

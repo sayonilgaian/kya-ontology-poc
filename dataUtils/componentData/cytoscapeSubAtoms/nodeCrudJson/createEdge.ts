@@ -6,7 +6,14 @@ const createEdgeJson = [
 			{ type: 'ContentAtom', config: { text: 'Create Edge:' } },
 			{
 				type: 'ColourAtom',
-				config: { role: 'background', value: '#3e469aff' },
+				config: { role: 'background',  value: '#005a08ff' },
+			},
+			{
+				type: 'TypographyAtom',
+				config: {
+					role: 'font',
+					value: 'sans-serif',
+				},
 			},
 			{
 				type: 'LayoutAtom',
@@ -225,11 +232,11 @@ const createEdgeJson = [
 			{
 				tag: 'edge-button-create',
 				atoms: [
-					{ type: 'ContentAtom', config: { text: 'Create Edge' } },
+					{ type: 'ContentAtom', config: { text: 'Create' } },
 					{
-						type: 'attributeAtom',
-						config: { attribute: 'contenteditable', value: 'true' },
-					},
+				type: 'ColourAtom',
+				config: { role: 'background', value: '#0d3b10ff' },
+			},
 					{
 						type: 'LayoutAtom',
 						config: {
@@ -238,7 +245,6 @@ const createEdgeJson = [
 							borderRadius: '8px',
 							padding: '8px',
 							outline: 'none',
-							background: '#000',
 							color: '#fff',
                             cursor: 'pointer'
 						},
