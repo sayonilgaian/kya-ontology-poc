@@ -123,13 +123,54 @@ const ontologyApiCallJson = [
 		},
 	},
 
+	// save ontology id in state
+	{
+		type: 'StateAtom',
+		id: 'ontologyIdState',
+		config: {
+			op: 'Initialize',
+			name: 'ontologyId',
+			value: '6896099b2bc8a3006b70805c',
+		},
+	},
+
+	// create request body for get ontology api
+	{
+		type: 'InteractionAtom',
+		id: 'create request body for get ontology api',
+		config: {
+			trigger: null,
+			dependencies: ['setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5'],
+			action: 'setMethod',
+			params: [
+				{
+					source: 'exact',
+					value: {
+						ontologyId: '',
+					},
+				},
+				{
+					source: 'exact',
+					value: 'ontologyId',
+				},
+				{
+					source: 'state',
+					name: 'ontologyId',
+				},
+			],
+		},
+	},
+
 	// make ontology api call
 	{
 		type: 'InteractionAtom',
 		id: 'getOntologyApiCall',
 		config: {
 			trigger: null,
-			dependencies: ['setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5'],
+			dependencies: [
+				'setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5',
+				'create request body for get ontology api',
+			],
 			action: 'post',
 			params: [
 				// url
@@ -139,10 +180,8 @@ const ontologyApiCallJson = [
 				},
 				// req body
 				{
-					source: 'exact',
-					value: {
-						ontologyId: '6896099b2bc8a3006b70805c',
-					},
+					source: 'pipe',
+					value: 'create request body for get ontology api',
 				},
 				// service map key
 				{
@@ -152,18 +191,9 @@ const ontologyApiCallJson = [
 				// get headers from above pipeline step
 				{
 					source: 'pipe',
+					value: 'setMethod-87ca0862-2fc6-429d-8c80-1cdb2bc094f5',
 				},
 			],
-		},
-	},
-	// save ontology id in state
-	{
-		type: 'StateAtom',
-		id: 'ontologyIdState',
-		config: {
-			op: 'Initialize',
-			name: 'ontologyId',
-			value: '6896099b2bc8a3006b70805c',
 		},
 	},
 

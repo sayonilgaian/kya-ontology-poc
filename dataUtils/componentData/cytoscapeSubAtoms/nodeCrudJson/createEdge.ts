@@ -223,7 +223,7 @@ const createEdgeJson = [
 				],
 			},
 			{
-				tag: 'edge-range-input',
+				tag: 'edge-button-create',
 				atoms: [
 					{ type: 'ContentAtom', config: { text: 'Create Edge' } },
 					{
@@ -621,6 +621,160 @@ const createEdgeJson = [
 							],
 						},
 					},
+					// create headers for next api call in pipeline
+			{
+				type: 'InteractionAtom',
+				id: 'create-get-ontology-api-headers',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
+						'clear-state-tempEdgeArrayState',
+						'post-create-edge-api',
+					],
+					action: 'setMethod',
+					params: [
+						{
+							source: 'exact',
+							value: {
+								accept: '*/*',
+								'content-type': 'application/json',
+								authorization: '',
+							},
+						},
+						{ source: 'exact', value: 'authorization' },
+						{
+							source: 'pipe',
+							value: 'create-access-token-e702bf46-eb27-4bd4-b949-651b208f287e',
+						},
+					],
+				},
+			},
+
+			// set api call request body
+			{
+				type: 'InteractionAtom',
+				id: 'create-req-body-get-ontology-api',
+				config: {
+					trigger: null,
+					dependencies: ['create-get-ontology-api-headers'],
+					action: 'setMethod',
+					params: [
+						{
+							source: 'exact',
+							value: {
+								ontologyId: '',
+							},
+						},
+						{
+							source: 'exact',
+							value: 'ontologyId',
+						},
+						{
+							source: 'state',
+							name: 'ontologyId',
+						},
+					],
+				},
+			},
+
+			// make ontology api call
+			{
+				type: 'InteractionAtom',
+				id: 'getOntologyApiCall',
+				config: {
+					trigger: null,
+					dependencies: [
+						'create-req-body-get-ontology-api',
+						'create-get-ontology-api-headers',
+					],
+					action: 'post',
+					params: [
+						// url
+						{
+							source: 'exact',
+							value: 'https://ig.gov-cloud.ai/pi-ontology-service/ontology/v2.0/get?graphDb=NEO4J&outPutType=JSON',
+						},
+						// req body
+						{
+							source: 'pipe',
+							value: 'create-req-body-get-ontology-api',
+						},
+						// service map key
+						{
+							source: 'exact',
+							value: '',
+						},
+						// get headers from above pipeline step
+						{
+							source: 'pipe',
+							value: 'create-get-ontology-api-headers',
+						},
+					],
+				},
+			},
+
+			// format ontology api response to cytoscape config
+			{
+				type: 'InteractionAtom',
+				id: 'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
+				config: {
+					trigger: null,
+					dependencies: ['getOntologyApiCall'],
+					action: 'transformOntologyData',
+					params: [
+						{
+							source: 'pipe',
+						},
+					],
+				},
+			},
+
+			// Handle formatted response and store the config in state.
+			{
+				type: 'InteractionAtom',
+				id: 'setStateCyConfig-657a2762-23f1-47b5-9f13-f77971d40a48',
+				config: {
+					trigger: null,
+					action: 'setState',
+					dependencies: [
+						'formatOntologiApiResponse-6afb7d98-8a35-4ac0-8928-b7c84510200e',
+					],
+					params: [
+						{
+							source: 'exact',
+							value: 'cyConfigElementsState',
+						},
+						{
+							source: 'pipe',
+						},
+					],
+				},
+			},
+			// render cytoscape canvas using previously made config and updates elements state after api call
+			{
+				type: 'InteractionAtom',
+				id: 'render-cy-graph',
+				config: {
+					trigger: 'StateChange',
+					state: 'cyConfigElementsState',
+					action: 'callThirdPartyService',
+					params: [
+						{
+							source: 'exact',
+							value: 'cy-graph',
+						},
+						{
+							source: 'exact',
+							value: 'updateData',
+						},
+						{
+							source: 'state',
+							name: 'cyConfigElementsState',
+						},
+					],
+				},
+			},
                     // {
 					// 	type: 'InteractionAtom',
 					// 	id: 'clear-state-edgeDomainState',
