@@ -607,7 +607,7 @@ const createEdgeJson = [
 					// --- 10. clear temp array state ---
 					{
 						type: 'InteractionAtom',
-						id: 'clear-state',
+						id: 'clear-state-tempEdgeArrayState',
 						config: {
 							trigger: null,
 							dependencies: ['post-create-edge-api'],
@@ -621,7 +621,54 @@ const createEdgeJson = [
 							],
 						},
 					},
-					// --- Success/notification atoms can go here ---
+                    // {
+					// 	type: 'InteractionAtom',
+					// 	id: 'clear-state-edgeDomainState',
+					// 	config: {
+					// 		trigger: null,
+					// 		dependencies: ['post-create-edge-api'],
+					// 		action: 'setState',
+					// 		params: [
+					// 			{
+					// 				source: 'exact',
+					// 				value: 'edgeDomainState',
+					// 			},
+					// 			{ source: 'exact', value: '' },
+					// 		],
+					// 	},
+					// },
+                    // {
+					// 	type: 'InteractionAtom',
+					// 	id: 'clear-state-edgeNameState',
+					// 	config: {
+					// 		trigger: null,
+					// 		dependencies: ['post-create-edge-api'],
+					// 		action: 'setState',
+					// 		params: [
+					// 			{
+					// 				source: 'exact',
+					// 				value: 'edgeNameState',
+					// 			},
+					// 			{ source: 'exact', value: '' },
+					// 		],
+					// 	},
+					// },
+                    // {
+					// 	type: 'InteractionAtom',
+					// 	id: 'clear-state-edgeRangeState',
+					// 	config: {
+					// 		trigger: null,
+					// 		dependencies: ['post-create-edge-api'],
+					// 		action: 'setState',
+					// 		params: [
+					// 			{
+					// 				source: 'exact',
+					// 				value: 'edgeRangeState',
+					// 			},
+					// 			{ source: 'exact', value: '' },
+					// 		],
+					// 	},
+					// },
 				],
 			},
 		],
