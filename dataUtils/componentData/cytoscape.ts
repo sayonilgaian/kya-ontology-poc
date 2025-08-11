@@ -18,6 +18,10 @@ const cytoscapeGraph = {
 				height: '100%',
 				justify: 'center',
 				align: 'center',
+				'background-image':
+					'radial-gradient(circle, #bfbbbb 1px, transparent 1px)',
+				'background-size': '40px 40px' /* spacing between dots */,
+				'background-repeat': 'repeat',
 			},
 		},
 		// ...cyThirdPartAtomStaticJson,
