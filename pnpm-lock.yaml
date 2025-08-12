@@ -20,6 +20,12 @@ importers:
       cytoscape-euler:
         specifier: ^1.2.3
         version: 1.2.3(cytoscape@3.33.0)
+      d3-force-3d:
+        specifier: ^3.0.6
+        version: 3.0.6
+      three:
+        specifier: ^0.179.1
+        version: 0.179.1
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -487,8 +493,8 @@ packages:
     peerDependencies:
       three: '>=0.168'
 
-  three@0.178.0:
-    resolution: {integrity: sha512-ybFIB0+x8mz0wnZgSGy2MO/WCO6xZhQSZnmfytSPyNpM0sBafGRVhdaj+erYh5U+RhQOAg/eXqw5uVDiM2BjhQ==}
+  three@0.179.1:
+    resolution: {integrity: sha512-5y/elSIQbrvKOISxpwXCR4sQqHtGiOI+MKLc3SsBdDXA2hz3Mdp3X59aUp8DyybMa34aeBwbFTpdoLJaUDEWSw==}
 
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==}
@@ -555,9 +561,9 @@ snapshots:
     dependencies:
       accessor-fn: 1.5.3
       kapsule: 1.16.3
-      three: 0.178.0
-      three-forcegraph: 1.43.0(three@0.178.0)
-      three-render-objects: 1.40.4(three@0.178.0)
+      three: 0.179.1
+      three-forcegraph: 1.43.0(three@0.179.1)
+      three-render-objects: 1.40.4(three@0.179.1)
 
   '@babel/runtime@7.28.2': {}
 
@@ -898,7 +904,7 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  three-forcegraph@1.43.0(three@0.178.0):
+  three-forcegraph@1.43.0(three@0.179.1):
     dependencies:
       accessor-fn: 1.5.3
       d3-array: 3.2.4
@@ -909,19 +915,19 @@ snapshots:
       kapsule: 1.16.3
       ngraph.forcelayout: 3.3.1
       ngraph.graph: 20.0.1
-      three: 0.178.0
+      three: 0.179.1
       tinycolor2: 1.6.0
 
-  three-render-objects@1.40.4(three@0.178.0):
+  three-render-objects@1.40.4(three@0.179.1):
     dependencies:
       '@tweenjs/tween.js': 25.0.0
       accessor-fn: 1.5.3
       float-tooltip: 1.7.5
       kapsule: 1.16.3
       polished: 4.3.1
-      three: 0.178.0
+      three: 0.179.1
 
-  three@0.178.0: {}
+  three@0.179.1: {}
 
   tinycolor2@1.6.0: {}
 

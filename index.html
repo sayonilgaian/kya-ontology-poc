@@ -12,6 +12,7 @@
             import getCookie from './src/utils/documentEntry/getCookie.ts';
             // Json imports =====
             import cytoscapeGraph from "./dataUtils/componentData/cytoscape.ts";
+            import threeDGraph from "./dataUtils/componentData/threeDGraph.ts"
             import projects from "./dataUtils/componentData/projects.ts";
             // import kgJson from "./dataUtils/componentData/kgJson.ts"
 
@@ -19,7 +20,7 @@
             rootElement.registry = new Map();
 
             rootElement.plan = projects;
-            rootElement.plan = cytoscapeGraph;
+            rootElement.plan = threeDGraph;
             // rootElement.plan = kgJson;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);
