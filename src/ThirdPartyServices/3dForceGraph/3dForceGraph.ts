@@ -47,7 +47,6 @@ export class ForceGraphService implements thirdParty {
 	private graph: ForceGraph3DInstance | null | any = null;
 	private container: HTMLElement | null = null;
 	private selectedElement!: ForceGraphNode | ForceGraphLink;
-	private clickResolve?: (value: ForceGraphNode | ForceGraphLink) => void;
 
 	setContainer(context: HTMLElement) {
 		this.container = context;
@@ -82,10 +81,9 @@ export class ForceGraphService implements thirdParty {
 		if (config.data) this.graph.graphData(config.data);
 
 		// Node click handler
-		this.graph.onNodeClick((node) => {
+		this.graph.onNodeClick((node: ForceGraphNode) => {
 			this.selectedElement = node;
-			this.clickResolve?.(node);
-			this.clickResolve = undefined;
+			console.log('Node clicked:', node);
 		});
 
 		// Link click handler
@@ -271,14 +269,13 @@ export class ForceGraphService implements thirdParty {
 	}
 
 	// Always returns most recent clicked node
-	onElementClick(): Promise<ForceGraphNode | ForceGraphLink> {
-		return new Promise((resolve) => {
-			if (this.selectedElement) {
-				resolve(this.selectedElement); // last clicked
-			} else {
-				this.clickResolve = resolve; // wait for next click
-			}
-		});
+	async onElementClick(): Promise<
+		ForceGraphNode | ForceGraphLink | undefined
+	> {
+		await new Promise((resolve) => requestAnimationFrame(resolve)); 
+		// wait for one frme so that three js can compute the raycaster on click
+		console.log('clicked on: ', this.selectedElement.name);
+		return this.selectedElement;
 	}
 
 	destroy(context: HTMLElement) {
