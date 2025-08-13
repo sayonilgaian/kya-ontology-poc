@@ -8,8 +8,16 @@ interface ForceGraphConfig {
 	width?: number;
 	height?: number;
 	nodeColor?: string | ((node: any) => string);
-	linkWidth?: number | ((link: any) => number);
-	linkColor?: string | ((link: any) => string);
+	nodeLabelFontColor?: string;
+	linkWidth?: number;
+	linkColor?: string;
+	linkResolution?: number;
+	linkOpacity?: number;
+	linkLabelFontSize: number;
+	linkLabelFontColor: string;
+	linkLabelOffset: number;
+	onNodeClick?: (node: any) => void;
+	onLinkClick?: (link: any) => void;
 	backgroundColor?: string;
 	[key: string]: any; // for extensibility
 }
@@ -75,64 +83,93 @@ export class ForceGraphService implements thirdParty {
 			const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 			// Text label above the sphere
-			const label = this.createTextSprite(node.name || node.id || '');
+			const label = this.createTextSprite(
+				node.name || node.id || '',
+				config,
+				'node'
+			);
 			label.position.set(0, 6, 0); // offset above sphere
 			sphere.add(label);
 
 			return sphere;
 		});
 
-    this.graph.linkWidth(1);
-     this.graph.linkThreeObjectExtend(true).linkThreeObject((link:ForceGraphLink) => {
-    const group = new THREE.Group();
+		// Add links between nodes
+		this.graph.linkWidth(config.linkWidth || 1);
+		this.graph.linkColor(config.linkColor || 'black');
+		this.graph.linkOpacity(config.linkOpacity || 1);
+		this.graph.linkResolution(config.linkResolution || 12);
 
-    // Label in middle
-    const label = this.createTextSprite(link.label || link.name || '');
-    label.position.set(0, 0, 0);
-    group.add(label);
+		// Add edge labels and place them with respect to edges properly
+		this.graph.linkThreeObjectExtend(true).linkThreeObject((link) => {
+			const group = new THREE.Group();
+			// Label in middle
+			const label = this.createTextSprite(
+				link.label || link.name || '',
+				config,
+				'link'
+			);
+			group.add(label);
 
-    // Arrow at end
-    const arrow = new THREE.Mesh(
-      new THREE.ConeGeometry(0.8, 3, 8),
-      new THREE.MeshBasicMaterial({ color: 'yellow' })
-    );
-    group.add(arrow);
+			// this.graph.linkLabel(this.createTextSprite(link.label || link.name || ''));
 
-    // Store ref for position update
-    (link as any).__arrowObj = arrow;
-    (link as any).__labelObj = label;
+			// // Arrow at end
+			// const arrow = new THREE.Mesh(
+			// 	new THREE.ConeGeometry(0.8, 3, 8),
+			// 	new THREE.MeshBasicMaterial({ color: 'yellow' })
+			// );
+			// group.add(arrow);
 
-    return group;
-  });
+			// Store ref for position update
+			// (link as any).__arrowObj = arrow;
+			(link as any).__labelObj = label;
 
-  // Update positions of label & arrow
-  this.graph.linkPositionUpdate((obj, { start, end }, link:ForceGraphLink) => {
-    const label = (link as any).__labelObj;
-    const arrow = (link as any).__arrowObj;
+			return group;
+		});
 
-    if (label) {
-      label.position.set(
-        (start.x + end.x) / 2,
-        (start.y + end.y) / 2,
-        (start.z + end.z) / 2
-      );
-    }
+		// Update positions of label & arrow
+		this.graph.linkPositionUpdate((obj, { start, end }, link) => {
+			const label = (link as any).__labelObj;
+			const arrow = (link as any).__arrowObj;
+			const labelOffset =
+				config.linkLabelOffset || config.linlinkLabelFontSize || 10;
+			if (label) {
+				label.position.set(
+					(start.x + end.x) / 2,
+					(start.y + end.y) / 2 + labelOffset,
+					(start.z + end.z) / 2
+				);
+			}
 
-    if (arrow) {
-      const dir = new THREE.Vector3(end.x - start.x, end.y - start.y, end.z - start.z);
-      dir.normalize();
+			if (arrow) {
+				const dir = new THREE.Vector3(
+					end.x - start.x,
+					end.y - start.y,
+					end.z - start.z
+				);
+				const length = dir.length();
+				dir.normalize();
 
-      // Position arrow near the target node
-      arrow.position.copy(end).addScaledVector(dir, -2); // move back slightly from target
-      arrow.lookAt(start); // face source
-    }
-  })
+				// Position arrow near the target node
+				arrow.position.copy(end).addScaledVector(dir, -2); // move back slightly from target
+				arrow.lookAt(start); // face source
+			}
+		});
 	}
-	private createTextSprite(text: string) {
+
+	// Creating text billnoards over edges
+	private createTextSprite(
+		text: string,
+		config: ForceGraphConfig,
+		target: 'node' | 'link'
+	) {
 		const canvas = document.createElement('canvas');
 		const context = canvas.getContext('2d')!;
-		context.font = 'Bold 28px Arial';
-		context.fillStyle = 'rgba(219, 33, 33, 1)';
+		context.font = `Bold ${config.linkLabelFontSize || 28}px Arial`;
+		context.fillStyle =
+			target === 'node'
+				? config.nodeLabelFontColor || 'rgba(219, 33, 33, 1)'
+				: config.linkLabelFontColor || 'rgba(219, 33, 33, 1)';
 		context.textAlign = 'center';
 		context.fillText(text, canvas.width / 2, canvas.height / 2);
 
@@ -143,7 +180,6 @@ export class ForceGraphService implements thirdParty {
 		});
 		const sprite = new THREE.Sprite(spriteMaterial);
 		sprite.scale.set(20, 10, 1); // label size
-
 		return sprite;
 	}
 
