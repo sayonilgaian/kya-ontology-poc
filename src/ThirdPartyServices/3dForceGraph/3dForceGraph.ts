@@ -1,12 +1,12 @@
 import ForceGraph3D, { ForceGraph3DInstance } from '3d-force-graph';
 import { thirdParty } from '../thirdPartyType';
-//@ts-ignore
 import * as THREE from 'three';
 
 interface ForceGraphConfig {
 	data: any;
 	width?: number;
 	height?: number;
+	nodeRadius?: number;
 	nodeColor?: string | ((node: any) => string);
 	nodeLabelFontColor?: string;
 	linkWidth?: number;
@@ -39,7 +39,7 @@ interface ForceGraphLink {
 	type: string;
 	name: string;
 	value?: number;
-  label?:string;
+	label?: string;
 }
 
 export class ForceGraphService implements thirdParty {
@@ -54,23 +54,34 @@ export class ForceGraphService implements thirdParty {
 		this.container ??= context;
 		this.graph = new ForceGraph3D(this.container);
 
-		this.graph.width(config.width || 800);
-		this.graph.height(config.height || 600);
+		const defaultConfig = {
+			width: 800,
+			height: 600,
+			nodeRadius: 10,
+			nodeColor: 'rgb(212,59,59)',
+			backgroundColor: '#d43b3bff',
+		};
+
+		this.graph.width(config.width || defaultConfig.width);
+		this.graph.height(config.height || defaultConfig.height);
 
 		this.graph.showNavInfo(false);
 
-		this.graph.nodeRelSize(10);
+		this.graph.nodeRelSize(config.nodeRadius || defaultConfig.nodeRadius);
 
-		// this.graph.nodeColor("#d43b3b")
-		this.graph.nodeColor('rgb(212,59,59)');
+		this.graph.nodeColor(config.nodeColor || defaultConfig.nodeColor);
 
-		this.graph.backgroundColor(config.backgroundColor || '#d43b3bff');
+		this.graph.backgroundColor(
+			config.backgroundColor || defaultConfig.backgroundColor
+		);
 
 		if (config.data) this.graph.graphData(config.data);
 
-		this.graph.nodeThreeObject((node:ForceGraphNode) => {
+		this.graph.nodeThreeObject((node: ForceGraphNode) => {
 			// Sphere for the node
-			const sphereGeometry = new THREE.SphereGeometry(5);
+			const sphereGeometry = new THREE.SphereGeometry(
+				config.nodeRadius || defaultConfig.nodeRadius
+			);
 			const sphereMaterial = new THREE.MeshStandardMaterial({
 				color: config.nodeColor
 					? typeof config.nodeColor === 'function'
@@ -96,7 +107,7 @@ export class ForceGraphService implements thirdParty {
 
 		// Add links between nodes
 		this.graph.linkWidth(config.linkWidth || 1);
-		this.graph.linkColor(config.linkColor || 'black');
+		this.graph.linkColor(() => config.linkColor || 'gray');
 		this.graph.linkOpacity(config.linkOpacity || 1);
 		this.graph.linkResolution(config.linkResolution || 12);
 
@@ -109,19 +120,27 @@ export class ForceGraphService implements thirdParty {
 				config,
 				'link'
 			);
+			label.position.set(0, 20, 0);
 			group.add(label);
 
-			// this.graph.linkLabel(this.createTextSprite(link.label || link.name || ''));
-
-			// // Arrow at end
-			// const arrow = new THREE.Mesh(
-			// 	new THREE.ConeGeometry(0.8, 3, 8),
-			// 	new THREE.MeshBasicMaterial({ color: 'yellow' })
-			// );
-			// group.add(arrow);
+			// Arrow at end
+			const arrow = new THREE.Mesh(
+				new THREE.ConeGeometry(
+					config.linkWidth ? config.linkWidth * 3 : 10,
+					config.linkWidth ? config.linkWidth * 7 : 10,
+					32
+				),
+				new THREE.MeshBasicMaterial({
+					color: config.linkColor
+						? config.linkColor.slice(0, 7)
+						: '#0d0d0eff',
+				})
+			);
+			arrow.position.set(0, 0, 0);
+			group.add(arrow);
 
 			// Store ref for position update
-			// (link as any).__arrowObj = arrow;
+			(link as any).__arrowObj = arrow;
 			(link as any).__labelObj = label;
 
 			return group;
@@ -150,36 +169,70 @@ export class ForceGraphService implements thirdParty {
 				const length = dir.length();
 				dir.normalize();
 
-				// Position arrow near the target node
-				arrow.position.copy(end).addScaledVector(dir, -2); // move back slightly from target
-				arrow.lookAt(start); // face source
+				// +Y axis in model space
+				const yAxis = new THREE.Vector3(0, 1, 0);
+				const quaternion = new THREE.Quaternion().setFromUnitVectors(
+					yAxis,
+					dir
+				);
+				arrow.quaternion.copy(quaternion);
+
+				arrow.position.copy(end).addScaledVector(
+					dir,
+					config.nodeRadius ? config.nodeRadius * -1.5 : -2
+					// 0
+				);
 			}
 		});
 	}
 
-	// Creating text billnoards over edges
 	private createTextSprite(
 		text: string,
 		config: ForceGraphConfig,
 		target: 'node' | 'link'
 	) {
+		const fontSize = config.linkLabelFontSize || 28;
+		const font = `Bold ${fontSize}px Arial`;
+
+		// Temporary canvas for measurement
+		const tempCanvas = document.createElement('canvas');
+		const tempCtx = tempCanvas.getContext('2d')!;
+		tempCtx.font = font;
+		const textWidth = tempCtx.measureText(text).width;
+
+		// Create final canvas with exact size
 		const canvas = document.createElement('canvas');
-		const context = canvas.getContext('2d')!;
-		context.font = `Bold ${config.linkLabelFontSize || 28}px Arial`;
-		context.fillStyle =
+		canvas.width = Math.ceil(textWidth) + 20; // padding
+		canvas.height = fontSize * 1.5; // some vertical padding
+
+		const ctx = canvas.getContext('2d')!;
+		ctx.font = font;
+		ctx.fillStyle =
 			target === 'node'
 				? config.nodeLabelFontColor || 'rgba(219, 33, 33, 1)'
 				: config.linkLabelFontColor || 'rgba(219, 33, 33, 1)';
-		context.textAlign = 'center';
-		context.fillText(text, canvas.width / 2, canvas.height / 2);
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
 
+		// Draw centered text
+		ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+		// Turn into texture & sprite
 		const texture = new THREE.CanvasTexture(canvas);
+		texture.needsUpdate = true;
+		texture.minFilter = THREE.LinearFilter; // prevents blurring for small text
+
 		const spriteMaterial = new THREE.SpriteMaterial({
 			map: texture,
 			transparent: true,
 		});
+
 		const sprite = new THREE.Sprite(spriteMaterial);
-		sprite.scale.set(20, 10, 1); // label size
+
+		// Scale based on text length (optional)
+		const aspect = canvas.width / canvas.height;
+		sprite.scale.set(10 * aspect, 10, 1);
+
 		return sprite;
 	}
 
