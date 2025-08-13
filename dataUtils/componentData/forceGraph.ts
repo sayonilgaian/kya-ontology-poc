@@ -1,7 +1,7 @@
 const forceGraphJson = {
     tag: "force-graph-screen",
     atoms: [
-        { type: 'ColourAtom', config: { role: 'background', value: '#202939' } },
+        { type: 'ColourAtom', config: { role: 'background', value: '#ffffffff' } },
         {
             type: 'LayoutAtom',
             config: {
