@@ -151,7 +151,7 @@ export class ForceGraphService implements thirdParty {
 		return {
 			init: this.init.bind(this),
 			setContainer: this.setContainer,
-			updateData: this.updateData,
+			updateData: this.updateData.bind(this),
 			getInstance: this.getInstance,
 			destroy: this.destroy,
 		};

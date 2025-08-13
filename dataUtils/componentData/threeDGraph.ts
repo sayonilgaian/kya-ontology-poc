@@ -2,7 +2,7 @@ import ThirdPartyAtom3d from './3dSubAtoms/3dThirdPartyAtom';
 import ontologyApiCall from './3dSubAtoms/ontologyApiCall';
 
 const threeDGraph = {
-	tag: 'cytoscape-graph',
+	tag: 'graph-3d-view',
 	atoms: [
 		{
 			type: 'ContentAtom',
