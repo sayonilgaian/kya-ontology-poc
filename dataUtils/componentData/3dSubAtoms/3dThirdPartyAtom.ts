@@ -49,9 +49,16 @@ const ThirdPartyAtom3d = [
 					value: 'init',
 				},
 				{
-					source:'exact',
-					value:{}
-				}
+					source: 'exact',
+					value: {
+						width: '100%',
+						height: '100%',
+						nodeColor: 'red',
+						linkWidth: 10,
+						linkColor: 'blue',
+						backgroundColor: '#fff',
+					},
+				},
 			],
 		},
 	},
