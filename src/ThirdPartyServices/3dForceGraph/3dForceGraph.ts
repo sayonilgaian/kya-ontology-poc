@@ -41,13 +41,13 @@ interface ForceGraphLink {
 	name: string;
 	value?: number;
 	label?: string;
-	label?: string;
 }
 
 export class ForceGraphService implements thirdParty {
 	private graph: ForceGraph3DInstance | null | any = null;
 	private container: HTMLElement | null = null;
 	private selectedElement!: ForceGraphNode | ForceGraphLink;
+	private clickResolve?: (value: ForceGraphNode | ForceGraphLink) => void;
 
 	setContainer(context: HTMLElement) {
 		this.container = context;
@@ -82,13 +82,14 @@ export class ForceGraphService implements thirdParty {
 		if (config.data) this.graph.graphData(config.data);
 
 		// Node click handler
-		this.graph.onNodeClick((node: ForceGraphNode, evt) => {
+		this.graph.onNodeClick((node) => {
 			this.selectedElement = node;
-			console.log('Node clicked:', node);
+			this.clickResolve?.(node);
+			this.clickResolve = undefined;
 		});
 
 		// Link click handler
-		this.graph.onLinkClick((link: ForceGraphLink, evt) => {
+		this.graph.onLinkClick((link: ForceGraphLink) => {
 			this.selectedElement = link;
 			console.log('Link clicked:', link);
 		});
@@ -98,7 +99,7 @@ export class ForceGraphService implements thirdParty {
 			.d3Force('link')
 			.distance(() => config.linkLength || defaultConfig.linkLength);
 
-		this.graph.nodeThreeObject((node:  ForceGraphNode) => {
+		this.graph.nodeThreeObject((node: ForceGraphNode) => {
 			// Sphere for the node
 			const sphereGeometry = new THREE.SphereGeometry(
 				config.nodeRadius || defaultConfig.nodeRadius
@@ -205,6 +206,8 @@ export class ForceGraphService implements thirdParty {
 				);
 			}
 		});
+
+		return this.graph;
 	}
 
 	private createTextSprite(
@@ -268,11 +271,15 @@ export class ForceGraphService implements thirdParty {
 	}
 
 	// Always returns most recent clicked node
-	onElementClick(): ForceGraphNode | ForceGraphLink {
-    console.log("ln1" , this.selectedElement)
-		return this.selectedElement;
+	onElementClick(): Promise<ForceGraphNode | ForceGraphLink> {
+		return new Promise((resolve) => {
+			if (this.selectedElement) {
+				resolve(this.selectedElement); // last clicked
+			} else {
+				this.clickResolve = resolve; // wait for next click
+			}
+		});
 	}
-
 
 	destroy(context: HTMLElement) {
 		if (this.container && this.graph) {

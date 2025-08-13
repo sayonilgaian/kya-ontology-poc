@@ -34,7 +34,6 @@ interface CytoscapeConfig {
 	selectionType?: SelectionType;
 	autoungrabify?: boolean;
 	autounselectify?: boolean;
-	onNodeClick?: { state: string };
 	onEdgeClick?: (edge: EdgeSingular) => void;
 	onNodeHover?: (node: NodeSingular) => void;
 	onEdgeHover?: (edge: EdgeSingular) => void;
