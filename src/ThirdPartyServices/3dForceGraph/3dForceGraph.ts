@@ -22,6 +22,26 @@ interface ForceGraphConfig {
 	[key: string]: any; // for extensibility
 }
 
+interface ForceGraphNode {
+	id: string;
+	name: string;
+	type: string;
+	uri: string;
+	nodeType: 'class' | 'property' | 'datatype';
+	size?: number;
+	color?: string;
+	group?: string;
+}
+
+interface ForceGraphLink {
+	source: string;
+	target: string;
+	type: string;
+	name: string;
+	value?: number;
+  label?:string;
+}
+
 export class ForceGraphService implements thirdParty {
 	private graph: ForceGraph3DInstance | null | any = null;
 	private container: HTMLElement | null = null;
@@ -48,7 +68,7 @@ export class ForceGraphService implements thirdParty {
 
 		if (config.data) this.graph.graphData(config.data);
 
-		this.graph.nodeThreeObject((node) => {
+		this.graph.nodeThreeObject((node:ForceGraphNode) => {
 			// Sphere for the node
 			const sphereGeometry = new THREE.SphereGeometry(5);
 			const sphereMaterial = new THREE.MeshStandardMaterial({
@@ -184,7 +204,7 @@ export class ForceGraphService implements thirdParty {
 		return {
 			init: this.init.bind(this),
 			setContainer: this.setContainer,
-			updateData: this.updateData,
+			updateData: this.updateData.bind(this),
 			getInstance: this.getInstance,
 			destroy: this.destroy,
 		};

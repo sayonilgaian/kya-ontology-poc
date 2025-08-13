@@ -1,126 +1,37 @@
+import ThirdPartyAtom3d from './3dSubAtoms/3dThirdPartyAtom';
+import ontologyApiCall from './3dSubAtoms/ontologyApiCall';
+
 const threeDGraph = {
-	tag: 'force-graph-screen',
+	tag: 'graph-3d-view',
 	atoms: [
 		{
+			type: 'ContentAtom',
+			config: {
+				text: 'Mobius Essentials',
+			},
+		},
+		// styling
+		{
 			type: 'ColourAtom',
-			config: { role: 'background', value: '#202939' },
+			config: { role: 'background', value: '#ffffffff' },
 		},
 		{
 			type: 'LayoutAtom',
 			config: {
-				display: 'flex',
+				display: 'block',
 				width: '100%',
 				height: '100%',
 				justify: 'center',
 				align: 'center',
+				'background-image':
+					'radial-gradient(circle, #bfbbbb 1px, transparent 1px)',
+				'background-size': '40px 40px' /* spacing between dots */,
+				'background-repeat': 'repeat',
 			},
 		},
-		{
-			type: 'ThirdPartyAtom',
-			config: {
-				op: 'Create',
-				thirdPartyLibraryName: '3dForceGraph',
-				name: 'graph-1',
-			},
-		},
-		{
-			type: 'InteractionAtom',
-			id: 'loop1',
-			config: {
-				trigger: 'OnLoad',
-				dependencies: [],
-				params: [
-					{
-						source: 'exact',
-						value: 'graph-1',
-					},
-					{
-						source: 'exact',
-						value: 'setContainer',
-					},
-				],
-				action: 'callThirdPartyService',
-			},
-		},
-		{
-			type: 'InteractionAtom',
-			id: 'loop11',
-			config: {
-				trigger: null,
-				dependencies: ['loop1'],
-				params: [
-					{
-						source: 'exact',
-						value: 'graph-1',
-					},
-					{
-						source: 'exact',
-						value: 'init',
-					},
-					{
-						source: 'exact',
-						value: {
-							width: '100%',
-							height: '100%',
-							backgroundColor: 'white',
-							data: {
-								nodes: [
-									{
-										id: '1',
-										name: 'Node 1',
-										group: 'A',
-									},
-									{
-										id: '2',
-										name: 'Node 2',
-										group: 'A',
-									},
-									{
-										id: '3',
-										name: 'Node 3',
-										group: 'B',
-									},
-									{
-										id: '4',
-										name: 'Node 4',
-										group: 'B',
-									},
-								],
-								links: [
-									{
-										name: 'links 1',
-										source: '1',
-										target: '2',
-									},
-									{
-										name: 'links 2',
-										source: '1',
-										target: '3',
-									},
-									{
-										name: 'links 3',
-										source: '1',
-										target: '4',
-									},
-								],
-							},
-							nodeColor: 'red',
-							nodeLabelFontColor: 'red',
-							linkColor: 'blue',
-							linkWidth: 2,
-							linkResolution: 12,
-							linkOpacity: 1,
-							linkLabelFontSize: 30,
-							linkLabelFontColor: 'black',
-							linkLabelOffset: 5,
-						},
-					},
-				],
-				action: 'callThirdPartyService',
-			},
-		},
+		...ThirdPartyAtom3d,
+		...ontologyApiCall,
 	],
 	children: [],
 };
-
 export default threeDGraph;
