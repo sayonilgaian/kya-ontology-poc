@@ -10,10 +10,28 @@ interface ForceGraphConfig {
 	nodeColor?: string | ((node: any) => string);
 	linkWidth?: number | ((link: any) => number);
 	linkColor?: string | ((link: any) => string);
-	onNodeClick?: (node: any) => void;
-	onLinkClick?: (link: any) => void;
 	backgroundColor?: string;
 	[key: string]: any; // for extensibility
+}
+
+interface ForceGraphNode {
+	id: string;
+	name: string;
+	type: string;
+	uri: string;
+	nodeType: 'class' | 'property' | 'datatype';
+	size?: number;
+	color?: string;
+	group?: string;
+}
+
+interface ForceGraphLink {
+	source: string;
+	target: string;
+	type: string;
+	name: string;
+	value?: number;
+  label?:string;
 }
 
 export class ForceGraphService implements thirdParty {
@@ -42,7 +60,7 @@ export class ForceGraphService implements thirdParty {
 
 		if (config.data) this.graph.graphData(config.data);
 
-		this.graph.nodeThreeObject((node) => {
+		this.graph.nodeThreeObject((node:ForceGraphNode) => {
 			// Sphere for the node
 			const sphereGeometry = new THREE.SphereGeometry(5);
 			const sphereMaterial = new THREE.MeshStandardMaterial({
@@ -65,7 +83,7 @@ export class ForceGraphService implements thirdParty {
 		});
 
     this.graph.linkWidth(1);
-     this.graph.linkThreeObjectExtend(true).linkThreeObject(link => {
+     this.graph.linkThreeObjectExtend(true).linkThreeObject((link:ForceGraphLink) => {
     const group = new THREE.Group();
 
     // Label in middle
@@ -88,7 +106,7 @@ export class ForceGraphService implements thirdParty {
   });
 
   // Update positions of label & arrow
-  this.graph.linkPositionUpdate((obj, { start, end }, link) => {
+  this.graph.linkPositionUpdate((obj, { start, end }, link:ForceGraphLink) => {
     const label = (link as any).__labelObj;
     const arrow = (link as any).__arrowObj;
 
@@ -102,7 +120,6 @@ export class ForceGraphService implements thirdParty {
 
     if (arrow) {
       const dir = new THREE.Vector3(end.x - start.x, end.y - start.y, end.z - start.z);
-      const length = dir.length();
       dir.normalize();
 
       // Position arrow near the target node

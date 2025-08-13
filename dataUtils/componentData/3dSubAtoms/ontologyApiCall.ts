@@ -197,7 +197,7 @@ const ontologyApiCall = [
 		},
 	},
 
-	// format ontology api response to cytoscape config
+	// format ontology api response to 3-d force graph config
 	{
 		type: 'InteractionAtom',
 		id: 'formatOntologiApiResponse',

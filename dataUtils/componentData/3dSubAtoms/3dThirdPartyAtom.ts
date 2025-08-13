@@ -1,5 +1,5 @@
 const ThirdPartyAtom3d = [
-	// Initialize the state to hold cytoscapeConfig.
+	// Initialize the state to hold 3d-graph.
 	{
 		type: 'StateAtom',
 		id: '3dDataState',
@@ -31,7 +31,7 @@ const ThirdPartyAtom3d = [
 			name: 'graph-3d',
 		},
 	},
-	// set up cytoscape canvas in DOM on Load
+	// set up 3-d canvas in DOM on Load
 	{
 		type: 'InteractionAtom',
 		id: 'setup-3d-container',
@@ -55,7 +55,7 @@ const ThirdPartyAtom3d = [
 			],
 		},
 	},
-	// render cytoscape canvas using previously made config and updates elements state after api call
+	// render 3-d  canvas using previously made config and updates elements state after api call
 	{
 		type: 'InteractionAtom',
 		id: 'render-graph-3d',
