@@ -16,6 +16,7 @@ interface ForceGraphConfig {
 	linkLabelFontSize: number;
 	linkLabelFontColor: string;
 	linkLabelOffset: number;
+	linkLength: number;
 	onNodeClick?: (node: any) => void;
 	onLinkClick?: (link: any) => void;
 	backgroundColor?: string;
@@ -60,6 +61,7 @@ export class ForceGraphService implements thirdParty {
 			nodeRadius: 10,
 			nodeColor: 'rgb(212,59,59)',
 			backgroundColor: '#d43b3bff',
+			linkLength: 100,
 		};
 
 		this.graph.width(config.width || defaultConfig.width);
@@ -76,6 +78,11 @@ export class ForceGraphService implements thirdParty {
 		);
 
 		if (config.data) this.graph.graphData(config.data);
+
+		// desried length of links
+		this.graph
+			.d3Force('link')
+			.distance(() => config.linkLength || defaultConfig.linkLength);
 
 		this.graph.nodeThreeObject((node: ForceGraphNode) => {
 			// Sphere for the node
