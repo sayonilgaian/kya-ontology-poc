@@ -131,43 +131,14 @@ export function transformOntologyDatafor3dForce(
 	});
 
 	data?.properties.forEach((prop) => {
-		const nodeType = 'property';
-
-		// Add property as node
-		nodes.push({
-			id: prop.nodeId,
-			name: prop.properties.name,
-			type: prop.type,
-			uri: prop.uri,
-			nodeType: nodeType,
-			size:
-				data?.layoutConfig?.nodeTypes[nodeType]?.size ||
-				getDefaultNodeSize(nodeType),
-			color:
-				data?.layoutConfig?.nodeTypes[nodeType]?.color ||
-				getDefaultNodeColor(nodeType),
-			group: nodeType,
-		});
-
 		// Create links from domain to property
-		if (prop.domain) {
+		if (prop.domain && prop.range) {
 			links.push({
 				source: prop.domain,
-				target: prop.nodeId,
-				type: 'domain',
-				name: 'hasDomain',
-				value: data?.layoutConfig?.linkTypes['domain']?.width || 2,
-			});
-		}
-
-		// Create links from property to range
-		if (prop.range) {
-			links.push({
-				source: prop.nodeId,
 				target: prop.range,
-				type: 'range',
-				name: 'hasRange',
-				value: data?.layoutConfig?.linkTypes['range']?.width || 2,
+				type: 'property',
+				name: prop?.properties?.name || 'has',
+				value: data?.layoutConfig?.linkTypes['property']?.width || 2,
 			});
 		}
 

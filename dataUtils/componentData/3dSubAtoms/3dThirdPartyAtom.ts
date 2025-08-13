@@ -64,7 +64,7 @@ const ThirdPartyAtom3d = [
 						linkLabelFontSize: 30,
 						linkLabelFontColor: '#525252ff',
 						linkLabelOffset: 5,
-						linkLength: 80,
+						linkLength: 120,
 					},
 				},
 			],
