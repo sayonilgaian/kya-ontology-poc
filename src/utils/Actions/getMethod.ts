@@ -24,6 +24,6 @@ export function getMethod(
 	// }
 	const result = get(object, path, defaultValue);
 
-	console.log("GET METHOD:", object, result);
+	// console.log("GET METHOD:", object, result);
 	return result;
 }

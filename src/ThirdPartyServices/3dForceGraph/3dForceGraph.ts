@@ -39,12 +39,13 @@ interface ForceGraphLink {
 	type: string;
 	name: string;
 	value?: number;
-  label?:string;
+	label?: string;
 }
 
 export class ForceGraphService implements thirdParty {
 	private graph: ForceGraph3DInstance | null | any = null;
 	private container: HTMLElement | null = null;
+	private selectedElement!: ForceGraphNode | ForceGraphLink;
 
 	setContainer(context: HTMLElement) {
 		this.container = context;
@@ -68,7 +69,19 @@ export class ForceGraphService implements thirdParty {
 
 		if (config.data) this.graph.graphData(config.data);
 
-		this.graph.nodeThreeObject((node:ForceGraphNode) => {
+		// Node click handler
+		this.graph.onNodeClick((node: ForceGraphNode, evt) => {
+			this.selectedElement = node;
+			console.log('Node clicked:', node);
+		});
+
+		// Link click handler
+		this.graph.onLinkClick((link: ForceGraphLink, evt) => {
+			this.selectedElement = link;
+			console.log('Link clicked:', link);
+		});
+
+		this.graph.nodeThreeObject((node: ForceGraphNode) => {
 			// Sphere for the node
 			const sphereGeometry = new THREE.SphereGeometry(5);
 			const sphereMaterial = new THREE.MeshStandardMaterial({
@@ -193,6 +206,13 @@ export class ForceGraphService implements thirdParty {
 		return this.graph;
 	}
 
+	// Always returns most recent clicked node
+	onElementClick(): ForceGraphNode | ForceGraphLink {
+    console.log("ln1" , this.selectedElement)
+		return this.selectedElement;
+	}
+
+
 	destroy(context: HTMLElement) {
 		if (this.container && this.graph) {
 			this.container.innerHTML = '';
@@ -205,6 +225,7 @@ export class ForceGraphService implements thirdParty {
 			init: this.init.bind(this),
 			setContainer: this.setContainer,
 			updateData: this.updateData.bind(this),
+			onElementClick: this.onElementClick.bind(this),
 			getInstance: this.getInstance,
 			destroy: this.destroy,
 		};

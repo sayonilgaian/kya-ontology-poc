@@ -129,7 +129,7 @@ export class BaseUIElement extends HTMLElement {
     // Automatically define all tags in the plan
     (function walk(n) {
       // Ensure the tag is registered
-      console.log("----", n)
+      // console.log("----", n)
       if (!n.tag) {
         // console.error('Child element is missing a tag:', n);
         return;

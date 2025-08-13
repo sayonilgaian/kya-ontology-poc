@@ -12,15 +12,15 @@ const ThirdPartyAtom3d = [
 		},
 	},
 	// // Initialize the state to hold nodes to be deleted.
-	// {
-	// 	type: 'StateAtom',
-	// 	id: 'deleteNodesState-94771855-da21-4b78-b98b-692366f3dd3e',
-	// 	config: {
-	// 		op: 'Initialize',
-	// 		name: 'selectedNodeState',
-	// 		value: {},
-	// 	},
-	// },
+	{
+		type: 'StateAtom',
+		id: 'selected-node-2bf36b53-984c-4eef-9a73-98a1346c266a',
+		config: {
+			op: 'Initialize',
+			name: 'selectedElementState3d',
+			value: {},
+		},
+	},
 	// use third part library
 	{
 		type: 'ThirdPartyAtom',
@@ -106,7 +106,7 @@ const ThirdPartyAtom3d = [
 				},
 				{
 					source: 'exact',
-					value: 'elementClick',
+					value: 'onElementClick',
 				},
 			],
 		},
@@ -124,14 +124,15 @@ const ThirdPartyAtom3d = [
 			params: [
 				{
 					source: 'exact',
-					value: 'selectedNodeState',
+					value: 'selectedElementState3d',
 				},
 				{
 					source: 'pipe',
+					value:'register-on-node-click-3040cdb6-d161-4ea9-94e6-ee0022b39eef'
 				},
 			],
 		},
-	},
+	}
 ];
 
 export default ThirdPartyAtom3d;

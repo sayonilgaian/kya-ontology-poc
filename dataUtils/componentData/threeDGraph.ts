@@ -32,6 +32,18 @@ const threeDGraph = {
 		...ThirdPartyAtom3d,
 		...ontologyApiCall,
 	],
-	children: [],
+	children: [
+		{
+			tag: 'graph-3d-view',
+			atoms: [
+				{
+					type: 'ContentAtom',
+					config: {
+						text: 'Mobius Essentials',
+					},
+				},
+			],
+		},
+	],
 };
 export default threeDGraph;
