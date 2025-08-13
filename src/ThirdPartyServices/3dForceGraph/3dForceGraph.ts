@@ -89,6 +89,12 @@ export class ForceGraphService implements thirdParty {
 		// Link click handler
 		this.graph.onLinkClick((link: ForceGraphLink) => {
 			this.selectedElement = link;
+			if (link?.source) {
+				link.source = '';
+			}
+			if (link?.target) {
+				link.target = '';
+			}
 			console.log('Link clicked:', link);
 		});
 
@@ -132,78 +138,80 @@ export class ForceGraphService implements thirdParty {
 		this.graph.linkResolution(config.linkResolution || 12);
 
 		// Add edge labels and place them with respect to edges properly
-		this.graph.linkThreeObjectExtend(true).linkThreeObject((link) => {
-			const group = new THREE.Group();
-			// Label in middle
-			const label = this.createTextSprite(
-				link.label || link.name || '',
-				config,
-				'link'
-			);
-			label.position.set(0, 20, 0);
-			group.add(label);
+		this.graph
+			.linkThreeObjectExtend(true)
+			.linkThreeObject((link: ForceGraphLink) => {
+				const group = new THREE.Group();
+				// Label in middle
+				const label = this.createTextSprite(
+					link.label || link.name || '',
+					config,
+					'link'
+				);
+				label.position.set(0, 20, 0);
+				group.add(label);
 
-			// Arrow at end
-			const arrow = new THREE.Mesh(
-				new THREE.ConeGeometry(
-					config.linkWidth ? config.linkWidth * 3 : 10,
-					config.linkWidth ? config.linkWidth * 7 : 10,
-					32
-				),
-				new THREE.MeshBasicMaterial({
-					color: config.linkColor
-						? config.linkColor.slice(0, 7)
-						: '#0d0d0eff',
-				})
-			);
-			arrow.position.set(0, 0, 0);
-			group.add(arrow);
+				// Arrow at end
+				const arrow = new THREE.Mesh(
+					new THREE.ConeGeometry(
+						config.linkWidth ? config.linkWidth * 3 : 10,
+						config.linkWidth ? config.linkWidth * 7 : 10,
+						32
+					),
+					new THREE.MeshBasicMaterial({
+						color: config.linkColor
+							? config.linkColor.slice(0, 7)
+							: '#0d0d0eff',
+					})
+				);
+				arrow.position.set(0, 0, 0);
+				group.add(arrow);
 
-			// Store ref for position update
-			(link as any).__arrowObj = arrow;
-			(link as any).__labelObj = label;
+				// Store ref for position update
+				(link as any).__arrowObj = arrow;
+				(link as any).__labelObj = label;
 
-			return group;
-		});
+				return group;
+			});
 
 		// Update positions of label & arrow
-		this.graph.linkPositionUpdate((obj, { start, end }, link) => {
-			const label = (link as any).__labelObj;
-			const arrow = (link as any).__arrowObj;
-			const labelOffset =
-				config.linkLabelOffset || config.linlinkLabelFontSize || 10;
-			if (label) {
-				label.position.set(
-					(start.x + end.x) / 2,
-					(start.y + end.y) / 2 + labelOffset,
-					(start.z + end.z) / 2
-				);
+		this.graph.linkPositionUpdate(
+			(obj, { start, end }, link: ForceGraphLink) => {
+				const label = (link as any).__labelObj;
+				const arrow = (link as any).__arrowObj;
+				const labelOffset =
+					config.linkLabelOffset || config.linlinkLabelFontSize || 10;
+				if (label) {
+					label.position.set(
+						(start.x + end.x) / 2,
+						(start.y + end.y) / 2 + labelOffset,
+						(start.z + end.z) / 2
+					);
+				}
+
+				if (arrow) {
+					const dir = new THREE.Vector3(
+						end.x - start.x,
+						end.y - start.y,
+						end.z - start.z
+					);
+					const length = dir.length();
+					dir.normalize();
+
+					// +Y axis in model space
+					const yAxis = new THREE.Vector3(0, 1, 0);
+					const quaternion =
+						new THREE.Quaternion().setFromUnitVectors(yAxis, dir);
+					arrow.quaternion.copy(quaternion);
+
+					arrow.position.copy(end).addScaledVector(
+						dir,
+						config.nodeRadius ? config.nodeRadius * -1.5 : -2
+						// 0
+					);
+				}
 			}
-
-			if (arrow) {
-				const dir = new THREE.Vector3(
-					end.x - start.x,
-					end.y - start.y,
-					end.z - start.z
-				);
-				const length = dir.length();
-				dir.normalize();
-
-				// +Y axis in model space
-				const yAxis = new THREE.Vector3(0, 1, 0);
-				const quaternion = new THREE.Quaternion().setFromUnitVectors(
-					yAxis,
-					dir
-				);
-				arrow.quaternion.copy(quaternion);
-
-				arrow.position.copy(end).addScaledVector(
-					dir,
-					config.nodeRadius ? config.nodeRadius * -1.5 : -2
-					// 0
-				);
-			}
-		});
+		);
 
 		return this.graph;
 	}
@@ -269,12 +277,9 @@ export class ForceGraphService implements thirdParty {
 	}
 
 	// Always returns most recent clicked node
-	async onElementClick(): Promise<
-		ForceGraphNode | ForceGraphLink | undefined
-	> {
-		await new Promise((resolve) => requestAnimationFrame(resolve)); 
+	async onElementClick(): Promise<ForceGraphNode | ForceGraphLink> {
+		await new Promise((resolve) => requestAnimationFrame(resolve));
 		// wait for one frme so that three js can compute the raycaster on click
-		console.log('clicked on: ', this.selectedElement.name);
 		return this.selectedElement;
 	}
 
