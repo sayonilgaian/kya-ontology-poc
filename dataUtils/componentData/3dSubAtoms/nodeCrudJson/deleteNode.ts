@@ -1,6 +1,6 @@
 const deleteNodeJson = [
 	{
-		tag: 'delete-node',
+		tag: 'delete-node-3d',
 		atoms: [
 			// styling of delete button
 			{
@@ -52,7 +52,7 @@ const deleteNodeJson = [
 					trigger: 'click',
 					action: 'getMethod',
 					params: [
-						{ source: 'state', name: 'selectedNodeState' },
+						{ source: 'state', name: 'selectedElementState3d' },
 						{ source: 'exact', value: 'label' },
 					],
 				},
@@ -312,7 +312,7 @@ const deleteNodeJson = [
 				config: {
 					trigger: null,
 					dependencies: ['getOntologyApiCall'],
-					action: 'transformOntologyData',
+					action: 'transformOntologyDatafor3dForce',
 					params: [
 						{
 							source: 'pipe',
@@ -334,7 +334,7 @@ const deleteNodeJson = [
 					params: [
 						{
 							source: 'exact',
-							value: 'cyConfigElementsState',
+							value: '3dDataState',
 						},
 						{
 							source: 'pipe',

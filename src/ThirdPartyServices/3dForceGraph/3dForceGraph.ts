@@ -46,7 +46,8 @@ interface ForceGraphLink {
 export class ForceGraphService implements thirdParty {
 	private graph: ForceGraph3DInstance | null | any = null;
 	private container: HTMLElement | null = null;
-	private selectedElement!: ForceGraphNode | ForceGraphLink;
+	// private selectedElement!: ForceGraphNode | ForceGraphLink;
+	private selectedElement!: { id?: string; label: string; uri?: string };
 
 	setContainer(context: HTMLElement) {
 		this.container = context;
@@ -82,19 +83,21 @@ export class ForceGraphService implements thirdParty {
 
 		// Node click handler
 		this.graph.onNodeClick((node: ForceGraphNode) => {
-			this.selectedElement = node;
+			let temp = {
+				id: node?.id || 'id',
+				label: node?.name || 'label',
+				uri: node?.uri || 'uri',
+			};
+			this.selectedElement = temp;
 			console.log('Node clicked:', node);
 		});
 
 		// Link click handler
 		this.graph.onLinkClick((link: ForceGraphLink) => {
-			this.selectedElement = link;
-			if (link?.source) {
-				link.source = '';
-			}
-			if (link?.target) {
-				link.target = '';
-			}
+			let temp = {
+				label: link?.name || 'label',
+			};
+			this.selectedElement = temp;
 			console.log('Link clicked:', link);
 		});
 

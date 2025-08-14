@@ -87,7 +87,7 @@ const editNodeApiRequestBody = [
 			dependencies: ['edit-req-body-part-4'],
 			action: 'getMethod',
 			params: [
-				{ source: 'state', name: 'selectedNodeState' },
+				{ source: 'state', name: 'selectedElementState3d' },
 				{ source: 'exact', value: 'label' },
 			],
 		},
