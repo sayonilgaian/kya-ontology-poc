@@ -5,12 +5,6 @@ import ontologyApiCall from './3dSubAtoms/ontologyApiCall';
 const threeDGraph = {
 	tag: 'graph-3d-view',
 	atoms: [
-		{
-			type: 'ContentAtom',
-			config: {
-				text: 'Mobius Essentials',
-			},
-		},
 		// styling
 		{
 			type: 'ColourAtom',
@@ -37,4 +31,5 @@ const threeDGraph = {
 		...nodeCrudJson,
 	],
 };
+console.log(JSON.stringify(threeDGraph,null,2))
 export default threeDGraph;
