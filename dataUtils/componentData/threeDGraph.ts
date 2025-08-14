@@ -1,4 +1,5 @@
 import ThirdPartyAtom3d from './3dSubAtoms/3dThirdPartyAtom';
+import nodeCrudJson from './3dSubAtoms/nodeCrudJson/nodeCrudJson';
 import ontologyApiCall from './3dSubAtoms/ontologyApiCall';
 
 const threeDGraph = {
@@ -33,17 +34,7 @@ const threeDGraph = {
 		...ontologyApiCall,
 	],
 	children: [
-		{
-			tag: 'graph-3d-view',
-			atoms: [
-				{
-					type: 'ContentAtom',
-					config: {
-						text: 'Mobius Essentials',
-					},
-				},
-			],
-		},
+		...nodeCrudJson,
 	],
 };
 export default threeDGraph;
