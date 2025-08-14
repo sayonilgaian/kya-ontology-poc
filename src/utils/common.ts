@@ -114,7 +114,7 @@ export const ensureTag = (tag: string, Base: any) => {
 		// Only define the tag if it hasn't been registered already
 		customElements.define(tag, class extends Base {});
 	} else {
-		console.log(`Tag "${tag}" is already defined, skipping definition.`);
+		// console.log(`Tag "${tag}" is already defined, skipping definition.`);
 	}
 };
 

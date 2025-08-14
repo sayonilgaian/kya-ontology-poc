@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/three": "^0.179.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5"
   },
@@ -17,6 +18,8 @@
     "cytoscape": "^3.33.0",
     "cytoscape-cola": "^2.5.1",
     "cytoscape-euler": "^1.2.3",
+    "d3-force-3d": "^3.0.6",
+    "three": "^0.179.1",
     "uuid": "^11.1.0"
   }
 }

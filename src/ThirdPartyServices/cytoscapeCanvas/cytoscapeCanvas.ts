@@ -4,7 +4,6 @@ import cytoscape, {
 	EdgeSingular,
 	SelectionType,
 } from 'cytoscape';
-import { thirdParty } from '../thirdPartyType';
 import {
 	cytoscapeDefaultStyles,
 	cytoscapeDefaultLayout,
@@ -14,6 +13,7 @@ import cola from 'cytoscape-cola';
 // @ts-ignore
 import euler from 'cytoscape-euler';
 import colaDefaultLayout from './cytoscapeDataUtils/colaLayoutDefault';
+import { thirdParty } from '../thirdPartyType';
 
 cytoscape.use(cola);
 cytoscape.use(euler);
@@ -34,7 +34,6 @@ interface CytoscapeConfig {
 	selectionType?: SelectionType;
 	autoungrabify?: boolean;
 	autounselectify?: boolean;
-	onNodeClick?: { state: string };
 	onEdgeClick?: (edge: EdgeSingular) => void;
 	onNodeHover?: (node: NodeSingular) => void;
 	onEdgeHover?: (edge: EdgeSingular) => void;
