@@ -111,12 +111,25 @@ export class ForceGraphService implements thirdParty {
 			const sphereGeometry = new THREE.SphereGeometry(
 				config.nodeRadius || defaultConfig.nodeRadius
 			);
+
+			// let nodeColor = config.nodeColor
+			// 		? typeof config.nodeColor === 'function'
+			// 			? config.nodeColor(node)
+			// 			: config.nodeColor
+			// 		: '#d43b3b'
+
+			let nodeColor = '#d43b3b';
+
+			if (config.nodeColor) {
+				if (typeof config.nodeColor === 'function') {
+					nodeColor = config.nodeColor(node);
+				} else {
+					nodeColor = config.nodeColor;
+				}
+			}
+
 			const sphereMaterial = new THREE.MeshStandardMaterial({
-				color: config.nodeColor
-					? typeof config.nodeColor === 'function'
-						? config.nodeColor(node)
-						: config.nodeColor
-					: '#d43b3b',
+				color: nodeColor,
 				metalness: 0.5,
 				roughness: 0.5,
 			});
@@ -179,7 +192,17 @@ export class ForceGraphService implements thirdParty {
 
 		// Update positions of label & arrow
 		this.graph.linkPositionUpdate(
-			(obj, { start, end }, link: ForceGraphLink) => {
+			(
+				_obj: unknown,
+				{
+					start,
+					end,
+				}: {
+					start: { [key: string]: number };
+					end: { [key: string]: number };
+				},
+				link: ForceGraphLink
+			) => {
 				const label = (link as any).__labelObj;
 				const arrow = (link as any).__arrowObj;
 				const labelOffset =
@@ -280,7 +303,11 @@ export class ForceGraphService implements thirdParty {
 	}
 
 	// Always returns most recent clicked node
-	async onElementClick(): Promise<ForceGraphNode | ForceGraphLink> {
+	async onElementClick(): Promise<{
+		id?: string;
+		label: string;
+		uri?: string;
+	}> {
 		await new Promise((resolve) => requestAnimationFrame(resolve));
 		// wait for one frme so that three js can compute the raycaster on click
 		return this.selectedElement;
