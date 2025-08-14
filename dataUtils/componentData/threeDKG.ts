@@ -1,10 +1,15 @@
-import ThirdPartyAtom3d from './3dSubAtoms/3dThirdPartyAtom';
-import nodeCrudJson from './3dSubAtoms/nodeCrudJson/nodeCrudJson';
-import ontologyApiCall from './3dSubAtoms/ontologyApiCall';
+import getKGApiCall from './3dSubAtoms/getKGapiCall';
+import ThirdPartyKGAtom3d from './3dSubAtoms/ThirdPartyKGAtom3d';
 
 const threeDGraph = {
 	tag: 'graph-3d-view',
 	atoms: [
+		{
+		type: 'ContentAtom',
+		config: {
+			text: 'No Activity Yet',
+		},
+	},
 		// styling
 		{
 			type: 'ColourAtom',
@@ -24,11 +29,9 @@ const threeDGraph = {
 				'background-repeat': 'repeat',
 			},
 		},
-		...ThirdPartyAtom3d,
-		...ontologyApiCall,
+		...getKGApiCall,
+		...ThirdPartyKGAtom3d
 	],
-	children: [
-		...nodeCrudJson,
-	],
+	children: [],
 };
 export default threeDGraph;

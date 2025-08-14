@@ -15,13 +15,14 @@
             import threeDGraph from "./dataUtils/componentData/threeDGraph.ts"
             import projects from "./dataUtils/componentData/projects.ts";
             // import kgJson from "./dataUtils/componentData/kgJson.ts"
+            import threeDKG from "./dataUtils/componentData/threeDKG.ts"
 
             const rootElement = document.createElement('base-ui-element');
             rootElement.registry = new Map();
 
             rootElement.plan = projects;
             rootElement.plan = cytoscapeGraph;
-            rootElement.plan = threeDGraph;
+            rootElement.plan = threeDKG;
             // rootElement.plan = kgJson;
             document.body.appendChild(rootElement);
             rootElement.designSystemService.register('Core', themeData);

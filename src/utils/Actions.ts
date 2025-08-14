@@ -78,6 +78,7 @@ import { transformKGData } from './Actions/transformKGdata';
 import { colorPicker } from './Actions/Components/ColorPicker';
 import { fileUpload } from './Actions/Components/fileupload';
 import {transformOntologyDatafor3dForce} from './Actions/transformerOntologyToThreeD';
+import { transformFlatDataFor3dForce } from './Actions/transformKGFor3dForce';
 
 export const actions: Record<string, Function> = {
 	a: function () {
@@ -797,5 +798,6 @@ export const actions: Record<string, Function> = {
 
 	transformOntologyData,
 	transformKGData,
-	transformOntologyDatafor3dForce
+	transformOntologyDatafor3dForce,
+	transformFlatDataFor3dForce
 };

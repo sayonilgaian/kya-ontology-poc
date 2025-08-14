@@ -6,9 +6,7 @@ export function setState(
 	value: unknown
 ): unknown {
 	console.log(
-		`SET STATE: name: ${JSON.stringify(name)} and value: ${JSON.stringify(
-			value
-		)}`
+		`SET STATE: name: ${JSON.stringify(name)} and value: ` ,value
 	);
 	if (typeof this?.store?.setState === 'function') {
 		this.store.setState(name, value);
