@@ -381,7 +381,7 @@ const createNodeJson = [
 				config: {
 					trigger: null,
 					dependencies: ['getOntologyApiCall'],
-					action: 'transformOntologyData',
+					action: 'transformOntologyDatafor3dForce',
 					params: [
 						{
 							source: 'pipe',
@@ -403,7 +403,7 @@ const createNodeJson = [
 					params: [
 						{
 							source: 'exact',
-							value: 'cyConfigElementsState',
+							value: '3dDataState',
 						},
 						{
 							source: 'pipe',
@@ -417,7 +417,7 @@ const createNodeJson = [
 				id: 'render-cy-graph',
 				config: {
 					trigger: 'StateChange',
-					state: 'cyConfigElementsState',
+					state: '3dDataState',
 					action: 'callThirdPartyService',
 					params: [
 						{
@@ -430,7 +430,7 @@ const createNodeJson = [
 						},
 						{
 							source: 'state',
-							name: 'cyConfigElementsState',
+							name: '3dDataState',
 						},
 					],
 				},
@@ -504,7 +504,7 @@ const createNodeJson = [
 							outline: 'none',
 							'background-color': '#ffffffff',
 							color: 'black',
-							cursor:'text',
+							cursor: 'text',
 						},
 					},
 					{

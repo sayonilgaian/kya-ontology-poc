@@ -76,7 +76,7 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
-							gap:'5px',
+							gap: '5px',
 							'align-items': 'center',
 						},
 					},
@@ -179,7 +179,7 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
-							gap:'5px',
+							gap: '5px',
 							'justify-content': 'space-between',
 							'align-items': 'center',
 						},
@@ -199,7 +199,7 @@ const createEdgeJson = [
 									// padding: '8px',
 									outline: 'none',
 									color: '#fff',
-									cursor: 'text'
+									cursor: 'text',
 								},
 							},
 						],
@@ -267,7 +267,7 @@ const createEdgeJson = [
 					},
 				],
 			},
-{
+			{
 				tag: 'edge-domain-input',
 				atoms: [
 					{
@@ -280,7 +280,7 @@ const createEdgeJson = [
 							color: '#fff',
 							cursor: 'text',
 							display: 'flex',
-							gap:'5px',
+							gap: '5px',
 							'justify-content': 'space-between',
 							'align-items': 'center',
 						},
@@ -305,62 +305,68 @@ const createEdgeJson = [
 							},
 						],
 					},
-					
-			{
-				tag: 'edge-range-input',
-				atoms: [
-					{ type: 'ContentAtom', config: { text: '' } },
+
 					{
-						type: 'attributeAtom',
-						config: { attribute: 'contenteditable', value: 'true' },
+						tag: 'edge-range-input',
+						atoms: [
+							{ type: 'ContentAtom', config: { text: '' } },
+							{
+								type: 'attributeAtom',
+								config: {
+									attribute: 'contenteditable',
+									value: 'true',
+								},
+							},
+							{
+								type: 'LayoutAtom',
+								config: {
+									'min-width': '7rem',
+									border: 'none',
+									borderRadius: '8px',
+									padding: '8px',
+									outline: 'none',
+									background: '#fff',
+									color: 'black',
+									cursor: 'text',
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'edge-range-input-read',
+								config: {
+									trigger: 'input',
+									action: 'read',
+									params: [{}],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'edge-range-handle',
+								config: {
+									trigger: null,
+									dependencies: ['edge-range-input-read'],
+									action: 'handleInput',
+									params: [{ source: 'pipe' }],
+								},
+							},
+							{
+								type: 'InteractionAtom',
+								id: 'set-state-edge-range',
+								config: {
+									trigger: null,
+									dependencies: ['edge-range-handle'],
+									action: 'setState',
+									params: [
+										{
+											source: 'exact',
+											value: 'edgeRangeState',
+										},
+										{ source: 'pipe' },
+									],
+								},
+							},
+						],
 					},
-					{
-						type: 'LayoutAtom',
-						config: {
-							'min-width': '7rem',
-							border: 'none',
-							borderRadius: '8px',
-							padding: '8px',
-							outline: 'none',
-							background: '#fff',
-							color: 'black',
-							cursor: 'text',
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'edge-range-input-read',
-						config: {
-							trigger: 'input',
-							action: 'read',
-							params: [{}],
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'edge-range-handle',
-						config: {
-							trigger: null,
-							dependencies: ['edge-range-input-read'],
-							action: 'handleInput',
-							params: [{ source: 'pipe' }],
-						},
-					},
-					{
-						type: 'InteractionAtom',
-						id: 'set-state-edge-range',
-						config: {
-							trigger: null,
-							dependencies: ['edge-range-handle'],
-							action: 'setState',
-							params: [
-								{ source: 'exact', value: 'edgeRangeState' },
-								{ source: 'pipe' },
-							],
-						},
-					},
-				],
-			},
 				],
 			},
 			{
@@ -381,7 +387,7 @@ const createEdgeJson = [
 							outline: 'none',
 							color: '#fff',
 							cursor: 'pointer',
-							'text-align':'center'
+							'text-align': 'center',
 						},
 					},
 					// -- 1. Compose edge property URL --
@@ -862,7 +868,7 @@ const createEdgeJson = [
 						config: {
 							trigger: null,
 							dependencies: ['getOntologyApiCall'],
-							action: 'transformOntologyData',
+							action: 'transformOntologyDatafor3dForce',
 							params: [
 								{
 									source: 'pipe',
@@ -884,7 +890,7 @@ const createEdgeJson = [
 							params: [
 								{
 									source: 'exact',
-									value: 'cyConfigElementsState',
+									value: '3dDataState',
 								},
 								{
 									source: 'pipe',
@@ -898,7 +904,7 @@ const createEdgeJson = [
 						id: 'render-cy-graph',
 						config: {
 							trigger: 'StateChange',
-							state: 'cyConfigElementsState',
+							state: '3dDataState',
 							action: 'callThirdPartyService',
 							params: [
 								{
@@ -911,7 +917,7 @@ const createEdgeJson = [
 								},
 								{
 									source: 'state',
-									name: 'cyConfigElementsState',
+									name: '3dDataState',
 								},
 							],
 						},

@@ -272,7 +272,7 @@ const editEdgeJson = [
 				config: {
 					trigger: null,
 					dependencies: ['getOntologyApiCall'],
-					action: 'transformOntologyData',
+					action: 'transformOntologyDatafor3dForce',
 					params: [
 						{
 							source: 'pipe',
@@ -294,7 +294,7 @@ const editEdgeJson = [
 					params: [
 						{
 							source: 'exact',
-							value: 'cyConfigElementsState',
+							value: '3dDataState',
 						},
 						{
 							source: 'pipe',
@@ -308,7 +308,7 @@ const editEdgeJson = [
 				id: 'render-cy-graph',
 				config: {
 					trigger: 'StateChange',
-					state: 'cyConfigElementsState',
+					state: '3dDataState',
 					action: 'callThirdPartyService',
 					params: [
 						{
@@ -321,7 +321,7 @@ const editEdgeJson = [
 						},
 						{
 							source: 'state',
-							name: 'cyConfigElementsState',
+							name: '3dDataState',
 						},
 					],
 				},
